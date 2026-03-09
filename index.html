@@ -142,6 +142,7 @@ nav{
   content:'';
   position:absolute;top:0;left:clamp(1.5rem,5vw,5rem);width:3px;height:60px;
   background:var(--red);
+  display:none;
 }
 .hero-text{
   display:flex;flex-direction:column;
@@ -325,6 +326,49 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
 .sk-pill:hover::before{transform:scaleY(1)}
 .sk-dot{width:6px;height:6px;background:var(--red);border-radius:50%;opacity:.6;flex-shrink:0}
 
+/* ━━━━ SOFT SKILLS ━━━━ */
+.soft-skills-section{margin-top:3.5rem}
+.soft-skills-header{
+  display:flex;align-items:center;gap:.8rem;
+  margin-bottom:1.8rem;
+  padding-bottom:.8rem;
+  border-bottom:1px solid var(--rule);
+}
+.soft-skills-header::before{
+  content:'';width:3px;height:1.4rem;background:var(--red);flex-shrink:0;
+}
+.soft-skills-label{
+  font-family:var(--mono);font-size:.62rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--fg2);
+}
+.soft-skills-layout{display:flex;flex-wrap:wrap;gap:.8rem}
+.sk-pill-soft{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.65rem 1.2rem;
+  border:1px solid var(--red-rule);
+  background:var(--red-dim);
+  font-family:var(--mono);
+  font-size:.72rem;letter-spacing:.06em;
+  color:var(--fg2);
+  transition:all .22s var(--ease);
+  position:relative;overflow:hidden;
+}
+.sk-pill-soft::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;
+  width:2px;background:var(--red);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .25s var(--ease);
+}
+.sk-pill-soft:hover{
+  color:var(--fg);border-color:var(--red);
+  background:rgba(230,51,41,.22);
+  transform:translateY(-2px);
+}
+.sk-pill-soft:hover::before{transform:scaleY(1)}
+.sk-soft-icon{font-size:.8rem;line-height:1}
+
 /* ━━━━ CERTS ━━━━ */
 .certs-list{display:flex;flex-direction:column;gap:0}
 .cert-row{
@@ -434,6 +478,33 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
 .ch-handle{font-family:var(--mono);font-size:.6rem;color:var(--fg3);margin-top:.1rem}
 .ch-arr{font-family:var(--mono);font-size:.7rem;color:var(--fg3);transition:color .2s,transform .2s}
 .ch-row:hover .ch-arr{color:var(--red);transform:translateX(4px)}
+
+/* ━━━━ PHONE DROPDOWN ━━━━ */
+.ch-row-phone{position:relative}
+.phone-dropdown{
+  display:none;
+  position:absolute;left:0;right:0;top:100%;z-index:50;
+  background:var(--bg2);
+  border:1px solid var(--rule2);
+  border-top:none;
+}
+.ch-row-phone.open .phone-dropdown{display:block}
+.phone-dropdown a{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem;
+  border-bottom:1px solid var(--rule);
+  font-family:var(--mono);font-size:.7rem;
+  color:var(--fg2);letter-spacing:.05em;
+  transition:background .2s,color .2s;
+}
+.phone-dropdown a:last-child{border-bottom:none}
+.phone-dropdown a:hover{background:var(--red-dim);color:var(--fg)}
+.phone-dropdown svg{width:14px;height:14px;flex-shrink:0;color:var(--red)}
+.ch-arr-phone{
+  font-family:var(--mono);font-size:.7rem;color:var(--fg3);
+  transition:transform .2s;
+}
+.ch-row-phone.open .ch-arr-phone{transform:rotate(90deg)}
 
 /* ━━━━ FOOTER ━━━━ */
 footer{
@@ -670,7 +741,25 @@ footer{
       <div class="sk-pill"><span class="sk-dot"></span>Git · GitHub</div>
       <div class="sk-pill"><span class="sk-dot"></span>HTML · CSS · JS</div>
       <div class="sk-pill"><span class="sk-dot"></span>Bash · Linux</div>
-      <div class="sk-pill"><span class="sk-dot"></span><span data-k="sk.ps.n"></span></div>
+
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="soft-skills-section rv">
+      <div class="section-header" style="margin-top:3rem">
+        <span class="sec-index">02b</span>
+        <h2 class="sec-title" data-k="soft.label"></h2>
+        <span class="sec-aside" data-k="soft.aside"></span>
+      </div>
+      <div class="soft-skills-layout">
+        <div class="sk-pill"><span class="sk-dot"></span><span data-k="soft.s1"></span></div>
+        <div class="sk-pill"><span class="sk-dot"></span><span data-k="soft.s2"></span></div>
+        <div class="sk-pill"><span class="sk-dot"></span><span data-k="soft.s3"></span></div>
+        <div class="sk-pill"><span class="sk-dot"></span><span data-k="soft.s4"></span></div>
+        <div class="sk-pill"><span class="sk-dot"></span><span data-k="soft.s5"></span></div>
+        <div class="sk-pill"><span class="sk-dot"></span><span data-k="soft.s6"></span></div>
+        <div class="sk-pill"><span class="sk-dot"></span><span data-k="soft.s7"></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -823,6 +912,32 @@ footer{
           </div>
           <span class="ch-arr">→</span>
         </a>
+        <a class="ch-row" href="mailto:carlosalfonso070717@gmail.com">
+          <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+          <div class="ch-info">
+            <div class="ch-platform">Email</div>
+            <div class="ch-handle">carlosalfonso070717@gmail.com</div>
+          </div>
+          <span class="ch-arr">→</span>
+        </a>
+        <div class="ch-row ch-row-phone" onclick="this.classList.toggle('open')" style="cursor:pointer">
+          <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+          <div class="ch-info">
+            <div class="ch-platform" data-k="contact.phone"></div>
+            <div class="ch-handle">+52 998 769 2628</div>
+          </div>
+          <span class="ch-arr-phone">→</span>
+          <div class="phone-dropdown">
+            <a href="tel:+529987692628">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span data-k="contact.call"></span>
+            </a>
+            <a href="https://wa.me/529987692628" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -839,7 +954,7 @@ const T = {
     'nav.about':'Sobre mí','nav.skills':'Habilidades','nav.certs':'Certificados','nav.projects':'Proyectos','nav.contact':'Contacto',
     'hero.label':'Presentación','hero.role':'Estudiante · Desarrollo de Software · IEEE',
     'hero.bio':'Apasionado por construir software de calidad y aprender de cada proyecto. Busco mi primera oportunidad profesional donde pueda contribuir, crecer y desarrollar soluciones que importen.',
-    'hero.available':'Disponible para colaborar','hero.cta1':'Ver proyectos','hero.cta2':'Contacto',
+    'hero.available':'Disponible para colaborar','hero.cta1':'Ver proyectos','hero.cta2':'Contacto','hero.cv':'↓ Descargar CV',
     'about.title':'Sobre mí','about.aside':'Perfil del candidato',
     'about.p1':'Soy <strong>Carlos Alfonso Llanes Rodríguez</strong>, estudiante de Desarrollo de Software con interés genuino en construir código limpio, aprender buenas prácticas y contribuir a equipos técnicos.',
     'about.p2':'Me motiva <strong>entender cómo funcionan los sistemas</strong> desde adentro: la lógica detrás de los algoritmos, la estructura que hace el código mantenible, y los procesos que aseguran la calidad del producto.',
@@ -847,6 +962,10 @@ const T = {
     'kpi.lang':'Lenguaje principal','kpi.ieee':'Miembro activo','kpi.qa':'Testing & calidad','kpi.open.v':'Abierto','kpi.open.l':'A colaborar',
     'skills.title':'Habilidades técnicas','skills.aside':'Stack en formación constante',
     'sk.ps.n':'Resolución de problemas',
+    'soft.label':'Habilidades blandas','soft.aside':'Competencias interpersonales',
+    'soft.s1':'Resolución de problemas','soft.s2':'Pensamiento analítico',
+    'soft.s3':'Adaptabilidad','soft.s4':'Comunicación efectiva',
+    'soft.s5':'Empatía','soft.s6':'Trabajo en equipo','soft.s7':'Liderazgo',
     'certs.title':'Certificados','certs.aside':'Formación complementaria',
     'cert1.name':'Java (Básico)','cert1.desc':'Fundamentos de programación orientada a objetos, estructuras de control, colecciones y buenas prácticas en Java.',
     'cert2.name':'Miembro IEEE','cert2.desc':'Miembro activo del IEEE, organización líder en el avance de la tecnología y la ingeniería a nivel global.',
@@ -857,6 +976,7 @@ const T = {
     'p3.name':'Próximo proyecto','p3.desc':'En desarrollo. Siempre construyendo algo nuevo.',
     'contact.title':'Contacto','contact.headline':'¿Tienes una oportunidad o un proyecto?',
     'contact.note':'Estoy disponible para prácticas profesionales, proyectos de colaboración y cualquier oportunidad de aprendizaje en desarrollo de software. No dudes en escribirme.',
+    'contact.phone':'Teléfono','contact.call':'Llamada directa',
     'footer.top':'↑ Volver arriba',
     'nav.gallery':'Galería',
     'gallery.title':'Galería','gallery.aside':'Logros & eventos',
@@ -866,7 +986,7 @@ const T = {
     'nav.about':'About','nav.skills':'Skills','nav.certs':'Certificates','nav.projects':'Projects','nav.contact':'Contact',
     'hero.label':'Introduction','hero.role':'Student · Software Development · IEEE',
     'hero.bio':'Passionate about building quality software and learning from every project. Looking for my first professional opportunity where I can contribute, grow, and develop solutions that matter.',
-    'hero.available':'Available to collaborate','hero.cta1':'View projects','hero.cta2':'Contact',
+    'hero.available':'Available to collaborate','hero.cta1':'View projects','hero.cta2':'Contact','hero.cv':'↓ Download CV',
     'about.title':'About Me','about.aside':'Candidate profile',
     'about.p1':'I\'m <strong>Carlos Alfonso Llanes Rodríguez</strong>, a Software Development student with a genuine interest in writing clean code, learning best practices, and contributing to technical teams.',
     'about.p2':'I\'m motivated by <strong>understanding how systems work</strong> from the inside: the logic behind algorithms, the structure that makes code maintainable, and the processes that ensure product quality.',
@@ -874,6 +994,10 @@ const T = {
     'kpi.lang':'Primary language','kpi.ieee':'Active member','kpi.qa':'Testing & quality','kpi.open.v':'Open','kpi.open.l':'To collaborate',
     'skills.title':'Technical Skills','skills.aside':'Stack under constant growth',
     'sk.ps.n':'Problem Solving',
+    'soft.label':'Soft Skills','soft.aside':'Interpersonal competencies',
+    'soft.s1':'Problem Solving','soft.s2':'Analytical Thinking',
+    'soft.s3':'Adaptability','soft.s4':'Effective Communication',
+    'soft.s5':'Empathy','soft.s6':'Teamwork','soft.s7':'Leadership',
     'certs.title':'Certificates','certs.aside':'Complementary training',
     'cert1.name':'Java (Basic)','cert1.desc':'Fundamentals of object-oriented programming, control structures, collections, and best practices in Java.',
     'cert2.name':'IEEE Member','cert2.desc':'Active member of the IEEE, the world\'s leading organization for advancing technology and engineering.',
@@ -884,6 +1008,7 @@ const T = {
     'p3.name':'Next project','p3.desc':'In development. Always building something new.',
     'contact.title':'Contact','contact.headline':'Have an opportunity or a project?',
     'contact.note':'Available for internships, collaborations, and learning opportunities in software development. Feel free to reach out.',
+    'contact.phone':'Phone','contact.call':'Direct call',
     'footer.top':'↑ Back to top',
     'nav.gallery':'Gallery',
     'gallery.title':'Gallery','gallery.aside':'Achievements & events',
