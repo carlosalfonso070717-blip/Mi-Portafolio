@@ -45,8 +45,8 @@ body{
   background:var(--bg);
   color:var(--fg);
   font-family:var(--sans);
-  font-size:18px;
-  line-height:1.7;
+  font-size:19px;
+  line-height:1.75;
   overflow-x:hidden;
   transition:background .3s,color .3s;
 }
@@ -79,7 +79,7 @@ nav{
 .nav-links{display:flex;gap:2.4rem}
 .nav-links a{
   font-family:var(--mono);
-  font-size:.72rem;
+  font-size:.82rem;
   letter-spacing:.12em;
   text-transform:uppercase;
   color:var(--fg2);
@@ -99,7 +99,7 @@ nav{
 .nav-controls{display:flex;align-items:center;gap:.4rem}
 .lang-toggle{display:flex;border:1px solid var(--rule2);border-radius:2px;overflow:hidden}
 .lang-toggle button{
-  font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;
   color:var(--fg3);padding:.28rem .65rem;transition:all .2s;
 }
 .lang-toggle button.active{background:var(--red);color:#fff}
@@ -151,7 +151,7 @@ nav{
 
 .hero-eyebrow{
   font-family:var(--mono);
-  font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
+  font-size:.84rem;letter-spacing:.15em;text-transform:uppercase;
   color:var(--red);
   margin-bottom:1.6rem;
   display:flex;align-items:center;gap:.7rem;
@@ -160,7 +160,7 @@ nav{
 
 .hero-name{
   font-family:var(--display);
-  font-size:clamp(4rem,6.5vw,6.2rem);
+  font-size:clamp(4.4rem,7vw,6.6rem);
   line-height:.96;
   letter-spacing:.04em;
   color:var(--fg);
@@ -169,12 +169,12 @@ nav{
 .hero-name span{
   display:block;
   color:var(--red);
-  font-size:clamp(2.8rem,5vw,4.8rem);
+  font-size:clamp(3.2rem,5.5vw,5.2rem);
 }
 
 .hero-role{
   font-family:var(--mono);
-  font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
+  font-size:.92rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--fg2);
   margin-bottom:1.6rem;
   display:flex;align-items:center;gap:.7rem;
@@ -182,25 +182,25 @@ nav{
 .hero-role::after{content:'';flex:1;height:1px;background:var(--rule2)}
 
 .hero-bio{
-  font-size:1.05rem;color:var(--fg2);line-height:1.9;
+  font-size:1.15rem;color:var(--fg2);line-height:1.95;
   max-width:440px;margin-bottom:2.4rem;
 }
 
 .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap}
 .btn-red{
   display:inline-flex;align-items:center;gap:.45rem;
-  padding:.75rem 1.6rem;
+  padding:.82rem 1.7rem;
   background:var(--red);color:#fff;
-  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  font-family:var(--mono);font-size:.82rem;font-weight:500;
   letter-spacing:.1em;text-transform:uppercase;
   transition:opacity .2s,transform .2s;
 }
 .btn-red:hover{opacity:.88;transform:translateY(-1px)}
 .btn-outline{
   display:inline-flex;align-items:center;gap:.45rem;
-  padding:.75rem 1.6rem;
+  padding:.82rem 1.7rem;
   border:1px solid var(--rule2);color:var(--fg2);
-  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  font-family:var(--mono);font-size:.82rem;font-weight:500;
   letter-spacing:.1em;text-transform:uppercase;
   transition:all .2s;
 }
@@ -255,16 +255,16 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
   margin-bottom:3rem;
 }
 .sec-index{
-  font-family:var(--mono);font-size:.7rem;
+  font-family:var(--mono);font-size:.82rem;
   color:var(--red);letter-spacing:.12em;text-transform:uppercase;
 }
 .sec-title{
   font-family:var(--display);
-  font-size:clamp(2rem,3.2vw,2.8rem);
+  font-size:clamp(2.2rem,3.5vw,3rem);
   letter-spacing:.05em;color:var(--fg);
 }
 .sec-aside{
-  font-family:var(--mono);font-size:.7rem;
+  font-family:var(--mono);font-size:.8rem;
   color:var(--fg3);letter-spacing:.07em;text-transform:uppercase;
   text-align:right;
 }
@@ -277,7 +277,7 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
   gap:5rem;align-items:start;
 }
 .about-text p{
-  font-size:1rem;color:var(--fg2);line-height:2;margin-bottom:1.1rem;
+  font-size:1.08rem;color:var(--fg2);line-height:2;margin-bottom:1.1rem;
 }
 .about-text p strong{color:var(--fg);font-weight:600}
 .kpi-block{
@@ -287,11 +287,11 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
 }
 .kpi-block:first-child{border-top:none;padding-top:0}
 .kpi-value{
-  font-family:var(--display);font-size:2rem;letter-spacing:.06em;color:var(--fg);
+  font-family:var(--display);font-size:2.2rem;letter-spacing:.06em;color:var(--fg);
 }
 .kpi-value em{color:var(--red);font-style:normal}
 .kpi-label{
-  font-family:var(--mono);font-size:.72rem;
+  font-family:var(--mono);font-size:.82rem;
   color:var(--fg3);letter-spacing:.08em;text-transform:uppercase;
 }
 
@@ -301,11 +301,11 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
 }
 .sk-pill{
   display:inline-flex;align-items:center;gap:.6rem;
-  padding:.65rem 1.2rem;
+  padding:.72rem 1.3rem;
   border:1px solid var(--rule2);
   background:var(--bg2);
   font-family:var(--mono);
-  font-size:.82rem;letter-spacing:.06em;
+  font-size:.92rem;letter-spacing:.06em;
   color:var(--fg2);
   transition:all .22s var(--ease);
   position:relative;
@@ -338,18 +338,18 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
   content:'';width:3px;height:1.4rem;background:var(--red);flex-shrink:0;
 }
 .soft-skills-label{
-  font-family:var(--mono);font-size:.62rem;
+  font-family:var(--mono);font-size:.74rem;
   letter-spacing:.14em;text-transform:uppercase;
   color:var(--fg2);
 }
 .soft-skills-layout{display:flex;flex-wrap:wrap;gap:.8rem}
 .sk-pill-soft{
   display:inline-flex;align-items:center;gap:.6rem;
-  padding:.65rem 1.2rem;
+  padding:.72rem 1.3rem;
   border:1px solid var(--red-rule);
   background:var(--red-dim);
   font-family:var(--mono);
-  font-size:.72rem;letter-spacing:.06em;
+  font-size:.82rem;letter-spacing:.06em;
   color:var(--fg2);
   transition:all .22s var(--ease);
   position:relative;overflow:hidden;
@@ -381,21 +381,21 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
 .cert-row:last-child{border-bottom:none}
 .cert-row:hover{padding-left:.6rem}
 .cert-num{
-  font-family:var(--mono);font-size:.7rem;
+  font-family:var(--mono);font-size:.82rem;
   color:var(--red);letter-spacing:.08em;
   align-self:flex-start;padding-top:.15rem;
 }
-.cert-name{font-size:1rem;font-weight:600;color:var(--fg);margin-bottom:.25rem}
+.cert-name{font-size:1.1rem;font-weight:600;color:var(--fg);margin-bottom:.25rem}
 .cert-meta{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
-.cert-issuer{font-family:var(--mono);font-size:.7rem;color:var(--fg3);letter-spacing:.05em}
+.cert-issuer{font-family:var(--mono);font-size:.8rem;color:var(--fg3);letter-spacing:.05em}
 .cert-status{
-  font-family:var(--mono);font-size:.66rem;
+  font-family:var(--mono);font-size:.76rem;
   color:var(--red);letter-spacing:.06em;text-transform:uppercase;
   border:1px solid var(--red-rule);padding:.1rem .4rem;
 }
-.cert-desc{font-size:.9rem;color:var(--fg2);line-height:1.8;margin-top:.5rem;max-width:560px}
+.cert-desc{font-size:1rem;color:var(--fg2);line-height:1.85;margin-top:.5rem;max-width:560px}
 .cert-link{
-  font-family:var(--mono);font-size:.7rem;
+  font-family:var(--mono);font-size:.8rem;
   color:var(--red);letter-spacing:.06em;
   display:flex;align-items:center;gap:.3rem;white-space:nowrap;
   transition:gap .15s;
@@ -423,30 +423,30 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
 .proj-card:nth-last-child(-n+2){border-bottom:none}
 .proj-card:hover{background:var(--bg3)}
 .proj-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.3rem}
-.proj-num{font-family:var(--mono);font-size:.7rem;color:var(--red);letter-spacing:.1em}
+.proj-num{font-family:var(--mono);font-size:.82rem;color:var(--red);letter-spacing:.1em}
 .proj-tech{
-  font-family:var(--mono);font-size:.58rem;
+  font-family:var(--mono);font-size:.68rem;
   color:var(--fg3);letter-spacing:.06em;
   border:1px solid var(--rule2);padding:.15rem .5rem;
 }
 .proj-title{
-  font-family:var(--display);font-size:1.4rem;letter-spacing:.04em;
+  font-family:var(--display);font-size:1.55rem;letter-spacing:.04em;
   color:var(--fg);margin-bottom:.6rem;transition:color .2s;
 }
 .proj-card:hover .proj-title{color:var(--red)}
-.proj-desc{font-size:.9rem;color:var(--fg2);line-height:1.85;flex:1}
+.proj-desc{font-size:1rem;color:var(--fg2);line-height:1.9;flex:1}
 .proj-foot{
   display:flex;align-items:center;justify-content:space-between;
   margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
 }
 .proj-cta{
-  font-family:var(--mono);font-size:.7rem;
+  font-family:var(--mono);font-size:.8rem;
   color:var(--red);letter-spacing:.06em;text-transform:uppercase;
   display:flex;align-items:center;gap:.35rem;transition:gap .15s;
 }
 .proj-cta:hover{gap:.6rem}
 .proj-tags{display:flex;gap:.4rem}
-.p-tag{font-family:var(--mono);font-size:.54rem;color:var(--fg3);letter-spacing:.04em}
+.p-tag{font-family:var(--mono);font-size:.64rem;color:var(--fg3);letter-spacing:.04em}
 .proj-card.dim{opacity:.38;pointer-events:none}
 
 /* ━━━━ CONTACT ━━━━ */
@@ -458,7 +458,7 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
   color:var(--fg);margin-bottom:1rem;
 }
 .contact-headline em{font-style:italic;color:var(--red);font-family:'DM Sans', sans-serif}
-.contact-note{font-size:1rem;color:var(--fg2);line-height:1.95}
+.contact-note{font-size:1.08rem;color:var(--fg2);line-height:1.95}
 .contact-channels{display:flex;flex-direction:column}
 .ch-row{
   display:flex;align-items:center;gap:1rem;
@@ -467,16 +467,16 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
 .ch-row:first-child{border-top:1px solid var(--rule)}
 .ch-row:hover{padding-left:.5rem}
 .ch-icon{
-  width:36px;height:36px;border:1px solid var(--rule2);
+  width:38px;height:38px;border:1px solid var(--rule2);
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;transition:border-color .2s,background .2s;
 }
 .ch-row:hover .ch-icon{border-color:var(--red);background:var(--red-dim)}
-.ch-icon svg{width:14px;height:14px;color:var(--fg2)}
+.ch-icon svg{width:15px;height:15px;color:var(--fg2)}
 .ch-info{flex:1}
-.ch-platform{font-size:.95rem;font-weight:600;color:var(--fg)}
-.ch-handle{font-family:var(--mono);font-size:.7rem;color:var(--fg3);margin-top:.1rem}
-.ch-arr{font-family:var(--mono);font-size:.7rem;color:var(--fg3);transition:color .2s,transform .2s}
+.ch-platform{font-size:1.05rem;font-weight:600;color:var(--fg)}
+.ch-handle{font-family:var(--mono);font-size:.8rem;color:var(--fg3);margin-top:.1rem}
+.ch-arr{font-family:var(--mono);font-size:.8rem;color:var(--fg3);transition:color .2s,transform .2s}
 .ch-row:hover .ch-arr{color:var(--red);transform:translateX(4px)}
 
 /* ━━━━ PHONE DROPDOWN ━━━━ */
@@ -493,7 +493,7 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
   display:flex;align-items:center;gap:1rem;
   padding:1rem;
   border-bottom:1px solid var(--rule);
-  font-family:var(--mono);font-size:.7rem;
+  font-family:var(--mono);font-size:.8rem;
   color:var(--fg2);letter-spacing:.05em;
   transition:background .2s,color .2s;
 }
@@ -501,7 +501,7 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
 .phone-dropdown a:hover{background:var(--red-dim);color:var(--fg)}
 .phone-dropdown svg{width:14px;height:14px;flex-shrink:0;color:var(--red)}
 .ch-arr-phone{
-  font-family:var(--mono);font-size:.7rem;color:var(--fg3);
+  font-family:var(--mono);font-size:.8rem;color:var(--fg3);
   transition:transform .2s;
 }
 .ch-row-phone.open .ch-arr-phone{transform:rotate(90deg)}
@@ -513,10 +513,10 @@ footer{
   display:flex;align-items:center;justify-content:space-between;
   flex-wrap:wrap;gap:.8rem;background:var(--bg);
 }
-.f-left{font-family:var(--mono);font-size:.7rem;color:var(--fg3);letter-spacing:.06em}
+.f-left{font-family:var(--mono);font-size:.8rem;color:var(--fg3);letter-spacing:.06em}
 .f-left b{color:var(--red);font-weight:500}
 .f-top{
-  font-family:var(--mono);font-size:.7rem;
+  font-family:var(--mono);font-size:.8rem;
   color:var(--fg3);letter-spacing:.06em;cursor:pointer;transition:color .2s;
 }
 .f-top:hover{color:var(--red)}
@@ -558,19 +558,19 @@ footer{
   background:var(--red);
   color:#fff;
   font-family:var(--mono);
-  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
   padding:.3rem .7rem;
   margin-bottom:.5rem;
 }
 .gallery-badge svg{width:11px;height:11px;fill:#fff;flex-shrink:0}
 .gallery-title{
   font-family:var(--display);
-  font-size:1.3rem;letter-spacing:.05em;
+  font-size:1.5rem;letter-spacing:.05em;
   color:#fff;line-height:1.1;
 }
 .gallery-sub{
   font-family:var(--mono);
-  font-size:.68rem;letter-spacing:.08em;
+  font-size:.78rem;letter-spacing:.08em;
   color:rgba(255,255,255,.55);
   margin-top:.3rem;text-transform:uppercase;
 }
@@ -606,9 +606,32 @@ footer{
   .proj-card:last-child{border-bottom:none}
 }
 @media(max-width:600px){
-  section:not(#home){padding:4rem 1.5rem}
-  .hero-content{padding:3rem 1.5rem}
-  .hero-name{font-size:3.6rem}
+  body{font-size:17px}
+  section:not(#home){padding:3.5rem 1.25rem}
+  .hero-content{padding:2.5rem 1.25rem}
+  .hero-name{font-size:clamp(3.2rem,13vw,4.4rem)}
+  .hero-name span{font-size:clamp(2.4rem,10vw,3.4rem)}
+  .hero-role{font-size:.84rem}
+  .hero-bio{font-size:1.08rem}
+  .hero-eyebrow{font-size:.78rem}
+  .sec-title{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .sec-index{font-size:.76rem}
+  .cert-name{font-size:1.05rem}
+  .cert-desc{font-size:.96rem}
+  .cert-issuer{font-size:.76rem}
+  .cert-link{font-size:.76rem}
+  .about-text p{font-size:1.05rem}
+  .sk-pill{font-size:.86rem;padding:.65rem 1.1rem}
+  .sk-pill-soft{font-size:.8rem;padding:.65rem 1.1rem}
+  .proj-title{font-size:1.35rem}
+  .proj-desc{font-size:.98rem}
+  .ch-platform{font-size:1rem}
+  .ch-handle{font-size:.76rem}
+  .contact-note{font-size:1.02rem}
+  .btn-red,.btn-outline,.btn-cv{font-size:.78rem;padding:.78rem 1.4rem}
+  .kpi-value{font-size:1.9rem}
+  .kpi-label{font-size:.78rem}
+  .cert-row{grid-template-columns:2.4rem 1fr auto;gap:1rem}
 }
 
 /* ━━━━ THEME BTN ━━━━ */
@@ -627,9 +650,9 @@ footer{
 /* ━━━━ CV BUTTON ━━━━ */
 .btn-cv{
   display:inline-flex;align-items:center;gap:.45rem;
-  padding:.75rem 1.6rem;
+  padding:.82rem 1.7rem;
   border:1px solid var(--red);color:var(--red);
-  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  font-family:var(--mono);font-size:.82rem;font-weight:500;
   letter-spacing:.1em;text-transform:uppercase;
   background:transparent;
   transition:all .2s;cursor:pointer;
@@ -814,6 +837,18 @@ footer{
         <span class="cert-link" style="color:var(--fg3)" data-k="cert.member"></span>
       </div>
     </div>
+      <div class="cert-row rv d4">
+        <div class="cert-num">C·04</div>
+        <div class="cert-body">
+          <div class="cert-name" data-k="cert4.name"></div>
+          <div class="cert-meta">
+            <span class="cert-issuer">Platzi</span>
+            <span class="cert-status" data-k="cert.verified"></span>
+          </div>
+          <p class="cert-desc" data-k="cert4.desc"></p>
+        </div>
+        <a class="cert-link" href="https://platzi.com/p/carlosalfonso070717/curso/4656-backend/diploma/detalle/" target="_blank" data-k="cert.see"></a>
+      </div>
      <div class="cert-row rv d3">
     <div class="cert-num">C·03</div>
     <div class="cert-body">
@@ -985,6 +1020,7 @@ const T = {
     'cert1.name':'Java (Básico)','cert1.desc':'Fundamentos de programación orientada a objetos, estructuras de control, colecciones y buenas prácticas en Java.',
     'cert2.name':'Miembro IEEE','cert2.desc':'Miembro activo del IEEE, organización líder en el avance de la tecnología y la ingeniería a nivel global.',
     'cert3.name':'Data Structures and Algorithms in Python','cert3.desc':'Estructuras de datos y algoritmos en Python: listas, pilas, colas, árboles y técnicas de ordenamiento. Completado en Feb 22, 2026.',
+    'cert4.name':'Introducción al Desarrollo Backend','cert4.desc':'Fundamentos del desarrollo backend: protocolos, servidores, bases de datos y arquitectura de aplicaciones web. Emitido por Platzi.',
     'cert.verified':'Verificado','cert.active':'Activo','cert.see':'Ver certificado →','cert.member':'✓ Miembro activo',
     'proj.title':'Proyectos','proj.aside':'Trabajo académico y personal','proj.cta':'Ver en GitHub →','proj.soon':'Próximamente',
     'p1.name':'Trabajo con Java','p1.desc':'Colección de proyectos y ejercicios aplicando POO, estructuras de datos, algoritmos y buenas prácticas de programación en Java.',
@@ -1018,6 +1054,7 @@ const T = {
     'cert1.name':'Java (Basic)','cert1.desc':'Fundamentals of object-oriented programming, control structures, collections, and best practices in Java.',
     'cert2.name':'IEEE Member','cert2.desc':'Active member of the IEEE, the world\'s leading organization for advancing technology and engineering.',
     'cert3.name':'Data Structures and Algorithms in Python','cert3.desc':'Data structures and algorithms in Python: lists, stacks, queues, trees, and sorting techniques. Completed Feb 22, 2026.',
+    'cert4.name':'Introduction to Backend Development','cert4.desc':'Backend development fundamentals: protocols, servers, databases and web application architecture. Issued by Platzi.',
     'cert.verified':'Verified','cert.active':'Active','cert.see':'View certificate →','cert.member':'✓ Active member',
     'proj.title':'Projects','proj.aside':'Academic & personal work','proj.cta':'View on GitHub →','proj.soon':'Coming soon',
     'p1.name':'Java Projects','p1.desc':'Collection of projects and exercises applying OOP, data structures, algorithms, and programming best practices in Java.',
@@ -1189,8 +1226,11 @@ async function downloadCV(){
     {name:lang==='es'?'Miembro IEEE':'IEEE Member',issuer:'IEEE',
      desc:lang==='es'?'Miembro activo del IEEE, organización líder en el avance de la tecnología e ingeniería a nivel global.':'Active member of the IEEE, the world\'s leading organization for advancing technology.',
      badge:lang==='es'?'ACTIVO':'ACTIVE'},
-    {name:'Data Structures and Algorithms in Python',issuer:'DataCamp',
+    {name:lang==='es'?'Data Structures and Algorithms in Python':'Data Structures and Algorithms in Python',issuer:'DataCamp',
      desc:lang==='es'?'Estructuras de datos y algoritmos en Python: listas, pilas, colas, árboles y técnicas de ordenamiento. Feb 2026.':'Data structures and algorithms in Python: lists, stacks, queues, trees and sorting. Feb 2026.',
+     badge:lang==='es'?'VERIFICADO':'VERIFIED'},
+    {name:lang==='es'?'Introducción al Desarrollo Backend':'Introduction to Backend Development',issuer:'Platzi',
+     desc:lang==='es'?'Fundamentos del desarrollo backend: protocolos, servidores, bases de datos y arquitectura de aplicaciones web.':'Backend development fundamentals: protocols, servers, databases and web application architecture.',
      badge:lang==='es'?'VERIFICADO':'VERIFIED'}
   ];
   certs.forEach(c=>{
