@@ -229,8 +229,9 @@ nav.scrolled{
   display:none;position:fixed;inset:0;z-index:850;
   background:var(--bg);
   flex-direction:column;align-items:flex-start;justify-content:center;
-  padding:3rem clamp(1.5rem,5vw,5rem);
+  padding:5rem clamp(1.5rem,5vw,3rem) 3rem;
   backdrop-filter:blur(4px);
+  overflow-y:auto;
 }
 .drawer::before{
   content:'';
@@ -241,15 +242,18 @@ nav.scrolled{
 .drawer.open{display:flex;animation:drawerIn .35s var(--ease) both}
 @keyframes drawerIn{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
 .drawer-close{
-  position:absolute;top:1.2rem;right:1.5rem;
-  font-size:.9rem;color:var(--fg3);
-  width:32px;height:32px;border-radius:50%;
+  position:fixed;top:1rem;right:1.2rem;
+  font-size:1rem;color:var(--fg2);
+  width:40px;height:40px;border-radius:50%;
   border:1px solid var(--rule2);
+  background:var(--bg3);
   display:flex;align-items:center;justify-content:center;
   transition:all .2s;
+  z-index:860;
+  cursor:pointer;
 }
 .drawer-close:hover{ border-color:var(--red);color:var(--red);transform:rotate(90deg) }
-.drawer-links{display:flex;flex-direction:column;gap:1.8rem}
+.drawer-links{display:flex;flex-direction:column;gap:1.8rem;width:100%}
 .drawer-links a{
   font-family:var(--display);font-size:2.4rem;letter-spacing:.06em;
   color:var(--fg2);transition:color .2s,transform .2s;
@@ -258,7 +262,7 @@ nav.scrolled{
 .drawer-links a::before{ content:'//';font-family:var(--mono);font-size:.9rem;color:var(--red);opacity:0;transition:opacity .2s }
 .drawer-links a:hover{ color:var(--red);transform:translateX(8px) }
 .drawer-links a:hover::before{ opacity:1 }
-.drawer-ctrls{display:flex;gap:.5rem;margin-top:2.5rem}
+.drawer-ctrls{display:flex;gap:.5rem;margin-top:2.5rem;width:100%}
 
 /* ━━━━ HERO ━━━━ */
 #home{
@@ -1071,7 +1075,8 @@ footer::before{
   .photo-frame{width:160px;height:200px}
   nav{padding:0 1.1rem}
   .nav-brand{font-size:1.1rem}
-  .drawer-links a{font-size:1.9rem}
+  .drawer-links a{font-size:1.7rem;gap:.4rem}
+  .drawer-links{gap:1.3rem}
   footer{padding:1.2rem 1.1rem;flex-direction:column;align-items:flex-start;gap:.6rem}
   .gallery-title{font-size:1.2rem}
   .bootcamp-label{font-size:1.25rem}
@@ -1536,12 +1541,30 @@ function setLang(l){
   document.documentElement.lang=l;
 }
 
-document.getElementById('hamBtn').addEventListener('click',()=>
-  document.getElementById('drawer').classList.add('open'));
-document.getElementById('drawerClose').addEventListener('click',()=>
-  document.getElementById('drawer').classList.remove('open'));
+document.getElementById('hamBtn').addEventListener('click',()=>{
+  document.getElementById('drawer').classList.add('open');
+  document.body.style.overflow='hidden';
+});
+
+function closeDrawer(){
+  document.getElementById('drawer').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+
 document.querySelectorAll('.dlink').forEach(a=>
-  a.addEventListener('click',()=>document.getElementById('drawer').classList.remove('open')));
+  a.addEventListener('click', closeDrawer));
+
+// Cerrar drawer al hacer click fuera (en el fondo)
+document.getElementById('drawer').addEventListener('click', function(e){
+  if(e.target === this) closeDrawer();
+});
+
+// Cerrar con tecla Escape
+document.addEventListener('keydown', function(e){
+  if(e.key==='Escape') closeDrawer();
+});
 
 // IntersectionObserver para animaciones
 const obs = new IntersectionObserver((entries)=>{
