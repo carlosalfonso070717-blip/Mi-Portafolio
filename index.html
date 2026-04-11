@@ -1146,12 +1146,6 @@ footer::before{
     <a href="#gallery"      data-k="nav.gallery"  class="dlink"></a>
     <a href="#contact"      data-k="nav.contact"  class="dlink"></a>
   </nav>
-  <div class="drawer-ctrls">
-    <div class="lang-toggle">
-      <button id="dBtnES" class="active" onclick="setLang('es')">ES</button>
-      <button id="dBtnEN"               onclick="setLang('en')">EN</button>
-    </div>
-  </div>
 </div>
 
 <!-- ━━━━ HERO ━━━━ -->
@@ -1542,8 +1536,12 @@ function setLang(l){
 }
 
 document.getElementById('hamBtn').addEventListener('click',()=>{
-  document.getElementById('drawer').classList.add('open');
-  document.body.style.overflow='hidden';
+  const drawer = document.getElementById('drawer');
+  const isOpen = drawer.classList.contains('open');
+  if(isOpen){ closeDrawer(); } else {
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
 });
 
 function closeDrawer(){
