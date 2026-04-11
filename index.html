@@ -128,10 +128,12 @@ nav.scrolled{
 /* ━━━━ TYPED CURSOR ━━━━ */
 .typed-cursor{
   display:inline-block;
-  width:2px;height:.85em;
+  width:2.5px;height:1em;
   background:var(--red);
-  margin-left:3px;
+  margin-left:5px;
   vertical-align:middle;
+  border-radius:1px;
+  box-shadow:0 0 6px rgba(230,51,41,.7);
   animation:blink .75s step-end infinite;
 }
 .nav-brand{
@@ -324,34 +326,36 @@ nav.scrolled{
   margin-bottom:1.6rem;
   display:flex;align-items:center;gap:.7rem;
 }
-.hero-role::after{content:'';flex:1;height:1px;background:var(--rule2)}
+.hero-role::after{ display:none }
 
 .hero-bio{
   font-size:1.15rem;color:var(--fg2);line-height:1.95;
   max-width:440px;margin-bottom:2.4rem;
 }
 
-.hero-actions{display:flex;gap:.7rem;flex-wrap:wrap}
-.btn-red{
-  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
-  padding:.82rem 1.7rem;
-  min-width:180px;
-  background:var(--red);color:#fff;
-  font-family:var(--mono);font-size:.82rem;font-weight:500;
-  letter-spacing:.1em;text-transform:uppercase;
-  transition:opacity .2s,transform .2s;
+.hero-actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:.75rem;
+  width:100%;
+  max-width:600px;
 }
-.btn-red:hover{opacity:.88;transform:translateY(-1px)}
-.btn-outline{
-  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
-  padding:.82rem 1.7rem;
-  min-width:180px;
-  background:var(--red);color:#fff;
-  font-family:var(--mono);font-size:.82rem;font-weight:500;
-  letter-spacing:.1em;text-transform:uppercase;
-  transition:opacity .2s,transform .2s;
+/* ─ Shared hero button base ─ */
+.btn-red,.btn-outline,.btn-cv{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.92rem 1.2rem;
+  width:100%;
+  background:transparent;color:var(--red);
+  font-family:var(--mono);font-size:.95rem;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--red);
+  transition:background .2s,color .2s,transform .2s;
+  cursor:pointer;
 }
-.btn-outline:hover{opacity:.88;transform:translateY(-1px)}
+.btn-red:hover,.btn-outline:hover,.btn-cv:hover{
+  background:var(--red);color:#fff;
+  transform:translateY(-2px);
+}
 
 /* ━━━━ HERO PHOTO ━━━━ */
 .hero-photo-panel{
@@ -870,9 +874,27 @@ footer{
   border-radius:50%;
   background:radial-gradient(circle, rgba(230,51,41,.055) 0%, transparent 70%);
   pointer-events:none;z-index:1;
-  transform:translate(-50%,-50%);
-  transition:opacity .4s;
-  will-change:left,top;
+  top:0;left:0;
+  will-change:transform;
+}
+
+/* ━━━━ CUSTOM CURSOR ━━━━ */
+body.no-cursor,
+body.no-cursor * { cursor: none !important; }
+
+#cursorDot {
+  position: fixed; top: 0; left: 0;
+  width: 10px; height: 10px;
+  background: #e63329; border-radius: 50%;
+  pointer-events: none; z-index: 99999; opacity: 0;
+  will-change: transform;
+}
+#cursorRing {
+  position: fixed; top: 0; left: 0;
+  width: 40px; height: 40px;
+  border: 2px solid rgba(230,51,41,.8); border-radius: 50%;
+  pointer-events: none; z-index: 99998; opacity: 0;
+  will-change: transform;
 }
 
 /* ━━━━ PHOTO FRAME ENHANCED ━━━━ */
@@ -1016,9 +1038,9 @@ footer::before{
   }
   .hero-photo-panel{ justify-content:center }
   .hero-eyebrow{ justify-content:center }
-  .hero-role::after{ display:none }
+  .hero-role::after{ }
   .hero-bio{ max-width:100% }
-  .hero-actions{ justify-content:center }
+  .hero-actions{ justify-content:center; justify-items:center; margin:0 auto }
   .about-grid{grid-template-columns:1fr;gap:3rem}
   .contact-layout{grid-template-columns:1fr;gap:3rem}
   .nav-links{display:none}
@@ -1071,10 +1093,9 @@ footer::before{
   .ch-handle{font-size:.73rem;word-break:break-word}
   .contact-note{font-size:1rem}
   .btn-red,.btn-outline,.btn-cv{
-    font-size:.74rem;padding:.72rem 1.1rem;
-    white-space:nowrap;
+    font-size:.82rem;padding:.82rem 1rem;
   }
-  .hero-actions{gap:.5rem;flex-wrap:wrap}
+  .hero-actions{grid-template-columns:1fr;max-width:340px}
   .kpi-value{font-size:1.7rem}
   .kpi-label{font-size:.76rem}
   .contact-headline{font-size:clamp(1.8rem,7vw,2.6rem)}
@@ -1102,16 +1123,6 @@ footer::before{
 
 
 /* ━━━━ CV BUTTON ━━━━ */
-.btn-cv{
-  display:inline-flex;align-items:center;gap:.45rem;
-  padding:.82rem 1.7rem;
-  border:1px solid var(--red);color:var(--red);
-  font-family:var(--mono);font-size:.82rem;font-weight:500;
-  letter-spacing:.1em;text-transform:uppercase;
-  background:transparent;
-  transition:all .2s;cursor:pointer;
-}
-.btn-cv:hover{background:var(--red);color:#fff;transform:translateY(-1px)}
 .btn-cv.loading{opacity:.6;pointer-events:none}
 
 .contact-drop {
@@ -1192,7 +1203,7 @@ footer::before{
       <div class="hero-actions">
         <a href="#portfolio" class="btn-red"     data-k="hero.cta1"></a>
         <a href="#contact"   class="btn-outline" data-k="hero.cta2"></a>
-        <button class="btn-cv" id="btnCV" onclick="downloadCV()" style="margin-top:.6rem">
+        <button class="btn-cv" id="btnCV" onclick="downloadCV()">
           <span data-k="hero.cv"></span>
         </button>
       </div>
@@ -1430,7 +1441,7 @@ footer::before{
           <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
           <div class="ch-info">
             <div class="ch-platform">Email</div>
-            <div class="ch-handle"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="44272536282b372528222b2a372b747374737573042329252d286a272b29">[email&#160;protected]</a></div>
+            <div class="ch-handle"><a href="mailto:carlosalfonso070717@gmail.com">carlosalfonso070717@gmail.com</a></div>
           </div>
           <span class="ch-arr-email" id="emailArr">→</span>
         </div>
@@ -1449,13 +1460,13 @@ footer::before{
 
 <!-- ━━━━ CONTACT DROPDOWNS (fuera del flujo para evitar overflow clipping) ━━━━ -->
 <div id="emailDrop" class="contact-drop" style="display:none">
-  <a href="/cdn-cgi/l/email-protection#177476657b7864767b717879647827202720262057707a767e7b3974787a">
+  <a href="mailto:carlosalfonso070717@gmail.com">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Personal: <span class="__cf_email__" data-cfemail="dbb8baa9b7b4a8bab7bdb4b5a8b4ebecebeceaec9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></span>
+    <span>Personal: carlosalfonso070717@gmail.com</span>
   </a>
-  <a href="/cdn-cgi/l/email-protection#24474556484b570a4848454a4157645041474041574b4250534556410a4140510a495c">
+  <a href="mailto:carlos.llanes@tecdesoftware.edu.mx">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Institucional: <span class="__cf_email__" data-cfemail="86e5e7f4eae9f5a8eaeae7e8e3f5c6f2e3e5e2e3f5e9e0f2f1e7f4e3a8e3e2f3a8ebfe">[email&#160;protected]</span></span>
+    <span>Institucional: carlos.llanes@tecdesoftware.edu.mx</span>
   </a>
 </div>
 <div id="phoneDrop" class="contact-drop" style="display:none">
@@ -1475,7 +1486,7 @@ footer::before{
 </footer>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const T = {
   es: {
     'nav.about':'Sobre mí','nav.skills':'Habilidades','nav.certs':'Certificados','nav.projects':'Proyectos','nav.contact':'Contacto',
@@ -1850,6 +1861,9 @@ document.addEventListener('click', function(e) {
 <!-- ━━━━ VISUAL ENHANCEMENTS ━━━━ -->
 <div id="scroll-bar"></div>
 <div class="cursor-glow" id="cursorGlow"></div>
+<div id="cursorDot"></div>
+<div id="cursorRing"></div>
+<canvas id="cursorCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;"></canvas>
 
 <script>
 // Nav scrolled state
@@ -1858,10 +1872,16 @@ window.addEventListener('scroll', () => {
   navEl.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive:true });
 
-// Typewriter en hero-role
+// Hero role: emoji + vertical red cursor bar
 (function(){
   const el = document.querySelector('.hero-role');
   if(!el) return;
+  // Add emoji before the blinking bar
+  const emoji = document.createElement('span');
+  emoji.textContent = ' 💻';
+  emoji.style.cssText = 'font-style:normal;margin-left:2px;';
+  el.appendChild(emoji);
+  // Vertical blinking bar
   const cursor = document.createElement('span');
   cursor.className = 'typed-cursor';
   el.appendChild(cursor);
@@ -1874,22 +1894,109 @@ window.addEventListener('scroll', () => {
   scrollBar.style.width = (p * 100) + '%';
 }, { passive: true });
 
-// Cursor glow (solo desktop)
-const glow = document.getElementById('cursorGlow');
-if(window.matchMedia('(pointer:fine)').matches){
-  let mx=window.innerWidth/2, my=window.innerHeight/2;
-  let cx=mx, cy=my;
-  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; }, { passive:true });
-  (function raf(){
-    cx += (mx - cx) * 0.1;
-    cy += (my - cy) * 0.1;
-    glow.style.left = cx + 'px';
-    glow.style.top  = cy + 'px';
-    requestAnimationFrame(raf);
-  })();
-} else {
-  glow.style.display = 'none';
-}
+// ━━━━ CUSTOM CURSOR — canvas + DOM, window-level events ━━━━
+(function() {
+  var canvas = document.getElementById('cursorCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  // Size canvas to viewport, handle resize
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var mx = null, my = null;   // null = never moved yet
+  var rx = 0,   ry = 0;       // ring position (lerped)
+  var dotW = 10, ringW = 40;  // current sizes (lerped)
+  var hover = false, clicking = false;
+
+  // Trail
+  var trail = [];
+
+  // Listen on WINDOW so it works regardless of what's on top
+  window.addEventListener('mousemove', function(e) {
+    var x = e.clientX, y = e.clientY;
+    if (mx === null) { rx = x; ry = y; }
+    mx = x; my = y;
+    trail.push({ x: x, y: y });
+    if (trail.length > 20) trail.shift();
+
+    // Hide native cursor
+    document.body.classList.add('no-cursor');
+  });
+
+  window.addEventListener('mousedown', function() { clicking = true; });
+  window.addEventListener('mouseup',   function() { clicking = false; });
+
+  // Hover: expand ring on interactive elements
+  var sel = 'a,button,input,select,textarea,[onclick],[role="button"],.sk-pill,.sk-pill-soft,.cert-card,.proj-card,.gallery-item,.ch-row,.btn-red,.btn-outline,.btn-cv,.nav-links a';
+  window.addEventListener('mouseover', function(e) {
+    if (e.target && e.target.closest) {
+      try { hover = !!e.target.closest(sel); } catch(err) { hover = false; }
+    }
+  });
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (mx !== null) {
+      // Lerp ring toward mouse
+      rx += (mx - rx) * 0.14;
+      ry += (my - ry) * 0.14;
+
+      // Lerp sizes
+      var tD = clicking ? 4  : hover ? 18 : 10;
+      var tR = clicking ? 16 : hover ? 56 : 38;
+      dotW  += (tD - dotW)  * 0.22;
+      ringW += (tR - ringW) * 0.16;
+
+      // — Trail —
+      for (var i = 0; i < trail.length; i++) {
+        var t = trail[i];
+        var prog  = i / trail.length;
+        var alpha = prog * 0.28;
+        var rad   = prog * 5 + 1;
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, rad, 0, 6.2832);
+        ctx.fillStyle = 'rgba(230,51,41,' + alpha + ')';
+        ctx.fill();
+      }
+
+      // — Ring —
+      ctx.beginPath();
+      ctx.arc(rx, ry, ringW / 2, 0, 6.2832);
+      ctx.strokeStyle = hover
+        ? 'rgba(230,51,41,0.55)'
+        : clicking
+          ? 'rgba(230,51,41,1)'
+          : 'rgba(230,51,41,0.85)';
+      ctx.lineWidth = clicking ? 2.5 : 1.5;
+      ctx.stroke();
+
+      // — Dot glow —
+      var g = ctx.createRadialGradient(mx, my, 0, mx, my, dotW * 3);
+      g.addColorStop(0, 'rgba(230,51,41,0.4)');
+      g.addColorStop(1, 'rgba(230,51,41,0)');
+      ctx.beginPath();
+      ctx.arc(mx, my, dotW * 3, 0, 6.2832);
+      ctx.fillStyle = g;
+      ctx.fill();
+
+      // — Dot —
+      ctx.beginPath();
+      ctx.arc(mx, my, dotW / 2, 0, 6.2832);
+      ctx.fillStyle = clicking ? '#ffffff' : '#e63329';
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  requestAnimationFrame(draw);
+})();
 
 // Skill pills stagger al entrar en viewport
 const skillsObs = new IntersectionObserver(entries => {
