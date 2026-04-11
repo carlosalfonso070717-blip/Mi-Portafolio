@@ -63,7 +63,7 @@ body{
   background:var(--bg);
   color:var(--fg);
   font-family:var(--sans);
-  font-size:19px;
+  font-size:21px;
   line-height:1.75;
   overflow-x:hidden;
   transition:background .3s,color .3s;
@@ -333,8 +333,9 @@ nav.scrolled{
 
 .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap}
 .btn-red{
-  display:inline-flex;align-items:center;gap:.45rem;
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
   padding:.82rem 1.7rem;
+  min-width:180px;
   background:var(--red);color:#fff;
   font-family:var(--mono);font-size:.82rem;font-weight:500;
   letter-spacing:.1em;text-transform:uppercase;
@@ -342,15 +343,15 @@ nav.scrolled{
 }
 .btn-red:hover{opacity:.88;transform:translateY(-1px)}
 .btn-outline{
-  display:inline-flex;align-items:center;gap:.45rem;
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
   padding:.82rem 1.7rem;
-  border:2px solid var(--red);color:var(--red);
+  min-width:180px;
+  background:var(--red);color:#fff;
   font-family:var(--mono);font-size:.82rem;font-weight:500;
   letter-spacing:.1em;text-transform:uppercase;
-  transition:all .2s;
-  background:var(--red-dim);
+  transition:opacity .2s,transform .2s;
 }
-.btn-outline:hover{color:#fff;border-color:var(--red);background:var(--red);transform:translateY(-1px)}
+.btn-outline:hover{opacity:.88;transform:translateY(-1px)}
 
 /* ━━━━ HERO PHOTO ━━━━ */
 .hero-photo-panel{
@@ -1447,7 +1448,6 @@ footer::before{
 </section>
 
 <!-- ━━━━ CONTACT DROPDOWNS (fuera del flujo para evitar overflow clipping) ━━━━ -->
-</div>
 <div id="emailDrop" class="contact-drop" style="display:none">
   <a href="/cdn-cgi/l/email-protection#177476657b7864767b717879647827202720262057707a767e7b3974787a">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -1457,7 +1457,6 @@ footer::before{
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
     <span>Institucional: <span class="__cf_email__" data-cfemail="86e5e7f4eae9f5a8eaeae7e8e3f5c6f2e3e5e2e3f5e9e0f2f1e7f4e3a8e3e2f3a8ebfe">[email&#160;protected]</span></span>
   </a>
-</div>
 </div>
 <div id="phoneDrop" class="contact-drop" style="display:none">
   <a href="tel:+529987692628">
@@ -1782,6 +1781,58 @@ async function downloadCV(){
   btn.classList.remove('loading');
   btn.querySelector('span').textContent = lang==='es'?'↓ Descargar CV':'↓ Download CV';
 }
+
+// ━━━━ CONTACT DROPDOWNS ━━━━
+let _openDrop = null;
+let _openRow  = null;
+let _openArr  = null;
+
+function toggleContactDrop(rowId, dropId) {
+  const row  = document.getElementById(rowId);
+  const drop = document.getElementById(dropId);
+  const arrClass = rowId === 'emailRow' ? 'ch-arr-email' : 'ch-arr-phone';
+  const arr  = row.querySelector('.' + arrClass);
+
+  const isOpen = drop.style.display !== 'none';
+
+  if (_openDrop && _openDrop !== drop) {
+    _openDrop.style.display = 'none';
+    if (_openArr) _openArr.style.transform = '';
+  }
+
+  if (isOpen) {
+    drop.style.display = 'none';
+    arr.style.transform = '';
+    _openDrop = null; _openRow = null; _openArr = null;
+  } else {
+    const rect = row.getBoundingClientRect();
+    const dropH = drop.children.length * 52;
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const goUp = spaceBelow < dropH + 10;
+
+    drop.style.display = 'block';
+    drop.style.left    = rect.left + 'px';
+    drop.style.width   = rect.width + 'px';
+    if (goUp) {
+      drop.style.top    = 'auto';
+      drop.style.bottom = (window.innerHeight - rect.top) + 'px';
+    } else {
+      drop.style.bottom = 'auto';
+      drop.style.top    = rect.bottom + 'px';
+    }
+    arr.style.transform = 'rotate(90deg)';
+    _openDrop = drop; _openRow = row; _openArr = arr;
+  }
+}
+
+document.addEventListener('click', function(e) {
+  if (!_openDrop) return;
+  if (_openRow && _openRow.contains(e.target)) return;
+  if (_openDrop && _openDrop.contains(e.target)) return;
+  _openDrop.style.display = 'none';
+  if (_openArr) _openArr.style.transform = '';
+  _openDrop = null; _openRow = null; _openArr = null;
+});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
@@ -1863,60 +1914,6 @@ const headerObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 document.querySelectorAll('.section-header').forEach(el => headerObs.observe(el));
-
-// ━━━━ CONTACT DROPDOWNS (fixed positioning) ━━━━
-let _openDrop = null;
-let _openRow  = null;
-let _openArr  = null;
-
-function toggleContactDrop(rowId, dropId) {
-  const row  = document.getElementById(rowId);
-  const drop = document.getElementById(dropId);
-  const arrClass = rowId === 'emailRow' ? 'ch-arr-email' : 'ch-arr-phone';
-  const arr  = row.querySelector('.' + arrClass);
-
-  const isOpen = drop.style.display !== 'none';
-
-  // Close any open dropdown first
-  if (_openDrop && _openDrop !== drop) {
-    _openDrop.style.display = 'none';
-    if (_openArr) _openArr.style.transform = '';
-  }
-
-  if (isOpen) {
-    drop.style.display = 'none';
-    arr.style.transform = '';
-    _openDrop = null; _openRow = null; _openArr = null;
-  } else {
-    const rect = row.getBoundingClientRect();
-    const dropH = drop.children.length * 52; // approx height
-    const spaceBelow = window.innerHeight - rect.bottom;
-    const goUp = spaceBelow < dropH + 10;
-
-    drop.style.display = 'block';
-    drop.style.left    = rect.left + 'px';
-    drop.style.width   = rect.width + 'px';
-    if (goUp) {
-      drop.style.top    = 'auto';
-      drop.style.bottom = (window.innerHeight - rect.top) + 'px';
-    } else {
-      drop.style.bottom = 'auto';
-      drop.style.top    = rect.bottom + 'px';
-    }
-    arr.style.transform = 'rotate(90deg)';
-    _openDrop = drop; _openRow = row; _openArr = arr;
-  }
-}
-
-// Close on outside click
-document.addEventListener('click', function(e) {
-  if (!_openDrop) return;
-  if (_openRow && _openRow.contains(e.target)) return;
-  if (_openDrop && _openDrop.contains(e.target)) return;
-  _openDrop.style.display = 'none';
-  if (_openArr) _openArr.style.transform = '';
-  _openDrop = null; _openRow = null; _openArr = null;
-});
 
 // Reposition on scroll/resize
 window.addEventListener('scroll', function() {
