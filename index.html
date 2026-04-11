@@ -344,12 +344,13 @@ nav.scrolled{
 .btn-outline{
   display:inline-flex;align-items:center;gap:.45rem;
   padding:.82rem 1.7rem;
-  border:1px solid var(--rule2);color:var(--fg2);
+  border:2px solid var(--red);color:var(--red);
   font-family:var(--mono);font-size:.82rem;font-weight:500;
   letter-spacing:.1em;text-transform:uppercase;
   transition:all .2s;
+  background:var(--red-dim);
 }
-.btn-outline:hover{color:var(--fg);border-color:var(--fg3);transform:translateY(-1px)}
+.btn-outline:hover{color:#fff;border-color:var(--red);background:var(--red);transform:translateY(-1px)}
 
 /* ━━━━ HERO PHOTO ━━━━ */
 .hero-photo-panel{
@@ -661,7 +662,7 @@ footer{
   display:flex;align-items:center;justify-content:space-between;
   flex-wrap:wrap;gap:.8rem;background:var(--bg);
 }
-.f-left{font-family:var(--mono);font-size:.8rem;color:var(--fg3);letter-spacing:.06em}
+.f-left{font-family:var(--mono);font-size:.8rem;color:var(--fg2);letter-spacing:.06em}
 .f-left b{color:var(--red);font-weight:500}
 .f-top{
   font-family:var(--mono);font-size:.8rem;
@@ -1190,7 +1191,7 @@ footer::before{
       <div class="hero-actions">
         <a href="#portfolio" class="btn-red"     data-k="hero.cta1"></a>
         <a href="#contact"   class="btn-outline" data-k="hero.cta2"></a>
-        <button class="btn-cv" id="btnCV" onclick="downloadCV()">
+        <button class="btn-cv" id="btnCV" onclick="downloadCV()" style="margin-top:.6rem">
           <span data-k="hero.cv"></span>
         </button>
       </div>
@@ -1401,6 +1402,7 @@ footer::before{
     <div class="section-header rv">
       <span class="sec-index">06</span>
       <h2 class="sec-title" data-k="contact.title"></h2>
+    </div>
     <div class="contact-layout">
       <div class="rv d1">
         <p class="contact-headline" data-k="contact.headline"></p>
@@ -1427,7 +1429,7 @@ footer::before{
           <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
           <div class="ch-info">
             <div class="ch-platform">Email</div>
-            <div class="ch-handle">carlosalfonso070717@gmail.com</div>
+            <div class="ch-handle"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="44272536282b372528222b2a372b747374737573042329252d286a272b29">[email&#160;protected]</a></div>
           </div>
           <span class="ch-arr-email" id="emailArr">→</span>
         </div>
@@ -1447,13 +1449,13 @@ footer::before{
 <!-- ━━━━ CONTACT DROPDOWNS (fuera del flujo para evitar overflow clipping) ━━━━ -->
 </div>
 <div id="emailDrop" class="contact-drop" style="display:none">
-  <a href="mailto:carlosalfonso070717@gmail.com">
+  <a href="/cdn-cgi/l/email-protection#177476657b7864767b717879647827202720262057707a767e7b3974787a">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Personal: carlosalfonso070717@gmail.com</span>
+    <span>Personal: <span class="__cf_email__" data-cfemail="dbb8baa9b7b4a8bab7bdb4b5a8b4ebecebeceaec9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></span>
   </a>
-  <a href="mailto:carlos.llanes@tecdesoftware.edu.mx">
+  <a href="/cdn-cgi/l/email-protection#24474556484b570a4848454a4157645041474041574b4250534556410a4140510a495c">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Institucional: carlos.llanes@tecdesoftware.edu.mx</span>
+    <span>Institucional: <span class="__cf_email__" data-cfemail="86e5e7f4eae9f5a8eaeae7e8e3f5c6f2e3e5e2e3f5e9e0f2f1e7f4e3a8e3e2f3a8ebfe">[email&#160;protected]</span></span>
   </a>
 </div>
 </div>
@@ -1474,7 +1476,7 @@ footer::before{
 </footer>
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const T = {
   es: {
     'nav.about':'Sobre mí','nav.skills':'Habilidades','nav.certs':'Certificados','nav.projects':'Proyectos','nav.contact':'Contacto',
@@ -1918,21 +1920,4 @@ document.addEventListener('click', function(e) {
 
 // Reposition on scroll/resize
 window.addEventListener('scroll', function() {
-  if (!_openDrop || !_openRow) return;
-  const rect = _openRow.getBoundingClientRect();
-  const dropH = _openDrop.offsetHeight || 104;
-  const spaceBelow = window.innerHeight - rect.bottom;
-  const goUp = spaceBelow < dropH + 10;
-  _openDrop.style.left  = rect.left + 'px';
-  _openDrop.style.width = rect.width + 'px';
-  if (goUp) {
-    _openDrop.style.top    = 'auto';
-    _openDrop.style.bottom = (window.innerHeight - rect.top) + 'px';
-  } else {
-    _openDrop.style.bottom = 'auto';
-    _openDrop.style.top    = rect.bottom + 'px';
-  }
-}, { passive: true });
-</script>
-</body>
-</html>
+  if (!_openDrop || !_openRow
