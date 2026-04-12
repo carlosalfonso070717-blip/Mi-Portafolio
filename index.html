@@ -36,8 +36,8 @@
   --red-dim: rgba(230,51,41,.12);
   --red-rule:rgba(230,51,41,.35);
   --fg:      #f0ede8;
-  --fg2:     #888580;
-  --fg3:     #333;
+  --fg2:     #c0bbb4;
+  --fg3:     #888580;
   --rule:    rgba(255,255,255,.07);
   --rule2:   rgba(255,255,255,.13);
   --display: 'Bebas Neue', sans-serif;
@@ -403,17 +403,19 @@ nav.scrolled{
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
 
 /* ━━━━ SECTION COMMONS ━━━━ */
-section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
+section:not(#home){padding:0 clamp(1.5rem,5vw,5rem) 1rem}
 .section-inner{max-width:1080px;margin:0 auto}
 
 .section-header{
   display:grid;
   grid-template-columns:auto 1fr auto;
-  align-items:baseline;
+  align-items:center;
   gap:1.2rem;
+  padding-top:0.4rem;
   padding-bottom:1.2rem;
   border-bottom:1px solid var(--rule);
-  margin-bottom:3rem;
+  margin-bottom:2rem;
+  position:relative;
 }
 .sec-index{
   font-family:var(--mono);font-size:.82rem;
@@ -465,12 +467,19 @@ section:not(#home){padding:5.5rem clamp(1.5rem,5vw,5rem)}
   display:inline-block;
 }
 .sec-index{
-  font-family:var(--mono);font-size:.82rem;
+  font-family:var(--mono);
+  font-size:.82rem;
   color:var(--red);letter-spacing:.12em;text-transform:uppercase;
   background:var(--red-dim);
   border:1px solid var(--red-rule);
-  padding:.15rem .55rem;
   border-radius:3px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 .55rem;
+  flex-shrink:0;
+  height:calc(clamp(2.2rem,3.5vw,3rem) * 0.96);
+  line-height:1;
 }
 
 /* ━━━━ SKILL PILLS ROUNDED ━━━━ */
@@ -743,6 +752,12 @@ footer{
   margin-top:.3rem;text-transform:uppercase;
 }
 
+/* ━━━━ SOFT SKILLS TOP LINE ━━━━ */
+.soft-skills-section {
+  position: relative;
+  margin-top: 5.5rem;
+}
+
 /* ━━━━ BOOTCAMP SECTION ━━━━ */
 .bootcamp-section{
   margin-top:4rem;
@@ -890,14 +905,7 @@ footer{
 .rv.d3 { transition-delay: .28s; }
 
 /* ━━━━ SECTION SEPARATOR ━━━━ */
-section:not(#home)::before {
-  content: '';
-  display: block;
-  height: 1px;
-  background: linear-gradient(90deg, var(--red) 0%, rgba(230,51,41,.2) 40%, transparent 100%);
-  margin-bottom: 0;
-  position: absolute; left: 0; right: 0; top: 0;
-}
+section:not(#home)::before { display:none }
 section:not(#home) { position: relative; }
 
 /* ━━━━ PROJECT CARDS ENHANCED ━━━━ */
@@ -1343,7 +1351,7 @@ footer::before{
 
     <!-- Soft Skills -->
     <div class="soft-skills-section rv">
-      <div class="section-header" style="margin-top:3rem">
+      <div class="section-header rv">
         <span class="sec-index">02b</span>
         <h2 class="sec-title" data-k="soft.label"></h2>
         <span class="sec-aside" data-k="soft.aside"></span>
@@ -1524,7 +1532,7 @@ footer::before{
           <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
           <div class="ch-info">
             <div class="ch-platform">Email</div>
-            <div class="ch-handle">carlos.llanes070717@gmail.com</div>
+            <div class="ch-handle"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef8c8e9d83809cc183838e818a9cdfd8dfd8ded8af88828e8683c18c8082">[email&#160;protected]</a></div>
           </div>
           <span class="ch-arr-email" id="emailArr">→</span>
         </div>
@@ -1543,13 +1551,13 @@ footer::before{
 
 <!-- ━━━━ CONTACT DROPDOWNS (fuera del flujo para evitar overflow clipping) ━━━━ -->
 <div id="emailDrop" class="contact-drop" style="display:none">
-  <a href="mailto:carlos.llanes070717@gmail.com">
+  <a href="/cdn-cgi/l/email-protection#fa999b88969589d496969b949f89cacdcacdcbcdba9d979b9396d4999597">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Personal: carlos.llanes070717@gmail.com</span>
+    <span>Personal: <span class="__cf_email__" data-cfemail="80e3e1f2eceff3aeecece1eee5f3b0b7b0b7b1b7c0e7ede1e9ecaee3efed">[email&#160;protected]</span></span>
   </a>
-  <a href="mailto:carlos.llanes@tecdesoftware.edu.mx">
+  <a href="/cdn-cgi/l/email-protection#c4a7a5b6a8abb7eaa8a8a5aaa1b784b0a1a7a0a1b7aba2b0b3a5b6a1eaa1a0b1eaa9bc">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Institucional: carlos.llanes@tecdesoftware.edu.mx</span>
+    <span>Institucional: <span class="__cf_email__" data-cfemail="7a191b081615095416161b141f093a0e1f191e1f09151c0e0d1b081f541f1e0f541702">[email&#160;protected]</span></span>
   </a>
 </div>
 <div id="phoneDrop" class="contact-drop" style="display:none">
@@ -1569,7 +1577,7 @@ footer::before{
 </footer>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ━━━━ ROLE SUFFIX (emoji + blinking bar) ━━━━
 // Defined first so setLang() can call it
 function injectRoleSuffix() {
@@ -2013,15 +2021,4 @@ const rvObs = new IntersectionObserver(entries => {
     if (e.isIntersecting) { e.target.classList.add('in'); rvObs.unobserve(e.target); }
   });
 }, { threshold: 0.12 });
-document.querySelectorAll('.rv').fo
-
-// Flash táctil en botones hero — se pone rojo y se quita solo
-document.querySelectorAll('.btn-red,.btn-outline,.btn-cv').forEach(btn => {
-  btn.addEventListener('pointerdown', () => {
-    btn.classList.add('tap');
-  }, { passive: true });
-  const removeTap = () => setTimeout(() => btn.classList.remove('tap'), 250);
-  btn.addEventListener('pointerup', removeTap, { passive: true });
-  btn.addEventListener('pointercancel', removeTap, { passive: true });
-  btn.addEventListener('pointerleave', removeTap, { passive: true });
-});
+document.q
