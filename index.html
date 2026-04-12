@@ -343,7 +343,7 @@ nav.scrolled{
 /* ─ Shared hero button base ─ */
 .btn-red,.btn-outline,.btn-cv{
   display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:.85rem 1.8rem;
+  padding:1rem 2.2rem;
   background:transparent;color:var(--red);
   font-family:var(--mono);font-size:.88rem;font-weight:500;
   letter-spacing:.1em;text-transform:uppercase;
@@ -354,11 +354,17 @@ nav.scrolled{
   line-height:1;
   height:auto;
   box-sizing:border-box;
-  min-width:160px;
+  min-width:170px;
 }
 .btn-red:hover,.btn-outline:hover,.btn-cv:hover{
   background:var(--red);color:#fff;
   transform:translateY(-2px);
+}
+.btn-red:active,.btn-outline:active,.btn-cv:active,
+.btn-red.tap,.btn-outline.tap,.btn-cv.tap{
+  background:var(--red);color:#fff;
+  transform:scale(.97);
+  transition:background .05s,color .05s,transform .05s;
 }
 
 /* ━━━━ HERO PHOTO ━━━━ */
@@ -2009,3 +2015,13 @@ const rvObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 document.querySelectorAll('.rv').fo
+
+// Flash táctil en botones hero — se pone rojo y se quita solo
+document.querySelectorAll('.btn-red,.btn-outline,.btn-cv').forEach(btn => {
+  btn.addEventListener('touchstart', () => {
+    btn.classList.add('tap');
+  }, { passive: true });
+  btn.addEventListener('touchend', () => {
+    setTimeout(() => btn.classList.remove('tap'), 300);
+  }, { passive: true });
+});
