@@ -335,22 +335,26 @@ nav.scrolled{
 
 .hero-actions{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:.75rem;
-  width:100%;
-  max-width:600px;
+  grid-template-columns:repeat(3,auto);
+  gap:.65rem;
+  width:fit-content;
+  max-width:100%;
 }
 /* ─ Shared hero button base ─ */
 .btn-red,.btn-outline,.btn-cv{
   display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:.92rem 1.2rem;
-  width:100%;
+  padding:.85rem 1.8rem;
   background:transparent;color:var(--red);
-  font-family:var(--mono);font-size:.95rem;font-weight:500;
-  letter-spacing:.08em;text-transform:uppercase;
+  font-family:var(--mono);font-size:.88rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
   border:1px solid var(--red);
   transition:background .2s,color .2s,transform .2s;
   cursor:pointer;
+  white-space:nowrap;
+  line-height:1;
+  height:auto;
+  box-sizing:border-box;
+  min-width:160px;
 }
 .btn-red:hover,.btn-outline:hover,.btn-cv:hover{
   background:var(--red);color:#fff;
@@ -371,6 +375,7 @@ nav.scrolled{
   overflow:hidden;
   flex-shrink:0;
   box-shadow:5px 5px 0 var(--red);
+  border-radius:16px;
 }
 .photo-frame img{
   width:100%;height:100%;
@@ -856,48 +861,118 @@ footer{
   animation:fadeIn 1.5s ease both;
   pointer-events:none;
 }
-#home::after{
-  content:'';
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 55% 55% at 70% 45%, rgba(230,51,41,.07) 0%, transparent 70%);
-  pointer-events:none;
+/* ━━━━ HERO ENTRANCE ANIMATION ━━━━ */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes slideRight { from { opacity:0; transform:translateX(-24px); } to { opacity:1; transform:none; } }
+
+.hero-eyebrow { animation: slideRight .7s var(--ease) .1s both; }
+.hero-name    { animation: fadeUp    .8s var(--ease) .22s both; }
+.hero-role    { animation: fadeUp    .7s var(--ease) .38s both; }
+.hero-bio     { animation: fadeUp    .7s var(--ease) .5s  both; }
+.hero-actions { animation: fadeUp    .7s var(--ease) .64s both; }
+.hero-photo-panel { animation: fadeIn .9s var(--ease) .15s both; }
+
+/* ━━━━ SECTION REVEAL ━━━━ */
+.rv {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.rv.in { opacity: 1; transform: none; }
+.rv.d1 { transition-delay: .08s; }
+.rv.d2 { transition-delay: .18s; }
+.rv.d3 { transition-delay: .28s; }
+
+/* ━━━━ SECTION SEPARATOR ━━━━ */
+section:not(#home)::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, var(--red) 0%, rgba(230,51,41,.2) 40%, transparent 100%);
+  margin-bottom: 0;
+  position: absolute; left: 0; right: 0; top: 0;
+}
+section:not(#home) { position: relative; }
+
+/* ━━━━ PROJECT CARDS ENHANCED ━━━━ */
+.proj-card {
+  transition: background .25s, box-shadow .3s, transform .3s var(--ease);
+}
+.proj-card:hover {
+  background: var(--bg3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,.45), 0 0 0 1px var(--red-rule);
+  z-index: 1;
+}
+.proj-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(230,51,41,.06) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity .35s;
+  pointer-events: none;
+}
+.proj-card:hover::before { opacity: 1; }
+
+/* ━━━━ CERT ROW ENHANCED ━━━━ */
+.cert-row {
+  transition: background .2s, padding-left .2s, box-shadow .2s;
+  border-radius: 4px;
+}
+.cert-row:hover {
+  background: var(--bg3);
+  padding-left: 1rem !important;
+  box-shadow: inset 3px 0 0 var(--red);
 }
 
-/* ━━━━ HERO NAME GLOW ━━━━ */
-.hero-name{ text-shadow:0 0 80px rgba(230,51,41,.08) }
-.hero-name span{ text-shadow:0 0 60px rgba(230,51,41,.18) }
-
-/* ━━━━ CURSOR GLOW ━━━━ */
-.cursor-glow{
-  position:fixed;
-  width:340px;height:340px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(230,51,41,.055) 0%, transparent 70%);
-  pointer-events:none;z-index:1;
-  top:0;left:0;
-  will-change:transform;
+/* ━━━━ SKILL PILLS GLOW ON HOVER ━━━━ */
+.sk-pill:hover {
+  box-shadow: 0 0 18px rgba(230,51,41,.22), 0 6px 20px rgba(230,51,41,.12);
 }
 
-/* ━━━━ CUSTOM CURSOR ━━━━ */
-body.no-cursor,
-body.no-cursor * { cursor: none !important; }
+/* ━━━━ HERO NAME LETTER SPACING ON HOVER ━━━━ */
+.hero-name { transition: letter-spacing .4s var(--ease); }
+.hero-name:hover { letter-spacing: .07em; }
 
-#cursorDot {
-  position: fixed; top: 0; left: 0;
-  width: 10px; height: 10px;
-  background: #e63329; border-radius: 50%;
-  pointer-events: none; z-index: 99999; opacity: 0;
-  will-change: transform;
+/* ━━━━ NAV ACTIVE INDICATOR ━━━━ */
+.nav-links a.active { color: var(--fg); }
+.nav-links a.active::after { transform: scaleX(1); }
+
+/* ━━━━ FOOTER RED ACCENT LINE ━━━━ */
+footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  height: 2px; width: 80px;
+  background: linear-gradient(90deg, var(--red), transparent);
 }
-#cursorRing {
-  position: fixed; top: 0; left: 0;
-  width: 40px; height: 40px;
-  border: 2px solid rgba(230,51,41,.8); border-radius: 50%;
-  pointer-events: none; z-index: 99998; opacity: 0;
-  will-change: transform;
+footer { position: relative; }
+
+/* ━━━━ CONTACT CHANNEL HOVER ━━━━ */
+.ch-row {
+  transition: padding-left .2s, background .2s;
+  border-radius: 4px;
+}
+.ch-row:hover { background: var(--bg3); }
+
+/* ━━━━ ABOUT KPI BLOCKS ACCENT ━━━━ */
+.kpi-block { transition: transform .2s var(--ease); }
+.kpi-block:hover { transform: translateX(6px); }
+.kpi-value { transition: color .2s; }
+.kpi-block:hover .kpi-value { color: var(--red); }
+
+/* ━━━━ SECTION INDEX NUMBER GLOW ━━━━ */
+.sec-index {
+  text-shadow: 0 0 20px rgba(230,51,41,.4);
 }
 
-/* ━━━━ PHOTO FRAME ENHANCED ━━━━ */
+/* ━━━━ SCROLLBAR STYLED ━━━━ */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--red), rgba(230,51,41,.3));
+  border-radius: 2px;
+}
+
 .photo-frame{
   transition:box-shadow .35s var(--ease),transform .35s var(--ease);
 }
@@ -926,9 +1001,12 @@ body.no-cursor * { cursor: none !important; }
 }
 .skills-layout .sk-pill,
 .soft-skills-layout .sk-pill-soft{
-  opacity:0;transform:translateY(10px);
   transition:opacity .5s var(--ease),transform .5s var(--ease),
              color .22s,border-color .22s,background .22s;
+}
+.skills-animate .sk-pill,
+.skills-animate .sk-pill-soft{
+  opacity:0;transform:translateY(10px);
 }
 .skills-ready .sk-pill,
 .skills-ready .sk-pill-soft{ opacity:1;transform:none }
@@ -1038,6 +1116,7 @@ footer::before{
   }
   .hero-photo-panel{ justify-content:center }
   .hero-eyebrow{ justify-content:center }
+  .hero-role{ justify-content:center }
   .hero-role::after{ }
   .hero-bio{ max-width:100% }
   .hero-actions{ justify-content:center; justify-items:center; margin:0 auto }
@@ -1093,9 +1172,9 @@ footer::before{
   .ch-handle{font-size:.73rem;word-break:break-word}
   .contact-note{font-size:1rem}
   .btn-red,.btn-outline,.btn-cv{
-    font-size:.82rem;padding:.82rem 1rem;
+    font-size:.78rem;padding:.75rem 1.2rem;
   }
-  .hero-actions{grid-template-columns:1fr;max-width:340px}
+  .hero-actions{grid-template-columns:1fr;width:100%;max-width:280px}
   .kpi-value{font-size:1.7rem}
   .kpi-label{font-size:.76rem}
   .contact-headline{font-size:clamp(1.8rem,7vw,2.6rem)}
@@ -1250,12 +1329,11 @@ footer::before{
       <h2 class="sec-title" data-k="skills.title"></h2>
       <span class="sec-aside" data-k="skills.aside"></span>
     </div>
-    <div class="skills-layout rv">
+    <div class="skills-layout">
       <div class="sk-pill"><span class="sk-dot"></span>Java</div>
+      <div class="sk-pill"><span class="sk-dot"></span>POO</div>
       <div class="sk-pill"><span class="sk-dot"></span>Git · GitHub</div>
-      <div class="sk-pill"><span class="sk-dot"></span>HTML · CSS · JS</div>
       <div class="sk-pill"><span class="sk-dot"></span>Bash · Linux</div>
-
     </div>
 
     <!-- Soft Skills -->
@@ -1441,7 +1519,7 @@ footer::before{
           <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
           <div class="ch-info">
             <div class="ch-platform">Email</div>
-            <div class="ch-handle"><a href="mailto:carlosalfonso070717@gmail.com">carlosalfonso070717@gmail.com</a></div>
+            <div class="ch-handle"><a href="/cdn-cgi/l/email-protection#bddedccfd1d2cedcd1dbd2d3ced28d8a8d8a8c8afddad0dcd4d193ded2d0"><span class="__cf_email__" data-cfemail="c1a2a0b3adaeb2a0ada7aeafb2aef1f6f1f6f0f681a6aca0a8adefa2aeac">[email&#160;protected]</span></a></div>
           </div>
           <span class="ch-arr-email" id="emailArr">→</span>
         </div>
@@ -1460,13 +1538,13 @@ footer::before{
 
 <!-- ━━━━ CONTACT DROPDOWNS (fuera del flujo para evitar overflow clipping) ━━━━ -->
 <div id="emailDrop" class="contact-drop" style="display:none">
-  <a href="mailto:carlosalfonso070717@gmail.com">
+  <a href="/cdn-cgi/l/email-protection#afccceddc3c0dccec3c9c0c1dcc09f989f989e98efc8c2cec6c381ccc0c2">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Personal: carlosalfonso070717@gmail.com</span>
+    <span>Personal: <span class="__cf_email__" data-cfemail="7d1e1c0f11120e1c111b12130e124d4a4d4a4c4a3d1a101c1411531e1210">[email&#160;protected]</span></span>
   </a>
-  <a href="mailto:carlos.llanes@tecdesoftware.edu.mx">
+  <a href="/cdn-cgi/l/email-protection#96f5f7e4faf9e5b8fafaf7f8f3e5d6e2f3f5f2f3e5f9f0e2e1f7e4f3b8f3f2e3b8fbee">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Institucional: carlos.llanes@tecdesoftware.edu.mx</span>
+    <span>Institucional: <span class="__cf_email__" data-cfemail="472426352b2834692b2b26292234073322242322342821333026352269222332692a3f">[email&#160;protected]</span></span>
   </a>
 </div>
 <div id="phoneDrop" class="contact-drop" style="display:none">
@@ -1486,7 +1564,22 @@ footer::before{
 </footer>
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ━━━━ ROLE SUFFIX (emoji + blinking bar) ━━━━
+// Defined first so setLang() can call it
+function injectRoleSuffix() {
+  const el = document.querySelector('.hero-role');
+  if (!el) return;
+  el.querySelectorAll('.role-suffix').forEach(n => n.remove());
+  const wrap = document.createElement('span');
+  wrap.className = 'role-suffix';
+  wrap.style.cssText = 'display:inline-flex;align-items:center;gap:4px;margin-left:6px;';
+  const bar = document.createElement('span');
+  bar.className = 'typed-cursor';
+  wrap.appendChild(bar);
+  el.appendChild(wrap);
+}
+
 const T = {
   es: {
     'nav.about':'Sobre mí','nav.skills':'Habilidades','nav.certs':'Certificados','nav.projects':'Proyectos','nav.contact':'Contacto',
@@ -1581,6 +1674,7 @@ function setLang(l){
     if(el) el.classList.toggle('active',id.toUpperCase().includes(l.toUpperCase()));
   });
   document.documentElement.lang=l;
+  injectRoleSuffix();
 }
 
 document.getElementById('hamBtn').addEventListener('click',()=>{
@@ -1707,7 +1801,7 @@ async function downloadCV(){
 
   // ─── HABILIDADES TÉCNICAS ───
   y = secTitle(lang==='es'?'Habilidades Técnicas':'Technical Skills', y);
-  const tech=['Java','QA / Testing','Git & GitHub','HTML · CSS · JS','Bash · Linux'];
+  const tech=['Java','POO','Git & GitHub','Bash · Linux'];
   let tx=ML+8;
   tech.forEach(s=>{
     if(tx+doc.getTextWidth(s)+12>W-MR){tx=ML+8;y+=7.5;}
@@ -1860,10 +1954,6 @@ document.addEventListener('click', function(e) {
 
 <!-- ━━━━ VISUAL ENHANCEMENTS ━━━━ -->
 <div id="scroll-bar"></div>
-<div class="cursor-glow" id="cursorGlow"></div>
-<div id="cursorDot"></div>
-<div id="cursorRing"></div>
-<canvas id="cursorCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;"></canvas>
 
 <script>
 // Nav scrolled state
@@ -1873,19 +1963,7 @@ window.addEventListener('scroll', () => {
 }, { passive:true });
 
 // Hero role: emoji + vertical red cursor bar
-(function(){
-  const el = document.querySelector('.hero-role');
-  if(!el) return;
-  // Add emoji before the blinking bar
-  const emoji = document.createElement('span');
-  emoji.textContent = ' 💻';
-  emoji.style.cssText = 'font-style:normal;margin-left:2px;';
-  el.appendChild(emoji);
-  // Vertical blinking bar
-  const cursor = document.createElement('span');
-  cursor.className = 'typed-cursor';
-  el.appendChild(cursor);
-})();
+// Must run AFTER setLang populates the text
 
 // Scroll progress bar
 const scrollBar = document.getElementById('scroll-bar');
@@ -1894,125 +1972,27 @@ window.addEventListener('scroll', () => {
   scrollBar.style.width = (p * 100) + '%';
 }, { passive: true });
 
-// ━━━━ CUSTOM CURSOR — canvas + DOM, window-level events ━━━━
-(function() {
-  var canvas = document.getElementById('cursorCanvas');
-  if (!canvas) return;
-  var ctx = canvas.getContext('2d');
 
-  // Size canvas to viewport, handle resize
-  function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
 
-  var mx = null, my = null;   // null = never moved yet
-  var rx = 0,   ry = 0;       // ring position (lerped)
-  var dotW = 10, ringW = 40;  // current sizes (lerped)
-  var hover = false, clicking = false;
-
-  // Trail
-  var trail = [];
-
-  // Listen on WINDOW so it works regardless of what's on top
-  window.addEventListener('mousemove', function(e) {
-    var x = e.clientX, y = e.clientY;
-    if (mx === null) { rx = x; ry = y; }
-    mx = x; my = y;
-    trail.push({ x: x, y: y });
-    if (trail.length > 20) trail.shift();
-
-    // Hide native cursor
-    document.body.classList.add('no-cursor');
-  });
-
-  window.addEventListener('mousedown', function() { clicking = true; });
-  window.addEventListener('mouseup',   function() { clicking = false; });
-
-  // Hover: expand ring on interactive elements
-  var sel = 'a,button,input,select,textarea,[onclick],[role="button"],.sk-pill,.sk-pill-soft,.cert-card,.proj-card,.gallery-item,.ch-row,.btn-red,.btn-outline,.btn-cv,.nav-links a';
-  window.addEventListener('mouseover', function(e) {
-    if (e.target && e.target.closest) {
-      try { hover = !!e.target.closest(sel); } catch(err) { hover = false; }
-    }
-  });
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    if (mx !== null) {
-      // Lerp ring toward mouse
-      rx += (mx - rx) * 0.14;
-      ry += (my - ry) * 0.14;
-
-      // Lerp sizes
-      var tD = clicking ? 4  : hover ? 18 : 10;
-      var tR = clicking ? 16 : hover ? 56 : 38;
-      dotW  += (tD - dotW)  * 0.22;
-      ringW += (tR - ringW) * 0.16;
-
-      // — Trail —
-      for (var i = 0; i < trail.length; i++) {
-        var t = trail[i];
-        var prog  = i / trail.length;
-        var alpha = prog * 0.28;
-        var rad   = prog * 5 + 1;
-        ctx.beginPath();
-        ctx.arc(t.x, t.y, rad, 0, 6.2832);
-        ctx.fillStyle = 'rgba(230,51,41,' + alpha + ')';
-        ctx.fill();
-      }
-
-      // — Ring —
-      ctx.beginPath();
-      ctx.arc(rx, ry, ringW / 2, 0, 6.2832);
-      ctx.strokeStyle = hover
-        ? 'rgba(230,51,41,0.55)'
-        : clicking
-          ? 'rgba(230,51,41,1)'
-          : 'rgba(230,51,41,0.85)';
-      ctx.lineWidth = clicking ? 2.5 : 1.5;
-      ctx.stroke();
-
-      // — Dot glow —
-      var g = ctx.createRadialGradient(mx, my, 0, mx, my, dotW * 3);
-      g.addColorStop(0, 'rgba(230,51,41,0.4)');
-      g.addColorStop(1, 'rgba(230,51,41,0)');
-      ctx.beginPath();
-      ctx.arc(mx, my, dotW * 3, 0, 6.2832);
-      ctx.fillStyle = g;
-      ctx.fill();
-
-      // — Dot —
-      ctx.beginPath();
-      ctx.arc(mx, my, dotW / 2, 0, 6.2832);
-      ctx.fillStyle = clicking ? '#ffffff' : '#e63329';
-      ctx.fill();
-    }
-
-    requestAnimationFrame(draw);
-  }
-
-  requestAnimationFrame(draw);
-})();
 
 // Skill pills stagger al entrar en viewport
 const skillsObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting){
       const container = e.target;
-      container.classList.add('skills-ready');
       const pills = container.querySelectorAll('.sk-pill, .sk-pill-soft');
       pills.forEach((p, i) => {
         p.style.transitionDelay = (i * 0.055) + 's';
       });
+      container.classList.add('skills-ready');
       skillsObs.unobserve(container);
     }
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.skills-layout, .soft-skills-layout').forEach(el => skillsObs.observe(el));
+}, { threshold: 0.05 });
+document.querySelectorAll('.skills-layout, .soft-skills-layout').forEach(el => {
+  el.classList.add('skills-animate');
+  skillsObs.observe(el);
+});
 
 // Section header animated underline
 const headerObs = new IntersectionObserver(entries => {
@@ -2022,6 +2002,10 @@ const headerObs = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.section-header').forEach(el => headerObs.observe(el));
 
-// Reposition on scroll/resize
-window.addEventListener('scroll', function() {
-  if (!_openDrop || !_openRow
+// Scroll-reveal for .rv elements
+const rvObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); rvObs.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').fo
