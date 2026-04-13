@@ -1326,7 +1326,7 @@ footer::before{
           <div class="kpi-label" data-k="kpi.ieee"></div>
         </div>
         <div class="kpi-block">
-          <div class="kpi-value" data-k="kpi.open.v"></div>
+          <div class="kpi-value" id="kpiOpenV">Abierto<em>.</em></div>
           <div class="kpi-label" data-k="kpi.open.l"></div>
         </div>
       </div>
@@ -1532,7 +1532,7 @@ footer::before{
           <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
           <div class="ch-info">
             <div class="ch-platform">Email</div>
-            <div class="ch-handle"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef8c8e9d83809cc183838e818a9cdfd8dfd8ded8af88828e8683c18c8082">[email&#160;protected]</a></div>
+            <div class="ch-handle">carlosalfonso070717@gmail.com</div>
           </div>
           <span class="ch-arr-email" id="emailArr">→</span>
         </div>
@@ -1551,13 +1551,13 @@ footer::before{
 
 <!-- ━━━━ CONTACT DROPDOWNS (fuera del flujo para evitar overflow clipping) ━━━━ -->
 <div id="emailDrop" class="contact-drop" style="display:none">
-  <a href="/cdn-cgi/l/email-protection#fa999b88969589d496969b949f89cacdcacdcbcdba9d979b9396d4999597">
+  <a href="mailto:carlosalfonso070717@gmail.com">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Personal: <span class="__cf_email__" data-cfemail="80e3e1f2eceff3aeecece1eee5f3b0b7b0b7b1b7c0e7ede1e9ecaee3efed">[email&#160;protected]</span></span>
+    <span>Personal: carlosalfonso070717@gmail.com</span>
   </a>
-  <a href="/cdn-cgi/l/email-protection#c4a7a5b6a8abb7eaa8a8a5aaa1b784b0a1a7a0a1b7aba2b0b3a5b6a1eaa1a0b1eaa9bc">
+  <a href="mailto:carlos.llanes@tecdesoftware.edu.mx">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>Institucional: <span class="__cf_email__" data-cfemail="7a191b081615095416161b141f093a0e1f191e1f09151c0e0d1b081f541f1e0f541702">[email&#160;protected]</span></span>
+    <span>Institucional: carlos.llanes@tecdesoftware.edu.mx</span>
   </a>
 </div>
 <div id="phoneDrop" class="contact-drop" style="display:none">
@@ -1577,7 +1577,7 @@ footer::before{
 </footer>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ━━━━ ROLE SUFFIX (emoji + blinking bar) ━━━━
 // Defined first so setLang() can call it
 function injectRoleSuffix() {
@@ -1682,6 +1682,9 @@ function setLang(l){
     if(htmlKeys.includes(el.dataset.k)) el.innerHTML=v;
     else el.textContent=v;
   });
+  // Update kpiOpenV keeping the red dot
+  const kpiOpenV = document.getElementById('kpiOpenV');
+  if(kpiOpenV) kpiOpenV.innerHTML = (l==='es'?'Abierto':'Open') + '<em>.</em>';
   ['btnES','btnEN','dBtnES','dBtnEN'].forEach(id=>{
     const el=document.getElementById(id);
     if(el) el.classList.toggle('active',id.toUpperCase().includes(l.toUpperCase()));
