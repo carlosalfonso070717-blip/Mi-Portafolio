@@ -1465,13 +1465,17 @@ footer::before{
           <div class="proj-tags"><span class="p-tag">Frontend</span></div>
         </div>
       </div>
-      <div class="proj-card dim rv d3" style="grid-column:1/-1">
+      <div class="proj-card rv d3" style="grid-column:1/-1">
         <div class="proj-header">
           <span class="proj-num">P·03</span>
-          <span class="proj-tech" data-k="proj.soon"></span>
+          <span class="proj-tech">Java · OOP</span>
         </div>
         <div class="proj-title" data-k="p3.name"></div>
         <p class="proj-desc"  data-k="p3.desc"></p>
+        <div class="proj-foot">
+          <a class="proj-cta" href="https://github.com/carlosalfonso070717-blip/Proyecto-de-Casino-en-POO-con-Java.git" target="_blank" data-k="proj.cta"></a>
+          <div class="proj-tags"><span class="p-tag">OOP</span><span class="p-tag">·</span><span class="p-tag">Java</span><span class="p-tag">·</span><span class="p-tag">GitHub</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1601,7 +1605,7 @@ const T = {
     'proj.title':'Proyectos','proj.aside':'Trabajo académico y personal','proj.cta':'Ver en GitHub →','proj.soon':'Próximamente',
     'p1.name':'Trabajo con Java','p1.desc':'Colección de proyectos y ejercicios aplicando POO, estructuras de datos, algoritmos y buenas prácticas de programación en Java.',
     'p2.name':'Portafolio de Evidencias','p2.desc':'Evidencias de proyectos frontend desarrollados con HTML, CSS y JavaScript como parte de mi formación académica.',
-    'p3.name':'Próximo proyecto','p3.desc':'En desarrollo. Siempre construyendo algo nuevo.',
+    'p3.name':'Sistema de Casino','p3.desc':'Sistema desarrollado en POO con Java que administra jugadores, empleados y juegos de casino. Proyecto académico aplicando principios de diseño orientado a objetos.',
     'contact.title':'Contacto','contact.headline':'¿Tienes una oportunidad o un proyecto?',
     'contact.note':'Estoy disponible para prácticas profesionales, proyectos de colaboración y cualquier oportunidad de aprendizaje en desarrollo de software. No dudes en escribirme.',
     'footer.top':'↑ Volver arriba',
@@ -1634,7 +1638,7 @@ const T = {
     'proj.title':'Projects','proj.aside':'Academic & personal work','proj.cta':'View on GitHub →','proj.soon':'Coming soon',
     'p1.name':'Java Projects','p1.desc':'Collection of projects and exercises applying OOP, data structures, algorithms, and programming best practices in Java.',
     'p2.name':'Evidence Portfolio','p2.desc':'Frontend project evidence developed with HTML, CSS, and JavaScript as part of my academic training.',
-    'p3.name':'Next project','p3.desc':'In development. Always building something new.',
+    'p3.name':'Casino System','p3.desc':'OOP-based Java system that manages players, employees, and casino games. Academic project applying object-oriented design principles.',
     'contact.title':'Contact','contact.headline':'Have an opportunity or a project?',
     'contact.note':'Available for internships, collaborations, and learning opportunities in software development. Feel free to reach out.',
     'footer.top':'↑ Back to top',
@@ -1854,7 +1858,10 @@ async function downloadCV(){
      link:'github.com/carlosalfonso070717-blip'},
     {name:lang==='es'?'Portafolio de Evidencias':'Evidence Portfolio',tech:'HTML · CSS · JS',
      desc:lang==='es'?'Evidencias de proyectos frontend desarrollados con HTML, CSS y JavaScript como parte de la formación académica.':'Frontend project evidence developed with HTML, CSS, and JavaScript as part of academic training.',
-     link:'github.com/carlosalfonso070717-blip'}
+     link:'github.com/carlosalfonso070717-blip/Portafolio-de-Evidencias'},
+    {name:lang==='es'?'Sistema de Casino':'Casino System',tech:'Java · OOP',
+     desc:lang==='es'?'Sistema desarrollado en POO con Java que administra jugadores, empleados y juegos de casino. Proyecto académico aplicando principios de diseño orientado a objetos.':'OOP-based Java system that manages players, employees, and casino games. Academic project applying object-oriented design principles.',
+     link:'github.com/carlosalfonso070717-blip/Proyecto-de-Casino-en-POO-con-Java'}
   ];
   projs.forEach(p=>{
     doc.setFont('helvetica','bold'); doc.setFontSize(9.5); doc.setTextColor(...BLACK);
