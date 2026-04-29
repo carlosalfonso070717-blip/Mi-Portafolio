@@ -30,9 +30,9 @@
    BLACK + RED accent. Raw, bold, developer aesthetic.
 ━━━━━━━━━━━━━━━━━━━━━━━━ */
 :root {
-  --bg:      #0a0a0a;
-  --bg2:     #111111;
-  --bg3:     #181818;
+  --bg:      #141414;
+  --bg2:     #1e1e1e;
+  --bg3:     #272727;
   --red:     #e63329;
   --red-dim: rgba(230,51,41,.12);
   --red-rule:rgba(230,51,41,.35);
@@ -56,14 +56,12 @@
   --fg3:     #bbb8b2;
   --rule:    rgba(0,0,0,.08);
   --rule2:   rgba(0,0,0,.15);
-  color-scheme:light;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{
   scroll-behavior:smooth;
   background:var(--bg);
-  color-scheme:dark;
 }
 body{
   background:var(--bg);
@@ -1674,8 +1672,16 @@ const T = {
   }
 };
 
-const DARK_VARS  = {'--bg':'#0a0a0a','--bg2':'#111111','--bg3':'#181818','--fg':'#f0ede8','--fg2':'#c0bbb4','--fg3':'#888580','--rule':'rgba(255,255,255,.07)','--rule2':'rgba(255,255,255,.13)'};
+const DARK_VARS  = {'--bg':'#141414','--bg2':'#1e1e1e','--bg3':'#272727','--fg':'#f0ede8','--fg2':'#c0bbb4','--fg3':'#888580','--rule':'rgba(255,255,255,.07)','--rule2':'rgba(255,255,255,.13)'};
 const LIGHT_VARS = {'--bg':'#f5f3ef','--bg2':'#ffffff','--bg3':'#ede9e2','--fg':'#141210','--fg2':'#5a5754','--fg3':'#bbb8b2','--rule':'rgba(0,0,0,.08)','--rule2':'rgba(0,0,0,.15)'};
+function applyBg(isDark){
+  const bg = isDark ? '#141414' : '#f5f3ef';
+  document.documentElement.style.setProperty('background','',  '');
+  document.documentElement.style.background = bg;
+  document.body.style.background = bg;
+  const tc = document.getElementById('themeColor');
+  if(tc) tc.setAttribute('content', bg);
+}
 let dark=true;
 function toggleTheme(){
   dark=!dark;
@@ -1684,11 +1690,11 @@ function toggleTheme(){
     document.documentElement.style.setProperty(k, v);
   }
   document.documentElement.setAttribute('data-theme', dark?'dark':'light');
+  applyBg(dark);
   document.getElementById('iconMoon').style.display = dark?'block':'none';
   document.getElementById('iconSun').style.display  = dark?'none':'block';
-  const tc = document.getElementById('themeColor');
-  if(tc) tc.setAttribute('content', dark?'#0a0a0a':'#f5f3ef');
 }
+applyBg(true);
 
 let lang='es';
 function setLang(l){
