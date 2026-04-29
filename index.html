@@ -63,7 +63,7 @@ body{
   background:var(--bg);
   color:var(--fg);
   font-family:var(--sans);
-  font-size:21px;
+  font-size:27px;
   line-height:1.75;
   overflow-x:hidden;
   transition:background .3s,color .3s;
@@ -303,7 +303,7 @@ nav.scrolled{
   margin-bottom:1.6rem;
   display:flex;align-items:center;gap:.7rem;
 }
-.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--red)}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1px;background:var(--red)}
 
 .hero-name{
   font-family:var(--display);
@@ -1238,6 +1238,9 @@ footer::before{
   overflow-wrap: anywhere;/* asegura que nunca se corte */
 }
 
+/* ━━━━ CUSTOM CURSOR ━━━━ */
+* { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2 L4 16 L7.5 12.5 L10.5 18 L13 17 L10 11.5 L15 11.5 Z' fill='%23e63329' stroke='%23000' stroke-width='0.8'/%3E%3C/svg%3E") 4 2, auto !important; }
+
 </style>
 </head>
 <body>
@@ -1345,6 +1348,7 @@ footer::before{
     <div class="skills-layout">
       <div class="sk-pill"><span class="sk-dot"></span>Java</div>
       <div class="sk-pill"><span class="sk-dot"></span>POO</div>
+      <div class="sk-pill"><span class="sk-dot"></span>Python · <span data-k="sk.python.level"></span></div>
       <div class="sk-pill"><span class="sk-dot"></span>Git · GitHub</div>
       <div class="sk-pill"><span class="sk-dot"></span>Bash · Linux</div>
     </div>
@@ -1416,6 +1420,18 @@ footer::before{
           <p class="cert-desc" data-k="cert4.desc"></p>
         </div>
         <a class="cert-link" href="https://platzi.com/p/carlosalfonso070717/curso/4656-backend/diploma/detalle/" target="_blank" data-k="cert.see"></a>
+      </div>
+      <div class="cert-row rv d5">
+        <div class="cert-num">C·05</div>
+        <div class="cert-body">
+          <div class="cert-name" data-k="cert.python.title"></div>
+          <div class="cert-meta">
+            <span class="cert-issuer" data-k="cert.python.issuer"></span>
+            <span class="cert-status" data-k="cert.python.status"></span>
+          </div>
+          <p class="cert-desc" data-k="cert.python.desc"></p>
+        </div>
+        <a href="https://www.hackerrank.com/certificates/iframe/615dd8f1105f" target="_blank" class="cert-link" data-k="cert.see"></a>
       </div>
      <div class="cert-row rv d3">
     <div class="cert-num">C·03</div>
@@ -1592,6 +1608,7 @@ const T = {
     'kpi.lang':'Lenguaje principal','kpi.ieee':'Miembro activo','kpi.qa':'Testing & calidad','kpi.open.v':'Abierto','kpi.open.l':'A colaborar',
     'skills.title':'Habilidades técnicas','skills.aside':'Stack en formación constante',
     'sk.ps.n':'Resolución de problemas',
+    'sk.python.level':'Básico',
     'soft.label':'Habilidades blandas','soft.aside':'Competencias interpersonales',
     'soft.s1':'Resolución de problemas','soft.s2':'Pensamiento analítico',
     'soft.s3':'Adaptabilidad','soft.s4':'Comunicación efectiva',
@@ -1601,6 +1618,7 @@ const T = {
     'cert2.name':'Miembro IEEE','cert2.desc':'Miembro activo del IEEE, organización líder en el avance de la tecnología y la ingeniería a nivel global.',
     'cert3.name':'Data Structures and Algorithms in Python','cert3.desc':'Estructuras de datos y algoritmos en Python: listas, pilas, colas, árboles y técnicas de ordenamiento. Completado en Feb 22, 2026.',
     'cert4.name':'Introducción al Desarrollo Backend','cert4.desc':'Fundamentos del desarrollo backend: protocolos, servidores, bases de datos y arquitectura de aplicaciones web. Emitido por Platzi.',
+    'cert.python.title':'Python (Básico)','cert.python.issuer':'HackerRank','cert.python.status':'Verificado','cert.python.desc':'Certificación de habilidades en Python: tipos de datos, control de flujo, funciones y manejo de excepciones. Emitido por HackerRank.',
     'cert.verified':'Verificado','cert.active':'Activo','cert.see':'Ver certificado →','cert.member':'✓ Miembro activo',
     'proj.title':'Proyectos','proj.aside':'Trabajo académico y personal','proj.cta':'Ver en GitHub →','proj.soon':'Próximamente',
     'p1.name':'Trabajo con Java','p1.desc':'Colección de proyectos y ejercicios aplicando POO, estructuras de datos, algoritmos y buenas prácticas de programación en Java.',
@@ -1625,6 +1643,7 @@ const T = {
     'kpi.lang':'Primary language','kpi.ieee':'Active member','kpi.qa':'Testing & quality','kpi.open.v':'Open','kpi.open.l':'To collaborate',
     'skills.title':'Technical Skills','skills.aside':'Stack under constant growth',
     'sk.ps.n':'Problem Solving',
+    'sk.python.level':'Basic',
     'soft.label':'Soft Skills','soft.aside':'Interpersonal competencies',
     'soft.s1':'Problem Solving','soft.s2':'Analytical Thinking',
     'soft.s3':'Adaptability','soft.s4':'Effective Communication',
@@ -1634,6 +1653,7 @@ const T = {
     'cert2.name':'IEEE Member','cert2.desc':'Active member of the IEEE, the world\'s leading organization for advancing technology and engineering.',
     'cert3.name':'Data Structures and Algorithms in Python','cert3.desc':'Data structures and algorithms in Python: lists, stacks, queues, trees, and sorting techniques. Completed Feb 22, 2026.',
     'cert4.name':'Introduction to Backend Development','cert4.desc':'Backend development fundamentals: protocols, servers, databases and web application architecture. Issued by Platzi.',
+    'cert.python.title':'Python (Basic)','cert.python.issuer':'HackerRank','cert.python.status':'Verified','cert.python.desc':'Python skills certification: data types, control flow, functions, and exception handling. Issued by HackerRank.',
     'cert.verified':'Verified','cert.active':'Active','cert.see':'View certificate →','cert.member':'✓ Active member',
     'proj.title':'Projects','proj.aside':'Academic & personal work','proj.cta':'View on GitHub →','proj.soon':'Coming soon',
     'p1.name':'Java Projects','p1.desc':'Collection of projects and exercises applying OOP, data structures, algorithms, and programming best practices in Java.',
@@ -1731,158 +1751,204 @@ async function downloadCV(){
 
   const {jsPDF} = window.jspdf;
   const doc = new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-  const W=210, H=297, ML=18, MR=18;
-  let y=18;
+  const W=210, H=297;
+  const SIDE=62, HDR=48, FTR=11;
+  const CX=SIDE+5;               // content column start x
+  const CW=W-CX-8;               // content column width  (~135mm)
+  const SML=7;                   // sidebar left margin
+  const SAFE=H-FTR-5;            // ~281mm
 
-  const RED=[230,51,41], BLACK=[10,10,10], GRAY=[95,95,95];
-  const LGRAY=[215,215,215], WHITE=[255,255,255], OFFWHITE=[250,249,247];
 
-  // Fondo
-  doc.setFillColor(...OFFWHITE); doc.rect(0,0,W,H,'F');
-  // Barra izquierda roja
-  doc.setFillColor(...RED); doc.rect(0,0,5,H,'F');
-  // Header negro
-  doc.setFillColor(...BLACK); doc.rect(5,0,W-5,46,'F');
+  const RED=[230,51,41], BLACK=[18,18,18], GRAY=[88,88,88];
+  const LGRAY=[200,200,200], WHITE=[255,255,255], OFFWHITE=[248,247,244];
+  const DARK=[22,22,30];
+  let ly=0, ry=0;
 
-  // Nombre
-  doc.setFont('helvetica','bold'); doc.setFontSize(27); doc.setTextColor(...WHITE);
-  doc.text('CARLOS LLANES', ML+4, 17);
-  // Línea roja
+  function drawStructure(){
+    doc.setFillColor(...OFFWHITE); doc.rect(0,0,W,H,"F");
+    doc.setFillColor(...DARK);    doc.rect(0,0,SIDE,H,"F");
+    doc.setFillColor(...RED);     doc.rect(SIDE,0,4,H,"F");
+  }
+  function newPage(){ doc.addPage(); drawStructure(); ry=14; }
+  function checkR(n){ if(ry+n>SAFE) newPage(); }
+
+  // PAGINA 1
+  drawStructure();
+
+  // HEADER (toda la anchura, fondo oscuro sin barra roja encima)
+  doc.setFillColor(12,12,18); doc.rect(0,0,W,HDR,"F");
+  doc.setFillColor(...RED);   doc.rect(0,HDR-2,W,2,"F");
+  // La barra roja del sidebar NO se redibuja en el header -> sin solapamiento
+
+  // Nombre (izquierda)
+  doc.setFont("helvetica","bold"); doc.setFontSize(27); doc.setTextColor(...WHITE);
+  doc.text("CARLOS LLANES", SML+1, 16);
   doc.setDrawColor(...RED); doc.setLineWidth(0.8);
-  doc.line(ML+4, 20.5, ML+68, 20.5);
-  // Rol
-  doc.setFont('helvetica','normal'); doc.setFontSize(7.8); doc.setTextColor(185,185,185);
-  const roleText = lang==='es'?'ESTUDIANTE EN DESARROLLO DE SOFTWARE':'STUDENT IN SOFTWARE DEVELOPMENT';
-  doc.text(roleText, ML+4, 27);
-  // Contacto header
-  doc.setFontSize(7.5); doc.setTextColor(155,155,155);
-  doc.text('carlos.llanes@tecdesoftware.edu.mx', ML+4, 39);
-  doc.text('github.com/carlosalfonso070717-blip', 108, 34);
-  doc.text('Mérida, Yucatán, México', 108, 39);
+  doc.line(SML+1, 20.5, 84, 20.5);
+  doc.setFont("helvetica","normal"); doc.setFontSize(8); doc.setTextColor(140,140,150);
+  doc.text("Carlos Alfonso Llanes Rodríguez", SML+1, 27);
+  doc.setFont("helvetica","bold"); doc.setFontSize(7.5); doc.setTextColor(155,155,170);
+  const roleText=lang==="es"?"ESTUDIANTE  ·  DESARROLLO DE SOFTWARE":"STUDENT  ·  SOFTWARE DEVELOPMENT";
+  doc.text(roleText, SML+1, 34);
 
-  y = 56;
+  // Contacto (columna derecha del header, x=110 para dar espacio al nombre)
+  const CRX=110; // x inicio de columna de contacto
+  doc.setFont("helvetica","bold"); doc.setFontSize(8.5); doc.setTextColor(200,90,80);
+  doc.text(lang==="es"?"CONTACTO":"CONTACT", CRX, 13);
+  doc.setDrawColor(200,70,60); doc.setLineWidth(0.2);
+  doc.line(CRX, 14.5, CRX+38, 14.5);
+  doc.setFont("helvetica","normal"); doc.setFontSize(8.5); doc.setTextColor(145,145,160);
+  // Correo personal
+  doc.setFont("helvetica","bold"); doc.setFontSize(7.5); doc.setTextColor(170,90,80);
+  doc.text(lang==="es"?"Personal:":"Personal:", CRX+3.5, 20);
+  doc.setFont("helvetica","normal"); doc.setFontSize(8.5); doc.setTextColor(145,145,160);
+  doc.text("carlosalfonso070717@gmail.com", CRX+3.5, 26);
+  // Correo institucional
+  doc.setFont("helvetica","bold"); doc.setFontSize(7.5); doc.setTextColor(170,90,80);
+  doc.text(lang==="es"?"Institucional:":"Institutional:", CRX+3.5, 33);
+  doc.setFont("helvetica","normal"); doc.setFontSize(8.5); doc.setTextColor(145,145,160);
+  doc.text("carlos.llanes@tecdesoftware.edu.mx", CRX+3.5, 39);
+  // Puntos rojos de acento
+  doc.setFillColor(...RED);
+  doc.circle(CRX+1, 25.5, 1, "F");
+  doc.circle(CRX+1, 38.5, 1, "F");
 
-  // ─── Helpers ───
-  function secTitle(title, yp){
-    doc.setFillColor(...RED); doc.rect(ML, yp-4.8, 3.5, 6.5,'F');
-    doc.setFont('helvetica','bold'); doc.setFontSize(10.5); doc.setTextColor(...BLACK);
-    doc.text(title.toUpperCase(), ML+8, yp);
+  ly=HDR+11; ry=HDR+11;
+
+  // TITULO SIDEBAR
+  function sideTitle(t){
+    doc.setFillColor(...RED); doc.rect(SML-2, ly-5, 2.5, 6.5,"F");
+    doc.setFont("helvetica","bold"); doc.setFontSize(10.5); doc.setTextColor(...WHITE);
+    doc.text(t.toUpperCase(), SML+3, ly);
+    doc.setDrawColor(48,48,60); doc.setLineWidth(0.25);
+    doc.line(SML+3, ly+2, SIDE-4, ly+2);
+    ly+=10;
+  }
+
+  // HABILIDADES TECNICAS
+  sideTitle(lang==="es"?"Hab. Técnicas":"Tech Skills");
+  ["Java","POO",lang==="es"?"Python (Básico)":"Python (Basic)","Git & GitHub","Bash / Linux"]
+  .forEach(s=>{
+    doc.setFillColor(...RED); doc.rect(SML, ly-3.5, 2, 5.5,"F");
+    doc.setFont("helvetica","normal"); doc.setFontSize(10.5); doc.setTextColor(215,215,225);
+    doc.text(s, SML+5, ly);
+    ly+=7.5;
+  });
+  ly+=5;
+
+  // HABILIDADES BLANDAS
+  sideTitle(lang==="es"?"Hab. Blandas":"Soft Skills");
+  (lang==="es"
+    ?["Resolución de problemas","Pensamiento analítico","Adaptabilidad","Trabajo en equipo","Comunicación efectiva","Liderazgo"]
+    :["Problem Solving","Analytical Thinking","Adaptability","Teamwork","Effective Communication","Leadership"]
+  ).forEach(s=>{
+    doc.setFillColor(...RED); doc.circle(SML+2, ly-2, 1.3,"F");
+    doc.setFont("helvetica","normal"); doc.setFontSize(10); doc.setTextColor(200,200,212);
+    doc.text(s, SML+6, ly);
+    ly+=7.5;
+  });
+  ly+=5;
+
+  // IDIOMAS
+  sideTitle(lang==="es"?"Idiomas":"Languages");
+  [{n:lang==="es"?"Español":"Spanish",lv:lang==="es"?"Nativo":"Native"},{n:"Inglés / English",lv:"A1"}]
+  .forEach(i=>{
+    doc.setFont("helvetica","bold");   doc.setFontSize(10.5); doc.setTextColor(...WHITE);
+    doc.text(i.n, SML+3, ly);
+    doc.setFont("helvetica","normal"); doc.setFontSize(9);    doc.setTextColor(120,120,135);
+    doc.text(i.lv, SML+3, ly+5.5);
+    ly+=13;
+  });
+
+  // TITULO CONTENIDO
+  function contTitle(t){
+    checkR(16);
+    doc.setFillColor(...RED); doc.rect(CX, ry-5, 3, 7,"F");
+    doc.setFont("helvetica","bold"); doc.setFontSize(13); doc.setTextColor(...BLACK);
+    doc.text(t.toUpperCase(), CX+7, ry);
     doc.setDrawColor(...LGRAY); doc.setLineWidth(0.25);
-    doc.line(ML+8, yp+2, W-MR, yp+2);
-    return yp+10;
+    doc.line(CX+7, ry+2.5, W-6, ry+2.5);
+    ry+=13;
   }
 
-  function pill(text, px, py, filled){
-    doc.setFont('helvetica','normal'); doc.setFontSize(7);
-    const tw=doc.getTextWidth(text), pad=2.8;
-    if(filled){
-      doc.setFillColor(...RED);
-      doc.roundedRect(px, py-3.5, tw+pad*2, 5.2, 1.2, 1.2,'F');
-      doc.setTextColor(...WHITE);
-    } else {
-      doc.setDrawColor(...LGRAY); doc.setLineWidth(0.3);
-      doc.roundedRect(px, py-3.5, tw+pad*2, 5.2, 1.2, 1.2,'S');
-      doc.setTextColor(...GRAY);
-    }
-    doc.text(text, px+pad, py);
-    return px+tw+pad*2+2.5;
-  }
+  // SOBRE MI
+  contTitle(lang==="es"?"Sobre Mí":"About Me");
+  doc.setFont("helvetica","normal"); doc.setFontSize(11); doc.setTextColor(...GRAY);
+  const bio=lang==="es"
+    ?"Estudiante de Desarrollo de Software enfocado en código limpio y buenas prácticas. Profundizo en Java, POO y control de versiones, preparándome para aportar valor en mi primera experiencia profesional."
+    :"Software Development student focused on clean code and best practices. Deepening expertise in Java, OOP and version control, ready to contribute in my first professional role.";
+  const bioL=doc.splitTextToSize(bio, CW);
+  checkR(bioL.length*6+12);
+  doc.text(bioL, CX+7, ry);
+  ry+=bioL.length*6+12;
 
-  // ─── SOBRE MÍ ───
-  y = secTitle(lang==='es'?'Sobre Mí':'About Me', y);
-  doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(...GRAY);
-  const bioText = lang==='es'
-    ?'Estudiante de Desarrollo de Software apasionado por construir código limpio, aprender buenas prácticas y contribuir a equipos técnicos. Actualmente profundizo en Java, pruebas de software y control de versiones, preparándome con disciplina para mi primera experiencia profesional en el sector.'
-    :'Software Development student passionate about building quality software and learning from every project. Deepening knowledge in Java, software testing and version control — preparing for a first professional opportunity where I can contribute, grow, and develop solutions that matter.';
-  const bioLines = doc.splitTextToSize(bioText, W-ML-MR-10);
-  doc.text(bioLines, ML+8, y);
-  y += bioLines.length*5.2+8;
-
-  // ─── HABILIDADES TÉCNICAS ───
-  y = secTitle(lang==='es'?'Habilidades Técnicas':'Technical Skills', y);
-  const tech=['Java','POO','Git & GitHub','Bash · Linux'];
-  let tx=ML+8;
-  tech.forEach(s=>{
-    if(tx+doc.getTextWidth(s)+12>W-MR){tx=ML+8;y+=7.5;}
-    tx=pill(s,tx,y,false);
-  });
-  y+=10;
-
-  doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(...BLACK);
-  doc.text(lang==='es'?'Habilidades Blandas':'Soft Skills', ML+8, y); y+=5.5;
-  const soft=lang==='es'
-    ?['Resolución de problemas','Pensamiento analítico','Adaptabilidad','Comunicación efectiva','Empatía','Trabajo en equipo','Liderazgo']
-    :['Problem Solving','Analytical Thinking','Adaptability','Effective Communication','Empathy','Teamwork','Leadership'];
-  let sx=ML+8;
-  soft.forEach(s=>{
-    if(sx+doc.getTextWidth(s)+12>W-MR){sx=ML+8;y+=7.5;}
-    sx=pill(s,sx,y,false);
-  });
-  y+=10;
-
-  // ─── CERTIFICADOS ───
-  y = secTitle(lang==='es'?'Certificados':'Certificates', y);
+  // CERTIFICADOS
+  contTitle(lang==="es"?"Certificados":"Certificates");
   const certs=[
-    {name:lang==='es'?'Java (Básico)':'Java (Basic)',issuer:'Platzi',
-     desc:lang==='es'?'Fundamentos de POO, estructuras de control, colecciones y buenas prácticas en Java.':'OOP fundamentals, control structures, collections and best practices in Java.',
-     badge:lang==='es'?'VERIFICADO':'VERIFIED'},
-    {name:lang==='es'?'Miembro IEEE':'IEEE Member',issuer:'IEEE',
-     desc:lang==='es'?'Miembro activo del IEEE, organización líder en el avance de la tecnología e ingeniería a nivel global.':'Active member of the IEEE, the world\'s leading organization for advancing technology.',
-     badge:lang==='es'?'ACTIVO':'ACTIVE'},
-    {name:lang==='es'?'Data Structures and Algorithms in Python':'Data Structures and Algorithms in Python',issuer:'DataCamp',
-     desc:lang==='es'?'Estructuras de datos y algoritmos en Python: listas, pilas, colas, árboles y técnicas de ordenamiento. Feb 2026.':'Data structures and algorithms in Python: lists, stacks, queues, trees and sorting. Feb 2026.',
-     badge:lang==='es'?'VERIFICADO':'VERIFIED'},
-    {name:lang==='es'?'Introducción al Desarrollo Backend':'Introduction to Backend Development',issuer:'Platzi',
-     desc:lang==='es'?'Fundamentos del desarrollo backend: protocolos, servidores, bases de datos y arquitectura de aplicaciones web.':'Backend development fundamentals: protocols, servers, databases and web application architecture.',
-     badge:lang==='es'?'VERIFICADO':'VERIFIED'}
+    {name:lang==="es"?"Java (Básico)":"Java (Basic)",issuer:"Platzi",badge:lang==="es"?"VERIFICADO":"VERIFIED"},
+    {name:lang==="es"?"Python (Básico)":"Python (Basic)",issuer:"HackerRank",badge:lang==="es"?"VERIFICADO":"VERIFIED"},
+    {name:"Data Structures & Algorithms in Python",issuer:"DataCamp",badge:lang==="es"?"VERIFICADO":"VERIFIED"},
+    {name:lang==="es"?"Introducción al Backend":"Intro to Backend Dev",issuer:"Platzi",badge:lang==="es"?"VERIFICADO":"VERIFIED"},
+    {name:lang==="es"?"Miembro IEEE":"IEEE Member",issuer:"IEEE",badge:lang==="es"?"ACTIVO":"ACTIVE"},
   ];
   certs.forEach(c=>{
-    doc.setFillColor(...RED); doc.circle(ML+8, y-1.2, 1.8,'F');
-    doc.setFont('helvetica','bold'); doc.setFontSize(9.5); doc.setTextColor(...BLACK);
-    doc.text(c.name, ML+13, y);
-    const bw = doc.getTextWidth(c.badge)+7;
-    pill(c.badge, W-MR-bw, y, true);
-    y+=5;
-    doc.setFont('helvetica','italic'); doc.setFontSize(7.8); doc.setTextColor(...GRAY);
-    doc.text(c.issuer, ML+13, y); y+=4.5;
-    doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(...GRAY);
-    const dl=doc.splitTextToSize(c.desc, W-ML-MR-16);
-    doc.text(dl, ML+13, y); y+=dl.length*4.8+6;
+    checkR(14);
+    doc.setFillColor(...RED); doc.rect(CX+3, ry-4.5, 2.5, 6,"F");
+    doc.setFont("helvetica","bold"); doc.setFontSize(8.5);
+    const bw=doc.getTextWidth(c.badge)+7;
+    doc.setFillColor(...RED);
+    doc.roundedRect(W-6-bw, ry-5, bw, 6.2, 1.2,1.2,"F");
+    doc.setTextColor(...WHITE);
+    doc.text(c.badge, W-6-bw+3.5, ry);
+    doc.setFont("helvetica","bold"); doc.setFontSize(12); doc.setTextColor(...BLACK);
+    doc.text(c.name, CX+9, ry);
+    ry+=6;
+    doc.setFont("helvetica","italic"); doc.setFontSize(9.5); doc.setTextColor(...GRAY);
+    doc.text(c.issuer, CX+9, ry);
+    ry+=9;
   });
+  ry+=2;
 
-  // ─── PROYECTOS ───
-  y = secTitle(lang==='es'?'Proyectos':'Projects', y);
+  // PROYECTOS
+  contTitle(lang==="es"?"Proyectos":"Projects");
   const projs=[
-    {name:lang==='es'?'Trabajo con Java':'Java Projects',tech:'Java',
-     desc:lang==='es'?'Colección de proyectos aplicando POO, estructuras de datos, algoritmos y buenas prácticas de programación en Java.':'Collection of projects applying OOP, data structures, algorithms and best practices in Java.',
-     link:'github.com/carlosalfonso070717-blip'},
-    {name:lang==='es'?'Portafolio de Evidencias':'Evidence Portfolio',tech:'HTML · CSS · JS',
-     desc:lang==='es'?'Evidencias de proyectos frontend desarrollados con HTML, CSS y JavaScript como parte de la formación académica.':'Frontend project evidence developed with HTML, CSS, and JavaScript as part of academic training.',
-     link:'github.com/carlosalfonso070717-blip/Portafolio-de-Evidencias'},
-    {name:lang==='es'?'Sistema de Casino':'Casino System',tech:'Java · OOP',
-     desc:lang==='es'?'Sistema desarrollado en POO con Java que administra jugadores, empleados y juegos de casino. Proyecto académico aplicando principios de diseño orientado a objetos.':'OOP-based Java system that manages players, employees, and casino games. Academic project applying object-oriented design principles.',
-     link:'github.com/carlosalfonso070717-blip/Proyecto-de-Casino-en-POO-con-Java'}
+    {name:lang==="es"?"Trabajo con Java":"Java Projects",tech:"Java / POO",
+     desc:lang==="es"?"Proyectos aplicando POO, estructuras de datos y algoritmos en Java.":"Projects applying OOP, data structures and algorithms in Java."},
+    {name:lang==="es"?"Portafolio de Evidencias":"Evidence Portfolio",tech:"HTML / CSS / JS",
+     desc:lang==="es"?"Proyectos frontend desarrollados como parte de la formación académica.":"Frontend projects developed as part of academic training."},
+    {name:lang==="es"?"Sistema de Casino":"Casino System",tech:"Java / OOP",
+     desc:lang==="es"?"Sistema en Java que gestiona jugadores, empleados y juegos de casino.":"Java system managing players, employees and casino games using OOP."},
   ];
   projs.forEach(p=>{
-    doc.setFont('helvetica','bold'); doc.setFontSize(9.5); doc.setTextColor(...BLACK);
-    doc.text(p.name, ML+8, y);
-    pill(p.tech, ML+8+doc.getTextWidth(p.name)+4, y, false);
-    y+=5;
-    doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(...GRAY);
-    const pl=doc.splitTextToSize(p.desc, W-ML-MR-12);
-    doc.text(pl, ML+8, y); y+=pl.length*4.8;
-    doc.setTextColor(...RED); doc.setFontSize(8);
-    doc.text('> '+p.link, ML+8, y+3); y+=9;
+    const pl=doc.splitTextToSize(p.desc, CW-4);
+    checkR(7+7+pl.length*6+8);
+    doc.setFillColor(...RED); doc.circle(CX+5, ry-2, 2,"F");
+    doc.setFont("helvetica","bold"); doc.setFontSize(12); doc.setTextColor(...BLACK);
+    doc.text(p.name, CX+11, ry);
+    ry+=7;
+    doc.setFont("helvetica","normal"); doc.setFontSize(9.5);
+    const tw=doc.getTextWidth(p.tech)+8;
+    doc.setFillColor(228,226,222);
+    doc.roundedRect(CX+11, ry-5, tw, 6, 1.3,1.3,"F");
+    doc.setTextColor(...GRAY);
+    doc.text(p.tech, CX+11+4, ry);
+    ry+=7;
+    doc.setFont("helvetica","normal"); doc.setFontSize(11); doc.setTextColor(...GRAY);
+    doc.text(pl, CX+11, ry);
+    ry+=pl.length*6+8;
   });
 
-  // ─── FOOTER ───
-  doc.setFillColor(...BLACK); doc.rect(0, H-12, W, 12,'F');
-  doc.setFillColor(...RED);   doc.rect(0, H-12, 5, 12,'F');
-  doc.setFont('helvetica','normal'); doc.setFontSize(7.5); doc.setTextColor(160,160,160);
-  doc.text('Carlos Alfonso Llanes Rodríguez  ·  '+new Date().getFullYear(), ML+4, H-5);
+  // FOOTER
+  doc.setFillColor(...BLACK); doc.rect(0,H-FTR,W,FTR,"F");
+  doc.setFillColor(...RED);   doc.rect(0,H-FTR,5,FTR,"F");
+  doc.setFillColor(...RED);   doc.rect(SIDE,H-FTR,4,FTR,"F");
+  doc.setFont("helvetica","normal"); doc.setFontSize(9); doc.setTextColor(130,130,142);
+  doc.text("Carlos Alfonso Llanes Rodríguez  ·  "+new Date().getFullYear(), 9, H-4);
   doc.setTextColor(...RED);
-  const mail='carlos.llanes@tecdesoftware.edu.mx';
-  doc.text(mail, W-MR-doc.getTextWidth(mail)-2, H-5);
+  const mail="carlos.llanes@tecdesoftware.edu.mx";
+  doc.text(mail, W-7-doc.getTextWidth(mail), H-4);
+
+
 
   doc.save('CV_Carlos_Llanes.pdf');
   btn.classList.remove('loading');
@@ -2010,4 +2076,4 @@ const rvObs = new IntersectionObserver(entries => {
     if (e.isIntersecting) { e.target.classList.add('in'); rvObs.unobserve(e.target); }
   });
 }, { threshold: 0.12 });
-document.q
+document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
