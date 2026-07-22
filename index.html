@@ -882,6 +882,42 @@ footer::before{
   margin-top:.3rem;text-transform:uppercase;
 }
 
+/* ━━━━ GALLERY CAROUSEL ━━━━ */
+.gallery-carousel{ cursor:default }
+.carousel-track{
+  display:flex;width:100%;height:100%;
+  transition:transform .45s var(--ease);
+  touch-action:pan-y;
+}
+.carousel-slide{
+  flex:0 0 100%;width:100%;height:100%;
+}
+.carousel-arrow{
+  position:absolute;top:50%;translate:0 -50%;
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--glass);border:1px solid var(--rule2);
+  backdrop-filter:blur(8px);color:#fff;
+  font-size:1.3rem;line-height:1;
+  opacity:0;transition:opacity .25s,background .2s,border-color .2s;
+  z-index:2;cursor:pointer;
+}
+.gallery-carousel:hover .carousel-arrow{ opacity:1 }
+.carousel-arrow:hover{ background:var(--red-dim);border-color:var(--red) }
+.carousel-prev{ left:.7rem }
+.carousel-next{ right:.7rem }
+.carousel-dots{
+  position:absolute;top:1rem;right:1rem;z-index:2;
+  display:flex;gap:.4rem;
+}
+.carousel-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(255,255,255,.4);
+  border:none;cursor:pointer;
+  transition:background .2s,transform .2s;
+}
+.carousel-dot.active{ background:#fff;transform:scale(1.3) }
+
 .soft-skills-section{ position:relative;margin-top:4.5rem }
 
 /* ━━━━ SCROLL REVEAL ━━━━ */
@@ -1372,8 +1408,19 @@ footer::before{
           <div class="gallery-sub" data-k="gallery.item1.sub"></div>
         </div>
       </div>
-      <div class="gallery-item rv">
-        <img src="assets/carlos-accenture1.jpeg" alt="Visita a Accenture Mérida"/>
+      <div class="gallery-item gallery-carousel rv">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="assets/carlos-accenture1.jpeg" alt="Visita a Accenture Mérida"/></div>
+          <div class="carousel-slide"><img src="assets/carlos-accenture2.jpeg" alt="Visita a Accenture Mérida"/></div>
+          <div class="carousel-slide"><img src="assets/carlos-accenture3.jpeg" alt="Visita a Accenture Mérida"/></div>
+        </div>
+        <button class="carousel-arrow carousel-prev" aria-label="Anterior">‹</button>
+        <button class="carousel-arrow carousel-next" aria-label="Siguiente">›</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" aria-label="1"></button>
+          <button class="carousel-dot" aria-label="2"></button>
+          <button class="carousel-dot" aria-label="3"></button>
+        </div>
         <div class="gallery-caption">
           <div class="gallery-badge">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -1381,28 +1428,6 @@ footer::before{
           </div>
           <div class="gallery-title" data-k="gallery.item2.title"></div>
           <div class="gallery-sub" data-k="gallery.item2.sub"></div>
-        </div>
-      </div>
-      <div class="gallery-item rv">
-        <img src="assets/carlos-accenture2.jpeg" alt="Visita a Accenture Mérida"/>
-        <div class="gallery-caption">
-          <div class="gallery-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <span data-k="gallery.badge2"></span>
-          </div>
-          <div class="gallery-title" data-k="gallery.item3.title"></div>
-          <div class="gallery-sub" data-k="gallery.item3.sub"></div>
-        </div>
-      </div>
-      <div class="gallery-item rv">
-        <img src="assets/carlos-accenture3.jpeg" alt="Visita a Accenture Mérida"/>
-        <div class="gallery-caption">
-          <div class="gallery-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <span data-k="gallery.badge2"></span>
-          </div>
-          <div class="gallery-title" data-k="gallery.item4.title"></div>
-          <div class="gallery-sub" data-k="gallery.item4.sub"></div>
         </div>
       </div>
     </div>
@@ -1537,8 +1562,6 @@ const T = {
     'gallery.badge':'1er Lugar','gallery.item1.title':'Buildathon','gallery.item1.sub':'Tecnológico de Software · Happ3n',
     'gallery.badge2':'Talento Destacado',
     'gallery.item2.title':'Visita a Accenture Mérida','gallery.item2.sub':'1 de 6 talentos seleccionados por el Tecnológico de Software',
-    'gallery.item3.title':'Visita a Accenture Mérida','gallery.item3.sub':'Reconocimiento por parte de Accenture',
-    'gallery.item4.title':'Visita a Accenture Mérida','gallery.item4.sub':'Talentos destacados del Tecnológico de Software',
   },
   en: {
     'nav.about':'About','nav.skills':'Skills','nav.certs':'Certificates','nav.projects':'Projects','nav.contact':'Contact',
@@ -1586,8 +1609,6 @@ const T = {
     'gallery.badge':'1st Place','gallery.item1.title':'Buildathon','gallery.item1.sub':'Tecnológico de Software · Happ3n',
     'gallery.badge2':'Featured Talent',
     'gallery.item2.title':'Visit to Accenture Mérida','gallery.item2.sub':'1 of 6 talents selected by Tecnológico de Software',
-    'gallery.item3.title':'Visit to Accenture Mérida','gallery.item3.sub':'Recognized by Accenture',
-    'gallery.item4.title':'Visit to Accenture Mérida','gallery.item4.sub':'Featured talents from Tecnológico de Software',
   }
 };
 
@@ -1670,6 +1691,30 @@ const obs = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
 },{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// ━━━━ GALLERY CAROUSEL ━━━━
+document.querySelectorAll('.gallery-carousel').forEach(car=>{
+  const track = car.querySelector('.carousel-track');
+  const slides = car.querySelectorAll('.carousel-slide');
+  const dots = car.querySelectorAll('.carousel-dot');
+  let idx = 0;
+  function go(i){
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    dots.forEach((d,j)=>d.classList.toggle('active', j===idx));
+  }
+  car.querySelector('.carousel-prev').addEventListener('click', e=>{ e.stopPropagation(); go(idx-1); });
+  car.querySelector('.carousel-next').addEventListener('click', e=>{ e.stopPropagation(); go(idx+1); });
+  dots.forEach((d,j)=>d.addEventListener('click', e=>{ e.stopPropagation(); go(j); }));
+  let touchX = null;
+  car.addEventListener('touchstart', e=>{ touchX = e.touches[0].clientX; }, {passive:true});
+  car.addEventListener('touchend', e=>{
+    if(touchX===null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if(Math.abs(dx) > 40) go(dx < 0 ? idx+1 : idx-1);
+    touchX = null;
+  }, {passive:true});
+});
 
 setLang('es');
 
