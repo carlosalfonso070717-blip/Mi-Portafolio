@@ -22,45 +22,45 @@
 <meta name="twitter:title"       content="Carlos Llanes · Desarrollador de Software"/>
 <meta name="twitter:description" content="Estudiante de Desarrollo de Software apasionado por Java, QA/Testing y buenas prácticas. Miembro IEEE. Mérida, Yucatán."/>
 <meta name="twitter:image"       content="https://carlosalfonso070717-blip.github.io/preview.png"/>
-<meta name="theme-color" id="themeColor" content="#0a0a12"/>
+<meta name="theme-color" id="themeColor" content="#0a0c1b"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-/* ━━━━ DESIGN SYSTEM — AURORA ━━━━
-   Deep space + violet/cyan aurora accent. Glass surfaces, soft glow, modern dev aesthetic.
+/* ━━━━ DESIGN SYSTEM — NEBULA ━━━━
+   Deep indigo-navy + violet/blue gradient accent. Soft rounded cards, floating badges, product-portfolio aesthetic.
 ━━━━━━━━━━━━━━━━━━━━━━━━ */
 :root {
-  --bg:      #0a0a12;
-  --bg2:     #131320;
-  --bg3:     #1b1b2c;
-  --red:     #7c5cff;
-  --accent2: #22d3ee;
+  --bg:      #0a0c1b;
+  --bg2:     #10132a;
+  --bg3:     #161a38;
+  --red:     #8b5cf6;
+  --accent2: #3b82f6;
   --grad:    linear-gradient(135deg, var(--red), var(--accent2));
-  --red-dim: rgba(124,92,255,.12);
-  --red-rule:rgba(124,92,255,.35);
-  --fg:      #f1eef9;
-  --fg2:     #b9b5cc;
-  --fg3:     #7d7a94;
+  --red-dim: rgba(139,92,246,.14);
+  --red-rule:rgba(139,92,246,.35);
+  --fg:      #f5f6fb;
+  --fg2:     #a7acc7;
+  --fg3:     #666b8c;
   --rule:    rgba(255,255,255,.08);
   --rule2:   rgba(255,255,255,.14);
   --glass:   rgba(255,255,255,.04);
-  --radius:  18px;
-  --display: 'Bebas Neue', sans-serif;
-  --sans:    'DM Sans', sans-serif;
+  --radius:  22px;
+  --display: 'Sora', sans-serif;
+  --sans:    'Inter', sans-serif;
   --mono:    'JetBrains Mono', monospace;
   --ease:    cubic-bezier(.22,1,.36,1);
 }
 
 [data-theme="light"]{
-  --bg:      #f6f5fc;
+  --bg:      #f6f7fc;
   --bg2:     #ffffff;
-  --bg3:     #edeafa;
-  --fg:      #14121f;
-  --fg2:     #57536c;
-  --fg3:     #b3aec7;
-  --rule:    rgba(20,10,50,.08);
-  --rule2:   rgba(20,10,50,.15);
-  --glass:   rgba(20,10,50,.03);
+  --bg3:     #edeffb;
+  --fg:      #12142a;
+  --fg2:     #565b7d;
+  --fg3:     #a8acc9;
+  --rule:    rgba(20,20,60,.08);
+  --rule2:   rgba(20,20,60,.15);
+  --glass:   rgba(20,20,60,.03);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -84,7 +84,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 ul{list-style:none}
 
 /* ━━━━ CUSTOM CURSOR ━━━━ */
-* { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2 L4 16 L7.5 12.5 L10.5 18 L13 17 L10 11.5 L15 11.5 Z' fill='%237c5cff' stroke='%23000' stroke-width='0.8'/%3E%3C/svg%3E") 4 2, auto !important; }
+* { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2 L4 16 L7.5 12.5 L10.5 18 L13 17 L10 11.5 L15 11.5 Z' fill='%238b5cf6' stroke='%23000' stroke-width='0.8'/%3E%3C/svg%3E") 4 2, auto !important; }
 
 /* ━━━━ SCROLLBAR ━━━━ */
 ::-webkit-scrollbar{width:3px}
@@ -96,17 +96,17 @@ body::before{
   content:'';
   position:fixed;inset:0;z-index:-2;
   background:
-    radial-gradient(680px 480px at 12% -8%, rgba(124,92,255,.22), transparent 60%),
-    radial-gradient(620px 460px at 92% 8%, rgba(34,211,238,.14), transparent 60%),
-    radial-gradient(700px 520px at 50% 105%, rgba(124,92,255,.12), transparent 60%);
+    radial-gradient(680px 480px at 12% -8%, rgba(139,92,246,.22), transparent 60%),
+    radial-gradient(620px 460px at 92% 8%, rgba(59,130,246,.14), transparent 60%),
+    radial-gradient(700px 520px at 50% 105%, rgba(139,92,246,.12), transparent 60%);
   pointer-events:none;
   animation:auroraShift 22s ease-in-out infinite alternate;
 }
 [data-theme="light"] body::before{
   background:
-    radial-gradient(680px 480px at 12% -8%, rgba(124,92,255,.14), transparent 60%),
-    radial-gradient(620px 460px at 92% 8%, rgba(34,211,238,.12), transparent 60%),
-    radial-gradient(700px 520px at 50% 105%, rgba(124,92,255,.08), transparent 60%);
+    radial-gradient(680px 480px at 12% -8%, rgba(139,92,246,.14), transparent 60%),
+    radial-gradient(620px 460px at 92% 8%, rgba(59,130,246,.12), transparent 60%),
+    radial-gradient(700px 520px at 50% 105%, rgba(139,92,246,.08), transparent 60%);
 }
 @keyframes auroraShift{
   0%{ transform:translate(0,0) scale(1); }
@@ -148,28 +148,27 @@ body::after{
   .linkedin-fab svg{ width:21px; height:21px; }
 }
 
-/* ━━━━ NAV — FLOATING GLASS PILL ━━━━ */
+/* ━━━━ NAV — FULL-WIDTH BAR ━━━━ */
 nav{
-  position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:900;
-  width:min(1080px, calc(100% - 2rem));
-  height:60px;
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  width:100%;
+  height:78px;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 1.6rem;
-  background:rgba(19,19,32,.65);
-  backdrop-filter:blur(20px) saturate(160%);
-  -webkit-backdrop-filter:blur(20px) saturate(160%);
-  border:1px solid var(--rule2);
-  border-radius:999px;
-  box-shadow:0 8px 32px rgba(0,0,0,.28);
-  transition:background .3s, box-shadow .3s, border-color .3s, top .3s;
+  padding:0 clamp(1.5rem,5vw,4rem);
+  background:rgba(10,12,27,.7);
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  border-bottom:1px solid var(--rule);
+  transition:background .3s, box-shadow .3s, border-color .3s, height .3s;
 }
 nav.scrolled{
-  top:8px;
-  box-shadow:0 12px 40px rgba(0,0,0,.4), 0 0 0 1px var(--red-rule);
-  border-color:var(--red-rule);
+  height:66px;
+  background:rgba(10,12,27,.92);
+  border-bottom-color:var(--red-rule);
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
-[data-theme="light"] nav{ background:rgba(255,255,255,.72) }
-[data-theme="light"] nav.scrolled{ background:rgba(255,255,255,.88) }
+[data-theme="light"] nav{ background:rgba(246,247,252,.75) }
+[data-theme="light"] nav.scrolled{ background:rgba(246,247,252,.94) }
 
 .nav-brand{
   font-family:var(--display);
@@ -193,28 +192,37 @@ nav.scrolled{
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
 
-.nav-links{display:flex;gap:2rem}
+.nav-links{
+  display:flex;gap:.2rem;
+  background:var(--glass);
+  border:1px solid var(--rule2);
+  border-radius:999px;
+  padding:.3rem;
+}
 .nav-links a{
-  font-family:var(--mono);
-  font-size:.78rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
+  font-family:var(--sans);
+  font-size:.88rem;font-weight:500;
+  letter-spacing:0;
   color:var(--fg2);
-  transition:color .2s;
+  transition:color .25s,background .25s;
   position:relative;
-  padding:.3rem 0;
+  padding:.55rem 1.05rem;
+  border-radius:999px;
 }
-.nav-links a::after{
-  content:'';
-  position:absolute;bottom:-2px;left:0;right:0;
-  height:2px;border-radius:2px;background:var(--grad);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .3s var(--ease);
+.nav-links a:hover{color:var(--fg);background:var(--rule)}
+.nav-links a.active{ color:#fff;background:var(--grad) }
+
+.nav-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.62rem 1.35rem;
+  border-radius:999px;
+  background:var(--grad);
+  color:#fff!important;font-family:var(--sans);font-weight:600;font-size:.86rem;
+  transition:transform .25s var(--ease),box-shadow .25s;
+  box-shadow:0 8px 20px rgba(139,92,246,.35);
+  white-space:nowrap;
 }
-.nav-links a:hover{color:var(--fg)}
-.nav-links a:hover::after{transform:scaleX(1)}
-.nav-links a.active{ color:var(--fg) }
-.nav-links a.active::after{ transform:scaleX(1) }
+.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(139,92,246,.5) }
 
 .nav-controls{display:flex;align-items:center;gap:.5rem}
 
@@ -238,7 +246,7 @@ nav.scrolled{
 .lang-toggle button.active{
   background:var(--grad);
   color:#fff;
-  box-shadow:0 2px 12px rgba(124,92,255,.4);
+  box-shadow:0 2px 12px rgba(139,92,246,.4);
 }
 .lang-toggle button:not(.active):hover{ color:var(--fg) }
 
@@ -264,7 +272,7 @@ nav.scrolled{
   border-color:var(--red);
   color:var(--red);
   transform:rotate(20deg);
-  box-shadow:0 0 16px rgba(124,92,255,.3);
+  box-shadow:0 0 16px rgba(139,92,246,.3);
 }
 .theme-btn:hover::before{ opacity:1 }
 .theme-btn svg{ position:relative;z-index:1;transition:transform .3s var(--ease) }
@@ -281,7 +289,7 @@ nav.scrolled{
 
 /* ━━━━ DRAWER ━━━━ */
 .drawer{
-  display:none;position:fixed;inset:0;z-index:850;
+  display:none;position:fixed;inset:0;z-index:950;
   background:rgba(10,10,18,.92);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
@@ -306,7 +314,7 @@ nav.scrolled{
   background:var(--bg3);
   display:flex;align-items:center;justify-content:center;
   transition:all .2s;
-  z-index:860;
+  z-index:960;
   cursor:pointer;
 }
 .drawer-close:hover{ border-color:var(--red);color:var(--red);transform:rotate(90deg) }
@@ -328,7 +336,7 @@ nav.scrolled{
 /* ━━━━ HERO ━━━━ */
 #home{
   min-height:100svh;
-  padding-top:58px;
+  padding-top:78px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -375,7 +383,7 @@ nav.scrolled{
   font-size:clamp(3.2rem,5.5vw,5.3rem);
   background:var(--grad);
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 0 26px rgba(124,92,255,.35));
+  filter:drop-shadow(0 0 26px rgba(139,92,246,.35));
 }
 
 .hero-role{
@@ -398,6 +406,26 @@ nav.scrolled{
   width:100%;
   max-width:580px;
 }
+.hero-socials{
+  display:flex;gap:.9rem;
+  margin-top:1.8rem;
+}
+.hero-socials a{
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  border:1px solid var(--rule2);
+  background:var(--glass);
+  color:var(--fg2);
+  transition:color .2s,border-color .2s,background .2s,transform .2s;
+}
+.hero-socials a svg{ width:17px;height:17px }
+.hero-socials a:hover{
+  color:#fff;
+  background:var(--grad);
+  border-color:transparent;
+  transform:translateY(-3px);
+}
 .btn-red,.btn-outline,.btn-cv{
   display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
   padding:1rem 1.2rem;
@@ -415,7 +443,7 @@ nav.scrolled{
 .btn-red{
   background:var(--grad);
   color:#fff;border:1px solid transparent;
-  box-shadow:0 8px 24px rgba(124,92,255,.35);
+  box-shadow:0 8px 24px rgba(139,92,246,.35);
 }
 .btn-red::before{
   content:'';
@@ -425,7 +453,7 @@ nav.scrolled{
   transition:transform .35s var(--ease);
 }
 .btn-red:hover::before{ transform:translateX(0) }
-.btn-red:hover{ transform:translateY(-2px); box-shadow:0 12px 32px rgba(124,92,255,.5); }
+.btn-red:hover{ transform:translateY(-2px); box-shadow:0 12px 32px rgba(139,92,246,.5); }
 
 .btn-outline,.btn-cv{
   background:var(--glass);
@@ -437,7 +465,7 @@ nav.scrolled{
   border-color:var(--red);
   color:var(--red);
   transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(124,92,255,.2);
+  box-shadow:0 8px 24px rgba(139,92,246,.2);
   background:var(--red-dim);
 }
 .btn-red:active,.btn-outline:active,.btn-cv:active,
@@ -450,11 +478,12 @@ nav.scrolled{
 .hero-photo-panel{
   position:relative;
   display:flex;align-items:center;justify-content:center;
+  padding:1.6rem 2rem;
 }
 .photo-frame{
-  width:224px;height:264px;
+  width:240px;height:280px;
   position:relative;
-  border-radius:26px;
+  border-radius:28px;
   overflow:hidden;
   flex-shrink:0;
   border:1px solid var(--rule2);
@@ -464,15 +493,15 @@ nav.scrolled{
 .hero-photo-panel::before{
   content:'';
   position:absolute;
-  width:264px;height:304px;
-  border-radius:34px;
-  background:conic-gradient(from 0deg, var(--red), var(--accent2), var(--red));
-  filter:blur(2px);
-  opacity:.55;
-  animation:spin 8s linear infinite;
+  width:300px;height:300px;
+  border-radius:50%;
+  background:radial-gradient(circle, var(--red) 0%, transparent 70%);
+  filter:blur(55px);
+  opacity:.4;
   z-index:0;
+  animation:blobPulse 6s ease-in-out infinite;
 }
-@keyframes spin{ to{ transform:rotate(360deg) } }
+@keyframes blobPulse{ 0%,100%{ transform:scale(1) } 50%{ transform:scale(1.1) } }
 .photo-frame{ z-index:1 }
 .photo-frame img{
   width:100%;height:100%;
@@ -483,8 +512,42 @@ nav.scrolled{
 }
 .photo-frame:hover{
   transform:translateY(-4px);
-  box-shadow:0 26px 70px rgba(0,0,0,.5), 0 0 40px rgba(124,92,255,.25);
+  box-shadow:0 26px 70px rgba(0,0,0,.5), 0 0 40px rgba(139,92,246,.25);
 }
+
+/* ━━━━ HERO FLOATING BADGES ━━━━ */
+@keyframes floatY{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+.hero-badge-float{
+  position:absolute;
+  left:-.5rem;bottom:2.2rem;
+  z-index:2;
+  display:flex;align-items:center;gap:.7rem;
+  padding:.7rem 1.05rem;
+  background:var(--bg2);
+  border:1px solid var(--rule2);
+  border-radius:16px;
+  box-shadow:0 14px 34px rgba(0,0,0,.35);
+  animation:floatY 4s ease-in-out infinite;
+}
+.hero-badge-float .badge-num{
+  font-family:var(--display);font-size:1.3rem;font-weight:700;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  line-height:1;
+}
+.hero-badge-float .badge-label{ font-size:.7rem;color:var(--fg2);line-height:1.25;max-width:80px }
+.hero-icon-float{
+  position:absolute;
+  right:.3rem;top:1.6rem;
+  z-index:2;
+  width:50px;height:50px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--grad);
+  border-radius:15px;
+  box-shadow:0 12px 26px rgba(139,92,246,.4);
+  color:#fff;
+  animation:floatY 4s ease-in-out infinite .5s;
+}
+.hero-icon-float svg{ width:22px;height:22px }
 
 /* ━━━━ SECTION COMMONS ━━━━ */
 section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
@@ -546,32 +609,88 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
   font-size:1.06rem;color:var(--fg2);line-height:2;margin-bottom:1.1rem;
 }
 .about-text p strong{color:var(--fg);font-weight:600}
-.kpi-block{
-  border-top:1px solid var(--rule);
-  padding:1.1rem 0;
-  display:flex;flex-direction:column;gap:.25rem;
+.info-card{
+  background:var(--glass);
+  border:1px solid var(--rule2);
+  border-radius:var(--radius);
+  padding:.4rem 1.6rem;
+  backdrop-filter:blur(8px);
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+.info-row{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.05rem 0;
+  border-bottom:1px solid var(--rule);
   transition:transform .2s var(--ease);
 }
-.kpi-block:hover{ transform:translateX(6px) }
-.kpi-block:first-child{border-top:none;padding-top:0}
-.kpi-value{
-  font-family:var(--display);font-size:2.2rem;letter-spacing:.06em;color:var(--fg);
-  transition:color .3s;
+.info-row:last-child{ border-bottom:none }
+.info-row:hover{ transform:translateX(5px) }
+.info-icon{
+  width:42px;height:42px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:12px;
+  background:var(--red-dim);
+  color:var(--red);
+  transition:background .2s,color .2s;
 }
-.kpi-block:hover .kpi-value{ color:var(--red) }
-.kpi-value em{
-  font-style:normal;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+.info-row:hover .info-icon{ background:var(--grad);color:#fff }
+.info-icon svg{ width:18px;height:18px }
+.info-text{ min-width:0 }
+.info-label{
+  font-family:var(--mono);font-size:.68rem;
+  color:var(--fg3);letter-spacing:.07em;text-transform:uppercase;
 }
-.kpi-label{
-  font-family:var(--mono);font-size:.8rem;
-  color:var(--fg3);letter-spacing:.08em;text-transform:uppercase;
+.info-value{
+  font-size:.98rem;color:var(--fg);font-weight:600;margin-top:.2rem;
+  word-break:break-word;
+}
+.dot-live{
+  display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:#22c55e;margin-right:.4rem;
+  box-shadow:0 0 6px #22c55e;
+  animation:blink 2s ease infinite;
+  vertical-align:middle;
 }
 
 /* ━━━━ SKILL PILLS — GLASS + ICON ━━━━ */
-.skills-layout,.soft-skills-layout{
+.soft-skills-layout{
   display:flex;flex-wrap:wrap;gap:.85rem;
 }
+/* ━━━━ TECHNICAL SKILLS — CARD GRID W/ PROGRESS ━━━━ */
+.skills-layout{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:1.1rem;
+}
+.skill-card{
+  display:flex;flex-direction:column;align-items:flex-start;
+  padding:1.5rem 1.4rem;
+  border-radius:var(--radius);
+}
+.skill-card-icon{
+  width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:13px;
+  background:var(--grad);
+  color:#fff;
+  margin-bottom:1rem;
+}
+.skill-card-icon svg{ width:20px;height:20px }
+.skill-card-name{
+  font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--fg);
+  margin-bottom:1rem;letter-spacing:0;
+}
+.skill-bar{
+  width:100%;height:5px;border-radius:99px;
+  background:var(--rule2);overflow:hidden;
+}
+.skill-bar-fill{
+  height:100%;border-radius:99px;
+  background:var(--grad);
+  width:0%;
+  transition:width 1.1s var(--ease);
+}
+.skills-ready .skill-bar-fill{ width:var(--pct); }
 .sk-pill,.sk-pill-soft{
   display:inline-flex;align-items:center;gap:.65rem;
   padding:.75rem 1.3rem;
@@ -590,7 +709,7 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
   color:var(--fg);border-color:var(--red);
   background:var(--red-dim);
   transform:translateY(-3px);
-  box-shadow:0 10px 26px rgba(124,92,255,.22);
+  box-shadow:0 10px 26px rgba(139,92,246,.22);
 }
 .sk-ico{
   display:inline-flex;align-items:center;justify-content:center;
@@ -600,7 +719,7 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
 .sk-dot{
   display:inline-block;width:7px;height:7px;border-radius:50%;
   background:var(--grad);flex-shrink:0;
-  box-shadow:0 0 8px rgba(124,92,255,.5);
+  box-shadow:0 0 8px rgba(139,92,246,.5);
 }
 .skills-animate .sk-pill,.skills-animate .sk-pill-soft{ opacity:0;transform:translateY(10px) }
 .skills-ready .sk-pill,.skills-ready .sk-pill-soft{ opacity:1;transform:none }
@@ -678,7 +797,7 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
 .proj-card::before{
   content:'';
   position:absolute;inset:0;
-  background:radial-gradient(ellipse at top left, rgba(124,92,255,.1) 0%, transparent 65%);
+  background:radial-gradient(ellipse at top left, rgba(139,92,246,.1) 0%, transparent 65%);
   opacity:0;
   transition:opacity .35s;
   pointer-events:none;
@@ -731,7 +850,51 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .contact-note{font-size:1.05rem;color:var(--fg2);line-height:1.95}
-.contact-channels{display:flex;flex-direction:column;gap:.8rem}
+.contact-channels{display:flex;flex-direction:column;gap:.8rem;margin-top:2rem}
+
+/* ━━━━ CONTACT FORM CARD ━━━━ */
+.contact-form-card{
+  background:var(--glass);
+  border:1px solid var(--rule2);
+  border-radius:var(--radius);
+  padding:1.9rem;
+  backdrop-filter:blur(8px);
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+.form-grid{ display:grid;grid-template-columns:1fr 1fr;gap:1.1rem }
+.form-row{ display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.1rem }
+.form-row label{
+  font-family:var(--mono);font-size:.68rem;
+  color:var(--fg3);letter-spacing:.06em;text-transform:uppercase;
+}
+.form-row input,.form-row textarea{
+  background:var(--bg3);
+  border:1px solid var(--rule2);
+  border-radius:12px;
+  padding:.8rem 1rem;
+  color:var(--fg);
+  font-family:var(--sans);font-size:.92rem;
+  transition:border-color .2s,box-shadow .2s;
+  resize:vertical;
+}
+.form-row input:focus,.form-row textarea:focus{
+  outline:none;
+  border-color:var(--red);
+  box-shadow:0 0 0 3px var(--red-dim);
+}
+.form-submit{
+  width:100%;
+  margin-top:.3rem;
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:1rem;
+  border-radius:12px;
+  background:var(--grad);
+  color:#fff;font-family:var(--sans);font-weight:600;font-size:.95rem;
+  transition:transform .25s var(--ease),box-shadow .25s;
+  box-shadow:0 10px 26px rgba(139,92,246,.35);
+}
+.form-submit:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(139,92,246,.5) }
+.form-submit:active{ transform:scale(.98) }
 .ch-row{
   display:flex;align-items:center;gap:1rem;
   padding:1.1rem 1.3rem;
@@ -950,7 +1113,7 @@ footer::before{
   height:2px;width:0%;
   background:var(--grad);
   transition:width .08s linear;
-  box-shadow:0 0 10px rgba(124,92,255,.6);
+  box-shadow:0 0 10px rgba(139,92,246,.6);
   pointer-events:none;
 }
 
@@ -967,9 +1130,12 @@ footer::before{
   .hero-role{ justify-content:center }
   .hero-bio{ max-width:100%;margin-left:auto;margin-right:auto }
   .hero-actions{ justify-content:center; justify-items:center; margin:0 auto }
+  .hero-socials{ justify-content:center }
   .about-grid{grid-template-columns:1fr;gap:3rem}
   .contact-layout{grid-template-columns:1fr;gap:3rem}
+  .skills-layout{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
+  .nav-cta{display:none}
   .nav-ham{display:flex}
   .sec-aside{display:none}
   .proj-grid{grid-template-columns:1fr}
@@ -999,14 +1165,18 @@ footer::before{
   .cert-desc{font-size:.93rem}
   .cert-issuer{font-size:.72rem}
   .about-text p{font-size:1rem}
-  .sk-pill,.sk-pill-soft{font-size:.8rem;padding:.6rem 1.05rem;word-break:break-word}
-  .skills-layout,.soft-skills-layout{gap:.6rem}
+  .sk-pill-soft{font-size:.8rem;padding:.6rem 1.05rem;word-break:break-word}
+  .soft-skills-layout{gap:.6rem}
+  .skills-layout{grid-template-columns:1fr 1fr;gap:.8rem}
+  .skill-card{padding:1.1rem 1.1rem}
   .proj-title{font-size:1.25rem}
   .proj-desc{font-size:.95rem}
   .proj-card{padding:1.4rem}
   .ch-platform{font-size:.96rem;word-break:break-word}
   .ch-handle{font-size:.72rem}
   .contact-note{font-size:1rem}
+  .form-grid{grid-template-columns:1fr}
+  .contact-form-card{padding:1.4rem}
   .btn-red,.btn-outline,.btn-cv{font-size:.76rem;padding:.8rem 1.2rem}
   .hero-actions{grid-template-columns:1fr;width:100%;max-width:280px}
   .kpi-value{font-size:1.7rem}
@@ -1036,6 +1206,7 @@ footer::before{
     <li><a href="#contact"      data-k="nav.contact"></a></li>
   </ul>
   <div class="nav-controls">
+    <a href="#contact" class="nav-cta" data-k="hero.cta2"></a>
     <div class="lang-toggle">
       <button id="btnES" class="active" onclick="setLang('es')">ES</button>
       <button id="btnEN"               onclick="setLang('en')">EN</button>
@@ -1073,6 +1244,13 @@ footer::before{
            alt="Carlos Llanes"/>
       <img src="assets/carlos-profile.jpeg" alt="Carlos Llanes"/>
     </div>
+    <div class="hero-badge-float">
+      <span class="badge-num">10+</span>
+      <span class="badge-label" data-k="hero.badge.label"></span>
+    </div>
+    <div class="hero-icon-float">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    </div>
     </div>
     <div class="hero-text">
       <div class="hero-eyebrow" data-k="hero.label"></div>
@@ -1085,6 +1263,12 @@ footer::before{
         <button class="btn-cv" id="btnCV" onclick="downloadCV()">
           <span data-k="hero.cv"></span>
         </button>
+      </div>
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/carlos-alfonso-llanes-rodriguez-1672753a5/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/carlosalfonso070717-blip" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+        <a href="https://wa.me/529987692628" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2.003a9.994 9.994 0 0 0-8.53 15.216L2 22l4.897-1.442A9.994 9.994 0 1 0 12.001 2.003zm0 18.15a8.14 8.14 0 0 1-4.152-1.14l-.298-.177-3.089.91.923-3.052-.194-.31a8.15 8.15 0 1 1 6.81 3.769z"/></svg></a>
+        <a href="mailto:carlosalfonso070717@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
       </div>
     </div>
   </div>
@@ -1104,17 +1288,35 @@ footer::before{
         <p class="rv d2" data-k="about.p2"></p>
       </div>
       <div class="about-sidebar rv d2">
-        <div class="kpi-block">
-          <div class="kpi-value">Java<em>.</em></div>
-          <div class="kpi-label" data-k="kpi.lang"></div>
-        </div>
-        <div class="kpi-block">
-          <div class="kpi-value">IEEE<em>.</em></div>
-          <div class="kpi-label" data-k="kpi.ieee"></div>
-        </div>
-        <div class="kpi-block">
-          <div class="kpi-value" id="kpiOpenV">Abierto<em>.</em></div>
-          <div class="kpi-label" data-k="kpi.open.l"></div>
+        <div class="info-card">
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="info-text">
+              <div class="info-label" data-k="info.name.label"></div>
+              <div class="info-value">Carlos Alfonso Llanes Rodríguez</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div class="info-text">
+              <div class="info-label" data-k="info.email.label"></div>
+              <div class="info-value">carlosalfonso070717@gmail.com</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="info-text">
+              <div class="info-label" data-k="info.location.label"></div>
+              <div class="info-value" data-k="info.location.value"></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div class="info-text">
+              <div class="info-label" data-k="info.avail.label"></div>
+              <div class="info-value"><span class="dot-live"></span><span data-k="kpi.open.v"></span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1130,14 +1332,46 @@ footer::before{
       <span class="sec-aside" data-k="skills.aside"></span>
     </div>
     <div class="skills-layout">
-      <div class="sk-pill"><span class="sk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c-.5 1 .5 1.5 0 2.5M12 3c-.5 1 .5 1.5 0 2.5"/></svg></span>Java</div>
-      <div class="sk-pill"><span class="sk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 3v18M4 7.5l8 4.5 8-4.5"/></svg></span>POO</div>
-      <div class="sk-pill"><span class="sk-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 2c-4 0-3.8 1.7-3.8 1.7v2h3.9v.6H6.4S3 6 3 10s3 3.9 3 3.9h1.8v-2.3S7.7 9 9.3 9h3.7s2.4 0 2.4-2.4V4.4S15.7 2 11.9 2zm-2.1 1.3a.7.7 0 1 1 0 1.4.7.7 0 0 1 0-1.4z"/><path d="M12.1 22c4 0 3.8-1.7 3.8-1.7v-2h-3.9v-.6h5.6S21 18 21 14s-3-3.9-3-3.9h-1.8v2.3S16.3 15 14.7 15H11s-2.4 0-2.4 2.4v2.2S8.3 22 12.1 22zm2.1-1.3a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4z"/></svg></span>Python · <span data-k="sk.python.level"></span></div>
-      <div class="sk-pill"><span class="sk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></span>Git · GitHub</div>
-      <div class="sk-pill"><span class="sk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>Bash · Linux</div>
-      <div class="sk-pill"><span class="sk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>SQL</div>
-      <div class="sk-pill"><span class="sk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>HTML</div>
-      <div class="sk-pill"><span class="sk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></span>C# · <span data-k="sk.csharp.level"></span></div>
+      <div class="skill-card sk-pill">
+        <div class="skill-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c-.5 1 .5 1.5 0 2.5M12 3c-.5 1 .5 1.5 0 2.5"/></svg></div>
+        <div class="skill-card-name">Java</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:85%"></div></div>
+      </div>
+      <div class="skill-card sk-pill">
+        <div class="skill-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 3v18M4 7.5l8 4.5 8-4.5"/></svg></div>
+        <div class="skill-card-name">POO</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:80%"></div></div>
+      </div>
+      <div class="skill-card sk-pill">
+        <div class="skill-card-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 2c-4 0-3.8 1.7-3.8 1.7v2h3.9v.6H6.4S3 6 3 10s3 3.9 3 3.9h1.8v-2.3S7.7 9 9.3 9h3.7s2.4 0 2.4-2.4V4.4S15.7 2 11.9 2zm-2.1 1.3a.7.7 0 1 1 0 1.4.7.7 0 0 1 0-1.4z"/><path d="M12.1 22c4 0 3.8-1.7 3.8-1.7v-2h-3.9v-.6h5.6S21 18 21 14s-3-3.9-3-3.9h-1.8v2.3S16.3 15 14.7 15H11s-2.4 0-2.4 2.4v2.2S8.3 22 12.1 22zm2.1-1.3a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4z"/></svg></div>
+        <div class="skill-card-name">Python · <span data-k="sk.python.level"></span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:55%"></div></div>
+      </div>
+      <div class="skill-card sk-pill">
+        <div class="skill-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div>
+        <div class="skill-card-name">Git · GitHub</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:90%"></div></div>
+      </div>
+      <div class="skill-card sk-pill">
+        <div class="skill-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+        <div class="skill-card-name">Bash · Linux</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:65%"></div></div>
+      </div>
+      <div class="skill-card sk-pill">
+        <div class="skill-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <div class="skill-card-name">SQL</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:70%"></div></div>
+      </div>
+      <div class="skill-card sk-pill">
+        <div class="skill-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="skill-card-name">HTML</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:75%"></div></div>
+      </div>
+      <div class="skill-card sk-pill">
+        <div class="skill-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></div>
+        <div class="skill-card-name">C# · <span data-k="sk.csharp.level"></span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:50%"></div></div>
+      </div>
     </div>
 
     <!-- Soft Skills -->
@@ -1447,40 +1681,66 @@ footer::before{
       <div class="rv d1">
         <p class="contact-headline" data-k="contact.headline"></p>
         <p class="contact-note"     data-k="contact.note"></p>
-      </div>
-      <div class="contact-channels rv d2">
-        <a class="ch-row" href="https://www.linkedin.com/in/carlos-alfonso-llanes-rodriguez-1672753a5/" target="_blank">
-          <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-          <div class="ch-info">
-            <div class="ch-platform">LinkedIn</div>
-            <div class="ch-handle">Carlos Alfonso Llanes Rodríguez</div>
+        <div class="contact-channels">
+          <a class="ch-row" href="https://www.linkedin.com/in/carlos-alfonso-llanes-rodriguez-1672753a5/" target="_blank">
+            <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+            <div class="ch-info">
+              <div class="ch-platform">LinkedIn</div>
+              <div class="ch-handle">Carlos Alfonso Llanes Rodríguez</div>
+            </div>
+            <span class="ch-arr">→</span>
+          </a>
+          <a class="ch-row" href="https://github.com/carlosalfonso070717-blip" target="_blank">
+            <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+            <div class="ch-info">
+              <div class="ch-platform">GitHub</div>
+              <div class="ch-handle">carlosalfonso070717-blip</div>
+            </div>
+            <span class="ch-arr">→</span>
+          </a>
+          <a class="ch-row" href="https://wa.me/529987692628" target="_blank">
+            <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2.003a9.994 9.994 0 0 0-8.53 15.216L2 22l4.897-1.442A9.994 9.994 0 1 0 12.001 2.003zm0 18.15a8.14 8.14 0 0 1-4.152-1.14l-.298-.177-3.089.91.923-3.052-.194-.31a8.15 8.15 0 1 1 6.81 3.769z"/></svg></div>
+            <div class="ch-info">
+              <div class="ch-platform">WhatsApp</div>
+              <div class="ch-handle">+52 998 769 2628</div>
+            </div>
+            <span class="ch-arr">→</span>
+          </a>
+          <div class="ch-row ch-row-email" id="emailRow" onclick="toggleContactDrop('emailRow','emailDrop')" style="cursor:pointer">
+            <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div class="ch-info">
+              <div class="ch-platform">Email</div>
+              <div class="ch-handle">carlosalfonso070717@gmail.com</div>
+            </div>
+            <span class="ch-arr-email" id="emailArr">→</span>
           </div>
-          <span class="ch-arr">→</span>
-        </a>
-        <a class="ch-row" href="https://github.com/carlosalfonso070717-blip" target="_blank">
-          <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
-          <div class="ch-info">
-            <div class="ch-platform">GitHub</div>
-            <div class="ch-handle">carlosalfonso070717-blip</div>
-          </div>
-          <span class="ch-arr">→</span>
-        </a>
-        <a class="ch-row" href="https://wa.me/529987692628" target="_blank">
-          <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2.003a9.994 9.994 0 0 0-8.53 15.216L2 22l4.897-1.442A9.994 9.994 0 1 0 12.001 2.003zm0 18.15a8.14 8.14 0 0 1-4.152-1.14l-.298-.177-3.089.91.923-3.052-.194-.31a8.15 8.15 0 1 1 6.81 3.769z"/></svg></div>
-          <div class="ch-info">
-            <div class="ch-platform">WhatsApp</div>
-            <div class="ch-handle">+52 998 769 2628</div>
-          </div>
-          <span class="ch-arr">→</span>
-        </a>
-        <div class="ch-row ch-row-email" id="emailRow" onclick="toggleContactDrop('emailRow','emailDrop')" style="cursor:pointer">
-          <div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-          <div class="ch-info">
-            <div class="ch-platform">Email</div>
-            <div class="ch-handle">carlosalfonso070717@gmail.com</div>
-          </div>
-          <span class="ch-arr-email" id="emailArr">→</span>
         </div>
+      </div>
+      <div class="contact-form-card rv d2">
+        <form id="contactForm" onsubmit="return sendContactForm(event)">
+          <div class="form-grid">
+            <div class="form-row">
+              <label data-k="contact.form.name"></label>
+              <input type="text" name="name" required>
+            </div>
+            <div class="form-row">
+              <label data-k="contact.form.email"></label>
+              <input type="email" name="email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <label data-k="contact.form.subject"></label>
+            <input type="text" name="subject">
+          </div>
+          <div class="form-row">
+            <label data-k="contact.form.message"></label>
+            <textarea name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <span data-k="contact.form.send"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -1523,11 +1783,13 @@ const T = {
     'hero.label':'Presentación','hero.role':'Estudiante en Desarrollo de Software',
     'hero.bio':'Apasionado por construir software de calidad y aprender de cada proyecto.',
     'hero.available':'Disponible para colaborar','hero.cta1':'Ver proyectos','hero.cta2':'Contacto','hero.cv':'↓ Descargar CV',
+    'hero.badge.label':'Certificaciones obtenidas',
     'about.title':'Sobre mí','about.aside':'Perfil del candidato',
     'about.p1':'Soy <strong>Carlos Alfonso Llanes Rodríguez</strong>, estudiante en Desarrollo de Software y Negocios Digitales con interés genuino en construir código limpio, aprender buenas prácticas y contribuir a equipos técnicos.',
     'about.p2':'Me motiva <strong>entender cómo funcionan los sistemas</strong> desde adentro: la lógica detrás de los algoritmos, la estructura que hace el código mantenible, y los procesos que aseguran la calidad del producto.',
     'about.p3':'Actualmente profundizo en <strong>Java</strong>, pruebas de software y control de versiones, preparándome con disciplina para mi primera experiencia profesional en el sector.',
     'kpi.lang':'Lenguaje principal','kpi.ieee':'Miembro activo','kpi.qa':'Testing & calidad','kpi.open.v':'Abierto','kpi.open.l':'A colaborar',
+    'info.name.label':'Nombre','info.email.label':'Email','info.location.label':'Ubicación','info.location.value':'Mérida, Yucatán, México','info.avail.label':'Disponibilidad',
     'skills.title':'Habilidades técnicas','skills.aside':'Stack en formación constante',
     'sk.ps.n':'Resolución de problemas',
     'sk.python.level':'Básico',
@@ -1558,6 +1820,7 @@ const T = {
     'p7.name':'CatalogoApp','p7.desc':'Proyecto escolar: catálogo de videojuegos desarrollado en C# con interfaz en HTML.',
     'contact.title':'Contacto','contact.headline':'¿Tienes una oportunidad o un proyecto?',
     'contact.note':'Estoy disponible para prácticas profesionales, proyectos de colaboración y cualquier oportunidad de aprendizaje en desarrollo de software. Quedo a su disposición.',
+    'contact.form.name':'Tu nombre','contact.form.email':'Tu email','contact.form.subject':'Asunto','contact.form.message':'Mensaje','contact.form.send':'Enviar mensaje',
     'footer.top':'↑ Volver arriba',
     'nav.gallery':'Galería',
     'gallery.title':'Galería','gallery.aside':'Logros & eventos',
@@ -1570,11 +1833,13 @@ const T = {
     'hero.label':'Introduction','hero.role':'Student in Software Development',
     'hero.bio':'Passionate about building quality software and learning from every project.',
     'hero.available':'Available to collaborate','hero.cta1':'View projects','hero.cta2':'Contact','hero.cv':'↓ Download CV',
+    'hero.badge.label':'Certifications earned',
     'about.title':'About Me','about.aside':'Candidate profile',
     'about.p1':'I\'m <strong>Carlos Alfonso Llanes Rodríguez</strong>, a Software Development student with a genuine interest in writing clean code, learning best practices, and contributing to technical teams.',
     'about.p2':'I\'m motivated by <strong>understanding how systems work</strong> from the inside: the logic behind algorithms, the structure that makes code maintainable, and the processes that ensure product quality.',
     'about.p3':'Currently deepening my knowledge in <strong>Java</strong>, software testing, and version control — preparing with discipline for my first professional experience in the industry.',
     'kpi.lang':'Primary language','kpi.ieee':'Active member','kpi.qa':'Testing & quality','kpi.open.v':'Open','kpi.open.l':'To collaborate',
+    'info.name.label':'Name','info.email.label':'Email','info.location.label':'Location','info.location.value':'Mérida, Yucatán, Mexico','info.avail.label':'Availability',
     'skills.title':'Technical Skills','skills.aside':'Stack under constant growth',
     'sk.ps.n':'Problem Solving',
     'sk.python.level':'Basic',
@@ -1605,6 +1870,7 @@ const T = {
     'p7.name':'CatalogoApp','p7.desc':'School project: a video game catalog built in C# with an HTML interface.',
     'contact.title':'Contact','contact.headline':'Have an opportunity or a project?',
     'contact.note':'Available for internships, collaborations, and learning opportunities in software development. Feel free to reach out.',
+    'contact.form.name':'Your name','contact.form.email':'Your email','contact.form.subject':'Subject','contact.form.message':'Message','contact.form.send':'Send message',
     'footer.top':'↑ Back to top',
     'nav.gallery':'Gallery',
     'gallery.title':'Gallery','gallery.aside':'Achievements & events',
@@ -1614,10 +1880,10 @@ const T = {
   }
 };
 
-const DARK_VARS  = {'--bg':'#0a0a12','--bg2':'#131320','--bg3':'#1b1b2c','--fg':'#f1eef9','--fg2':'#b9b5cc','--fg3':'#7d7a94','--rule':'rgba(255,255,255,.08)','--rule2':'rgba(255,255,255,.14)'};
-const LIGHT_VARS = {'--bg':'#f6f5fc','--bg2':'#ffffff','--bg3':'#edeafa','--fg':'#14121f','--fg2':'#57536c','--fg3':'#b3aec7','--rule':'rgba(20,10,50,.08)','--rule2':'rgba(20,10,50,.15)'};
+const DARK_VARS  = {'--bg':'#0a0c1b','--bg2':'#10132a','--bg3':'#161a38','--fg':'#f5f6fb','--fg2':'#a7acc7','--fg3':'#666b8c','--rule':'rgba(255,255,255,.08)','--rule2':'rgba(255,255,255,.14)'};
+const LIGHT_VARS = {'--bg':'#f6f7fc','--bg2':'#ffffff','--bg3':'#edeffb','--fg':'#12142a','--fg2':'#565b7d','--fg3':'#a8acc9','--rule':'rgba(20,20,60,.08)','--rule2':'rgba(20,20,60,.15)'};
 function applyBg(isDark){
-  const bg = isDark ? '#0a0a12' : '#f6f5fc';
+  const bg = isDark ? '#0a0c1b' : '#f6f7fc';
   document.documentElement.style.setProperty('background','',  '');
   document.documentElement.style.background = bg;
   document.body.style.background = bg;
@@ -1648,9 +1914,6 @@ function setLang(l){
     if(htmlKeys.includes(el.dataset.k)) el.innerHTML=v;
     else el.textContent=v;
   });
-  // Update kpiOpenV keeping the red dot
-  const kpiOpenV = document.getElementById('kpiOpenV');
-  if(kpiOpenV) kpiOpenV.innerHTML = (l==='es'?'Abierto':'Open') + '<em>.</em>';
   ['btnES','btnEN','dBtnES','dBtnEN'].forEach(id=>{
     const el=document.getElementById(id);
     if(el) el.classList.toggle('active',id.toUpperCase().includes(l.toUpperCase()));
@@ -1745,7 +2008,7 @@ async function downloadCV(){
   const SAFE=H-FTR-5;            // ~281mm
 
 
-  const RED=[124,92,255], BLACK=[18,18,18], GRAY=[88,88,88];
+  const RED=[139,92,246], BLACK=[18,18,18], GRAY=[88,88,88];
   const LGRAY=[200,200,200], WHITE=[255,255,255], OFFWHITE=[248,247,244];
   const DARK=[22,22,30];
   let ly=0, ry=0;
@@ -1941,6 +2204,21 @@ async function downloadCV(){
   btn.querySelector('span').textContent = lang==='es'?'↓ Descargar CV':'↓ Download CV';
 }
 
+// ━━━━ CONTACT FORM (mailto) ━━━━
+function sendContactForm(e){
+  e.preventDefault();
+  const f = e.target;
+  const name = f.name.value.trim();
+  const email = f.email.value.trim();
+  const subject = f.subject.value.trim() || (lang==='es' ? 'Contacto desde el portafolio' : 'Contact from portfolio');
+  const message = f.message.value.trim();
+  const body = lang==='es'
+    ? `Nombre: ${name}\nEmail: ${email}\n\n${message}`
+    : `Name: ${name}\nEmail: ${email}\n\n${message}`;
+  window.location.href = `mailto:carlosalfonso070717@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return false;
+}
+
 // ━━━━ CONTACT DROPDOWNS ━━━━
 let _openDrop = null;
 let _openRow  = null;
@@ -2063,3 +2341,7 @@ const rvObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+
+</script>
+</body>
+</html>
