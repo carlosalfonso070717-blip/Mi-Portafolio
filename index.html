@@ -22,25 +22,25 @@
 <meta name="twitter:title"       content="Carlos Llanes · Desarrollador de Software"/>
 <meta name="twitter:description" content="Estudiante de Desarrollo de Software apasionado por Java, QA/Testing y buenas prácticas. Miembro IEEE. Mérida, Yucatán."/>
 <meta name="twitter:image"       content="https://carlosalfonso070717-blip.github.io/preview.png"/>
-<meta name="theme-color" id="themeColor" content="#0a0a12"/>
+<meta name="theme-color" id="themeColor" content="#070d0f"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-/* ━━━━ DESIGN SYSTEM — AURORA ━━━━
-   Deep space + violet/cyan aurora accent. Glass surfaces, soft glow, modern dev aesthetic.
+/* ━━━━ DESIGN SYSTEM — CODE RAIN ━━━━
+   Deep blue-teal + sky blue / pistachio accent. Glass surfaces, ambient code rain, dev aesthetic.
 ━━━━━━━━━━━━━━━━━━━━━━━━ */
 :root {
-  --bg:      #0a0a12;
-  --bg2:     #131320;
-  --bg3:     #1b1b2c;
-  --red:     #7c5cff;
-  --accent2: #22d3ee;
+  --bg:      #070d0f;
+  --bg2:     #0e1619;
+  --bg3:     #131f22;
+  --red:     #6fc3ea;
+  --accent2: #a4d99c;
   --grad:    linear-gradient(135deg, var(--red), var(--accent2));
-  --red-dim: rgba(124,92,255,.12);
-  --red-rule:rgba(124,92,255,.35);
-  --fg:      #f1eef9;
-  --fg2:     #b9b5cc;
-  --fg3:     #7d7a94;
+  --red-dim: rgba(111,195,234,.12);
+  --red-rule:rgba(111,195,234,.35);
+  --fg:      #eef5f3;
+  --fg2:     #b3c2c0;
+  --fg3:     #75827f;
   --rule:    rgba(255,255,255,.08);
   --rule2:   rgba(255,255,255,.14);
   --glass:   rgba(255,255,255,.04);
@@ -52,15 +52,15 @@
 }
 
 [data-theme="light"]{
-  --bg:      #f6f5fc;
+  --bg:      #f4faf6;
   --bg2:     #ffffff;
-  --bg3:     #edeafa;
-  --fg:      #14121f;
-  --fg2:     #57536c;
-  --fg3:     #b3aec7;
-  --rule:    rgba(20,10,50,.08);
-  --rule2:   rgba(20,10,50,.15);
-  --glass:   rgba(20,10,50,.03);
+  --bg3:     #e7f3ec;
+  --fg:      #101615;
+  --fg2:     #4c5957;
+  --fg3:     #a9b8b5;
+  --rule:    rgba(10,30,25,.08);
+  --rule2:   rgba(10,30,25,.15);
+  --glass:   rgba(10,30,25,.03);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -77,6 +77,7 @@ body{
   overflow-x:hidden;
   transition:background .3s,color .3s;
   position:relative;
+  isolation:isolate;
 }
 a{color:inherit;text-decoration:none}
 img{display:block}
@@ -84,43 +85,31 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 ul{list-style:none}
 
 /* ━━━━ CUSTOM CURSOR ━━━━ */
-* { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2 L4 16 L7.5 12.5 L10.5 18 L13 17 L10 11.5 L15 11.5 Z' fill='%237c5cff' stroke='%23000' stroke-width='0.8'/%3E%3C/svg%3E") 4 2, auto !important; }
+* { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2 L4 16 L7.5 12.5 L10.5 18 L13 17 L10 11.5 L15 11.5 Z' fill='%236fc3ea' stroke='%23000' stroke-width='0.8'/%3E%3C/svg%3E") 4 2, auto !important; }
 
 /* ━━━━ SCROLLBAR ━━━━ */
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:linear-gradient(to bottom, var(--red), var(--accent2));border-radius:2px}
 
-/* ━━━━ AURORA BACKGROUND ━━━━ */
-body::before{
-  content:'';
+/* ━━━━ CODE RAIN BACKGROUND ━━━━ */
+#rain-bg{
   position:fixed;inset:0;z-index:-2;
-  background:
-    radial-gradient(680px 480px at 12% -8%, rgba(124,92,255,.22), transparent 60%),
-    radial-gradient(620px 460px at 92% 8%, rgba(34,211,238,.14), transparent 60%),
-    radial-gradient(700px 520px at 50% 105%, rgba(124,92,255,.12), transparent 60%);
+  width:100%;height:100%;
   pointer-events:none;
-  animation:auroraShift 22s ease-in-out infinite alternate;
+  opacity:.5;
+  transition:opacity .4s;
 }
-[data-theme="light"] body::before{
-  background:
-    radial-gradient(680px 480px at 12% -8%, rgba(124,92,255,.14), transparent 60%),
-    radial-gradient(620px 460px at 92% 8%, rgba(34,211,238,.12), transparent 60%),
-    radial-gradient(700px 520px at 50% 105%, rgba(124,92,255,.08), transparent 60%);
-}
-@keyframes auroraShift{
-  0%{ transform:translate(0,0) scale(1); }
-  100%{ transform:translate(-2%,2%) scale(1.06); }
-}
+[data-theme="light"] #rain-bg{ opacity:.32 }
 body::after{
   content:'';
   position:fixed;inset:0;z-index:-1;
-  background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size:34px 34px;
-  mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, black 0%, transparent 75%);
+  background:linear-gradient(180deg, var(--bg) 0%, rgba(7,13,15,.55) 55%, var(--bg) 100%);
   pointer-events:none;
 }
-[data-theme="light"] body::after{ background-image:radial-gradient(rgba(20,10,50,.06) 1px, transparent 1px); }
+[data-theme="light"] body::after{
+  background:linear-gradient(180deg, var(--bg) 0%, rgba(244,250,246,.6) 55%, var(--bg) 100%);
+}
 
 /* ━━━━ LINKEDIN FLOAT BTN ━━━━ */
 .linkedin-fab{
@@ -238,7 +227,7 @@ nav.scrolled{
 .lang-toggle button.active{
   background:var(--grad);
   color:#fff;
-  box-shadow:0 2px 12px rgba(124,92,255,.4);
+  box-shadow:0 2px 12px rgba(111,195,234,.4);
 }
 .lang-toggle button:not(.active):hover{ color:var(--fg) }
 
@@ -264,7 +253,7 @@ nav.scrolled{
   border-color:var(--red);
   color:var(--red);
   transform:rotate(20deg);
-  box-shadow:0 0 16px rgba(124,92,255,.3);
+  box-shadow:0 0 16px rgba(111,195,234,.3);
 }
 .theme-btn:hover::before{ opacity:1 }
 .theme-btn svg{ position:relative;z-index:1;transition:transform .3s var(--ease) }
@@ -375,7 +364,7 @@ nav.scrolled{
   font-size:clamp(3.2rem,5.5vw,5.3rem);
   background:var(--grad);
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 0 26px rgba(124,92,255,.35));
+  filter:drop-shadow(0 0 26px rgba(111,195,234,.35));
 }
 
 .hero-role{
@@ -415,7 +404,7 @@ nav.scrolled{
 .btn-red{
   background:var(--grad);
   color:#fff;border:1px solid transparent;
-  box-shadow:0 8px 24px rgba(124,92,255,.35);
+  box-shadow:0 8px 24px rgba(111,195,234,.35);
 }
 .btn-red::before{
   content:'';
@@ -425,7 +414,7 @@ nav.scrolled{
   transition:transform .35s var(--ease);
 }
 .btn-red:hover::before{ transform:translateX(0) }
-.btn-red:hover{ transform:translateY(-2px); box-shadow:0 12px 32px rgba(124,92,255,.5); }
+.btn-red:hover{ transform:translateY(-2px); box-shadow:0 12px 32px rgba(111,195,234,.5); }
 
 .btn-outline,.btn-cv{
   background:var(--glass);
@@ -437,7 +426,7 @@ nav.scrolled{
   border-color:var(--red);
   color:var(--red);
   transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(124,92,255,.2);
+  box-shadow:0 8px 24px rgba(111,195,234,.2);
   background:var(--red-dim);
 }
 .btn-red:active,.btn-outline:active,.btn-cv:active,
@@ -483,7 +472,7 @@ nav.scrolled{
 }
 .photo-frame:hover{
   transform:translateY(-4px);
-  box-shadow:0 26px 70px rgba(0,0,0,.5), 0 0 40px rgba(124,92,255,.25);
+  box-shadow:0 26px 70px rgba(0,0,0,.5), 0 0 40px rgba(111,195,234,.25);
 }
 
 /* ━━━━ SECTION COMMONS ━━━━ */
@@ -590,7 +579,7 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
   color:var(--fg);border-color:var(--red);
   background:var(--red-dim);
   transform:translateY(-3px);
-  box-shadow:0 10px 26px rgba(124,92,255,.22);
+  box-shadow:0 10px 26px rgba(111,195,234,.22);
 }
 .sk-ico{
   display:inline-flex;align-items:center;justify-content:center;
@@ -600,7 +589,7 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
 .sk-dot{
   display:inline-block;width:7px;height:7px;border-radius:50%;
   background:var(--grad);flex-shrink:0;
-  box-shadow:0 0 8px rgba(124,92,255,.5);
+  box-shadow:0 0 8px rgba(111,195,234,.5);
 }
 .skills-animate .sk-pill,.skills-animate .sk-pill-soft{ opacity:0;transform:translateY(10px) }
 .skills-ready .sk-pill,.skills-ready .sk-pill-soft{ opacity:1;transform:none }
@@ -678,7 +667,7 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
 .proj-card::before{
   content:'';
   position:absolute;inset:0;
-  background:radial-gradient(ellipse at top left, rgba(124,92,255,.1) 0%, transparent 65%);
+  background:radial-gradient(ellipse at top left, rgba(111,195,234,.1) 0%, transparent 65%);
   opacity:0;
   transition:opacity .35s;
   pointer-events:none;
@@ -950,7 +939,7 @@ footer::before{
   height:2px;width:0%;
   background:var(--grad);
   transition:width .08s linear;
-  box-shadow:0 0 10px rgba(124,92,255,.6);
+  box-shadow:0 0 10px rgba(111,195,234,.6);
   pointer-events:none;
 }
 
@@ -1023,6 +1012,8 @@ footer::before{
 </style>
 </head>
 <body>
+
+<canvas id="rain-bg"></canvas>
 
 <!-- ━━━━ NAV ━━━━ -->
 <nav>
@@ -1505,6 +1496,59 @@ footer::before{
 
 
 <script>
+// ━━━━ CODE RAIN BACKGROUND ━━━━
+(function(){
+  const canvas = document.getElementById('rain-bg');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const glyphs = '01{}<>/;=+-*[]().'.split('');
+  const fontSize = 15;
+  const trailLen = 10;
+  let columns, drops, dpr, W, H;
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    columns = Math.max(1, Math.floor(W / fontSize));
+    drops = new Array(columns).fill(0).map(()=> Math.random() * -40);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const colors = ['111,195,234','164,217,156'];
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = fontSize + 'px monospace';
+    for(let i=0;i<columns;i++){
+      const color = colors[i % 2];
+      const x = i * fontSize;
+      for(let t=0;t<trailLen;t++){
+        const y = (drops[i] - t) * fontSize;
+        if(y < -fontSize || y > H + fontSize) continue;
+        const alpha = (1 - t/trailLen) * 0.45;
+        if(alpha <= 0) continue;
+        ctx.fillStyle = `rgba(${color},${alpha.toFixed(2)})`;
+        const glyph = glyphs[Math.floor(Math.random()*glyphs.length)];
+        ctx.fillText(glyph, x, y);
+      }
+      drops[i] += 0.35;
+      if((drops[i]*fontSize) > H + trailLen*fontSize && Math.random() > 0.985){
+        drops[i] = Math.random() * -20;
+      }
+    }
+  }
+  let last = 0;
+  function loop(ts){
+    if(ts - last > 55){ draw(); last = ts; }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
 // ━━━━ ROLE SUFFIX (emoji + blinking bar) ━━━━
 // Defined first so setLang() can call it
 function injectRoleSuffix() {
@@ -1614,10 +1658,10 @@ const T = {
   }
 };
 
-const DARK_VARS  = {'--bg':'#0a0a12','--bg2':'#131320','--bg3':'#1b1b2c','--fg':'#f1eef9','--fg2':'#b9b5cc','--fg3':'#7d7a94','--rule':'rgba(255,255,255,.08)','--rule2':'rgba(255,255,255,.14)'};
-const LIGHT_VARS = {'--bg':'#f6f5fc','--bg2':'#ffffff','--bg3':'#edeafa','--fg':'#14121f','--fg2':'#57536c','--fg3':'#b3aec7','--rule':'rgba(20,10,50,.08)','--rule2':'rgba(20,10,50,.15)'};
+const DARK_VARS  = {'--bg':'#070d0f','--bg2':'#0e1619','--bg3':'#131f22','--fg':'#eef5f3','--fg2':'#b3c2c0','--fg3':'#75827f','--rule':'rgba(255,255,255,.08)','--rule2':'rgba(255,255,255,.14)'};
+const LIGHT_VARS = {'--bg':'#f4faf6','--bg2':'#ffffff','--bg3':'#e7f3ec','--fg':'#101615','--fg2':'#4c5957','--fg3':'#a9b8b5','--rule':'rgba(10,30,25,.08)','--rule2':'rgba(10,30,25,.15)'};
 function applyBg(isDark){
-  const bg = isDark ? '#0a0a12' : '#f6f5fc';
+  const bg = isDark ? '#070d0f' : '#f4faf6';
   document.documentElement.style.setProperty('background','',  '');
   document.documentElement.style.background = bg;
   document.body.style.background = bg;
@@ -1745,7 +1789,7 @@ async function downloadCV(){
   const SAFE=H-FTR-5;            // ~281mm
 
 
-  const RED=[124,92,255], BLACK=[18,18,18], GRAY=[88,88,88];
+  const RED=[111,195,234], BLACK=[18,18,18], GRAY=[88,88,88];
   const LGRAY=[200,200,200], WHITE=[255,255,255], OFFWHITE=[248,247,244];
   const DARK=[22,22,30];
   let ly=0, ry=0;
