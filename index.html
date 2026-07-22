@@ -883,7 +883,7 @@ footer::before{
 }
 
 /* ━━━━ GALLERY CAROUSEL ━━━━ */
-.gallery-carousel{ cursor:default }
+.gallery-carousel{ cursor:default;aspect-ratio:4/3 }
 .carousel-track{
   display:flex;width:100%;height:100%;
   transition:transform .45s var(--ease);
@@ -891,14 +891,11 @@ footer::before{
 }
 .carousel-slide{
   flex:0 0 100%;width:100%;height:100%;
-  background:#000;
 }
 .carousel-slide img{
-  object-fit:contain!important;
+  object-fit:cover!important;
   object-position:center!important;
-  background:#000;
 }
-.gallery-carousel:hover .carousel-slide img{ transform:none!important }
 .carousel-arrow{
   position:absolute;top:50%;translate:0 -50%;
   width:36px;height:36px;border-radius:50%;
