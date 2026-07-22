@@ -374,6 +374,15 @@ nav.scrolled{
   margin-bottom:1.6rem;
   display:flex;align-items:center;gap:.7rem;
 }
+.typed-cursor{
+  display:inline-block;
+  width:2px;height:1em;
+  background:var(--red);
+  margin-left:2px;
+  vertical-align:middle;
+  border-radius:1px;
+  animation:blink .8s step-end infinite;
+}
 
 .hero-bio{
   font-size:1.1rem;color:var(--fg2);line-height:1.9;
@@ -1068,7 +1077,7 @@ footer::before{
     <div class="hero-text">
       <div class="hero-eyebrow" data-k="hero.label"></div>
       <h1 class="hero-name">CARLOS<span>LLANES</span></h1>
-      <div class="hero-role" data-k="hero.role"></div>
+      <div class="hero-role"><span id="roleTyped"></span><span class="typed-cursor"></span></div>
       <p class="hero-bio" data-k="hero.bio"></p>
       <div class="hero-actions">
         <a href="#portfolio" class="btn-red"     data-k="hero.cta1"></a>
@@ -1701,6 +1710,48 @@ function setLang(l){
   });
   document.documentElement.lang=l;
   injectRoleSuffix();
+  startRoleTyping();
+}
+
+// ━━━━ HERO ROLE TYPEWRITER ━━━━
+const ROLE_PHRASES = {
+  es: ['Estudiante en Desarrollo de Software', 'Miembro IEEE', 'Entusiasta de Java'],
+  en: ['Student in Software Development', 'IEEE Member', 'Java Enthusiast'],
+};
+let roleTypeTimer = null;
+let roleTypeToken = 0;
+function startRoleTyping(){
+  clearTimeout(roleTypeTimer);
+  const el = document.getElementById('roleTyped');
+  if(!el) return;
+  const myToken = ++roleTypeToken;
+  const phrases = ROLE_PHRASES[lang] || ROLE_PHRASES.es;
+  let phraseIdx = 0, charIdx = 0, deleting = false;
+  function tick(){
+    if(myToken !== roleTypeToken) return;
+    const phrase = phrases[phraseIdx];
+    if(!deleting){
+      charIdx++;
+      el.textContent = phrase.slice(0, charIdx);
+      if(charIdx === phrase.length){
+        deleting = true;
+        roleTypeTimer = setTimeout(tick, 1800);
+        return;
+      }
+      roleTypeTimer = setTimeout(tick, 55);
+    } else {
+      charIdx--;
+      el.textContent = phrase.slice(0, charIdx);
+      if(charIdx === 0){
+        deleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        roleTypeTimer = setTimeout(tick, 400);
+        return;
+      }
+      roleTypeTimer = setTimeout(tick, 30);
+    }
+  }
+  tick();
 }
 
 document.getElementById('hamBtn').addEventListener('click',()=>{
@@ -1737,6 +1788,27 @@ const obs = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
 },{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// ━━━━ 3D TILT ON CARDS ━━━━
+if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+  const tiltMax = 7;
+  document.querySelectorAll('.cert-row, .proj-card').forEach(card=>{
+    card.style.transition = card.style.transition || 'transform .15s ease-out';
+    card.addEventListener('mousemove', e=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      const rx = ((py - 0.5) * -tiltMax).toFixed(2);
+      const ry = ((px - 0.5) * tiltMax).toFixed(2);
+      card.style.transition = 'transform .08s linear';
+      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', ()=>{
+      card.style.transition = 'transform .4s var(--ease)';
+      card.style.transform = '';
+    });
+  });
+}
 
 // ━━━━ GALLERY CAROUSEL ━━━━
 document.querySelectorAll('.gallery-carousel').forEach(car=>{
