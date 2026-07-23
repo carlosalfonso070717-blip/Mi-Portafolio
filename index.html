@@ -1581,13 +1581,6 @@ footer::before{
       </div>
       <div class="contact-form-card rv d2">
         <form id="contactForm" onsubmit="return sendContactForm(event)">
-          <div class="form-row">
-            <label data-k="contact.form.recipient"></label>
-            <select name="recipient" required>
-              <option value="personal" data-k="contact.form.recipient.personal"></option>
-              <option value="institutional" data-k="contact.form.recipient.institutional"></option>
-            </select>
-          </div>
           <div class="form-grid">
             <div class="form-row">
               <label data-k="contact.form.name"></label>
@@ -1743,7 +1736,6 @@ const T = {
     'contact.title':'Contacto','contact.headline':'¿Tienes una oportunidad o un proyecto?',
     'contact.note':'Estoy disponible para prácticas profesionales, proyectos de colaboración y cualquier oportunidad de aprendizaje en desarrollo de software. Quedo a su disposición.',
     'contact.form.name':'Tu nombre','contact.form.email':'Tu email','contact.form.subject':'Asunto','contact.form.message':'Mensaje','contact.form.send':'Enviar mensaje',
-    'contact.form.recipient':'¿A quién le escribes?','contact.form.recipient.personal':'Correo personal','contact.form.recipient.institutional':'Correo institucional',
     'contact.form.sending':'Enviando...','contact.form.success':'¡Mensaje enviado! Te responderé pronto.','contact.form.error':'Hubo un error al enviar. Intenta de nuevo o escríbeme directo a mi correo.',
     'footer.top':'↑ Volver arriba',
     'nav.gallery':'Galería',
@@ -1793,7 +1785,6 @@ const T = {
     'contact.title':'Contact','contact.headline':'Have an opportunity or a project?',
     'contact.note':'Available for internships, collaborations, and learning opportunities in software development. Feel free to reach out.',
     'contact.form.name':'Your name','contact.form.email':'Your email','contact.form.subject':'Subject','contact.form.message':'Message','contact.form.send':'Send message',
-    'contact.form.recipient':'Who are you writing to?','contact.form.recipient.personal':'Personal email','contact.form.recipient.institutional':'Institutional email',
     'contact.form.sending':'Sending...','contact.form.success':'Message sent! I\'ll reply soon.','contact.form.error':'Something went wrong. Try again or email me directly.',
     'footer.top':'↑ Back to top',
     'nav.gallery':'Gallery',
@@ -2195,17 +2186,14 @@ async function downloadCV(){
 }
 
 // ━━━━ CONTACT FORM (Formspree) ━━━━
-const FORMSPREE_ENDPOINTS = {
-  personal: 'https://formspree.io/f/xwvgreqr',
-  institutional: 'https://formspree.io/f/mjgnaboz'
-};
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwvgreqr';
 
 function sendContactForm(e){
   e.preventDefault();
   const f = e.target;
   const btn = document.getElementById('formSubmitBtn');
   const status = document.getElementById('formStatus');
-  const endpoint = FORMSPREE_ENDPOINTS[f.recipient.value];
+  const endpoint = FORMSPREE_ENDPOINT;
 
   const subject = f.subject.value.trim() || (lang==='es' ? 'Contacto desde el portafolio' : 'Contact from portfolio');
   f.subject.value = subject;
