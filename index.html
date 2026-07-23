@@ -775,7 +775,7 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
   font-family:var(--mono);font-size:.68rem;
   color:var(--fg3);letter-spacing:.06em;text-transform:uppercase;
 }
-.form-row input,.form-row textarea{
+.form-row input,.form-row textarea,.form-row select{
   background:var(--bg3);
   border:1px solid var(--rule2);
   border-radius:12px;
@@ -785,7 +785,12 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
   transition:border-color .2s,box-shadow .2s;
   resize:vertical;
 }
-.form-row input:focus,.form-row textarea:focus{
+.form-row select{ cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236fc3ea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat:no-repeat;background-position:right 1rem center;background-size:16px;
+  padding-right:2.6rem;
+}
+.form-row input:focus,.form-row textarea:focus,.form-row select:focus{
   outline:none;
   border-color:var(--red);
   box-shadow:0 0 0 3px var(--red-dim);
@@ -803,6 +808,15 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
 }
 .form-submit:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(111,195,234,.5) }
 .form-submit:active{ transform:scale(.98) }
+.form-submit:disabled{ opacity:.6;cursor:not-allowed;transform:none!important }
+.form-status{
+  margin-top:.9rem;padding:.8rem 1rem;border-radius:10px;
+  font-family:var(--sans);font-size:.86rem;text-align:center;
+  display:none;
+}
+.form-status.show{ display:block }
+.form-status.success{ background:rgba(164,217,156,.14);color:var(--accent2);border:1px solid rgba(164,217,156,.35) }
+.form-status.error{ background:rgba(234,111,111,.14);color:#ea8f6f;border:1px solid rgba(234,111,111,.35) }
 .ch-row{
   display:flex;align-items:center;gap:1rem;
   padding:1.1rem 1.3rem;
@@ -1567,6 +1581,13 @@ footer::before{
       </div>
       <div class="contact-form-card rv d2">
         <form id="contactForm" onsubmit="return sendContactForm(event)">
+          <div class="form-row">
+            <label data-k="contact.form.recipient"></label>
+            <select name="recipient" required>
+              <option value="personal" data-k="contact.form.recipient.personal"></option>
+              <option value="institutional" data-k="contact.form.recipient.institutional"></option>
+            </select>
+          </div>
           <div class="form-grid">
             <div class="form-row">
               <label data-k="contact.form.name"></label>
@@ -1585,10 +1606,11 @@ footer::before{
             <label data-k="contact.form.message"></label>
             <textarea name="message" rows="4" required></textarea>
           </div>
-          <button type="submit" class="form-submit">
+          <button type="submit" class="form-submit" id="formSubmitBtn">
             <span data-k="contact.form.send"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </button>
+          <div id="formStatus" class="form-status" role="status"></div>
         </form>
       </div>
     </div>
@@ -1721,6 +1743,8 @@ const T = {
     'contact.title':'Contacto','contact.headline':'¿Tienes una oportunidad o un proyecto?',
     'contact.note':'Estoy disponible para prácticas profesionales, proyectos de colaboración y cualquier oportunidad de aprendizaje en desarrollo de software. Quedo a su disposición.',
     'contact.form.name':'Tu nombre','contact.form.email':'Tu email','contact.form.subject':'Asunto','contact.form.message':'Mensaje','contact.form.send':'Enviar mensaje',
+    'contact.form.recipient':'¿A quién le escribes?','contact.form.recipient.personal':'Correo personal','contact.form.recipient.institutional':'Correo institucional',
+    'contact.form.sending':'Enviando...','contact.form.success':'¡Mensaje enviado! Te responderé pronto.','contact.form.error':'Hubo un error al enviar. Intenta de nuevo o escríbeme directo a mi correo.',
     'footer.top':'↑ Volver arriba',
     'nav.gallery':'Galería',
     'gallery.title':'Galería','gallery.aside':'Logros & eventos',
@@ -1769,6 +1793,8 @@ const T = {
     'contact.title':'Contact','contact.headline':'Have an opportunity or a project?',
     'contact.note':'Available for internships, collaborations, and learning opportunities in software development. Feel free to reach out.',
     'contact.form.name':'Your name','contact.form.email':'Your email','contact.form.subject':'Subject','contact.form.message':'Message','contact.form.send':'Send message',
+    'contact.form.recipient':'Who are you writing to?','contact.form.recipient.personal':'Personal email','contact.form.recipient.institutional':'Institutional email',
+    'contact.form.sending':'Sending...','contact.form.success':'Message sent! I\'ll reply soon.','contact.form.error':'Something went wrong. Try again or email me directly.',
     'footer.top':'↑ Back to top',
     'nav.gallery':'Gallery',
     'gallery.title':'Gallery','gallery.aside':'Achievements & events',
@@ -2168,18 +2194,49 @@ async function downloadCV(){
   btn.querySelector('span').textContent = lang==='es'?'↓ Descargar CV':'↓ Download CV';
 }
 
-// ━━━━ CONTACT FORM (mailto) ━━━━
+// ━━━━ CONTACT FORM (Formspree) ━━━━
+const FORMSPREE_ENDPOINTS = {
+  personal: 'https://formspree.io/f/xwvgreqr',
+  institutional: 'https://formspree.io/f/mjgnaboz'
+};
+
 function sendContactForm(e){
   e.preventDefault();
   const f = e.target;
-  const name = f.name.value.trim();
-  const email = f.email.value.trim();
+  const btn = document.getElementById('formSubmitBtn');
+  const status = document.getElementById('formStatus');
+  const endpoint = FORMSPREE_ENDPOINTS[f.recipient.value];
+
   const subject = f.subject.value.trim() || (lang==='es' ? 'Contacto desde el portafolio' : 'Contact from portfolio');
-  const message = f.message.value.trim();
-  const body = lang==='es'
-    ? `Nombre: ${name}\nEmail: ${email}\n\n${message}`
-    : `Name: ${name}\nEmail: ${email}\n\n${message}`;
-  window.location.href = `mailto:carlosalfonso070717@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  f.subject.value = subject;
+
+  status.className = 'form-status';
+  btn.disabled = true;
+  const btnLabel = btn.querySelector('span');
+  const prevLabel = btnLabel.textContent;
+  btnLabel.textContent = T[lang]['contact.form.sending'];
+
+  fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: new FormData(f)
+  }).then(res => {
+    if(res.ok){
+      status.textContent = T[lang]['contact.form.success'];
+      status.className = 'form-status show success';
+      f.reset();
+    } else {
+      status.textContent = T[lang]['contact.form.error'];
+      status.className = 'form-status show error';
+    }
+  }).catch(() => {
+    status.textContent = T[lang]['contact.form.error'];
+    status.className = 'form-status show error';
+  }).finally(() => {
+    btn.disabled = false;
+    btnLabel.textContent = prevLabel;
+  });
+
   return false;
 }
 
