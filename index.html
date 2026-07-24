@@ -635,6 +635,46 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
 .skills-animate .sk-pill,.skills-animate .sk-pill-soft{ opacity:0;transform:translateY(10px) }
 .skills-ready .sk-pill,.skills-ready .sk-pill-soft{ opacity:1;transform:none }
 
+/* ━━━━ VERIFIED BADGES ━━━━ */
+.badges-panel{
+  border:1px solid var(--rule2);
+  border-radius:var(--radius);
+  background:var(--glass);
+  backdrop-filter:blur(8px);
+  padding:2rem 2.2rem 2.2rem;
+  margin-bottom:2.5rem;
+}
+.badges-panel-head h3{
+  font-family:var(--display);font-size:1.4rem;letter-spacing:.02em;
+  color:var(--fg);margin-bottom:.4rem;
+}
+.badges-panel-head p{
+  font-family:var(--mono);font-size:.82rem;color:var(--fg3);
+}
+.badges-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+  margin-top:1.8rem;
+}
+.badge-card{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:1.6rem 1.3rem;
+  border:1px solid var(--rule2);
+  border-radius:16px;
+  transition:border-color .25s,transform .25s var(--ease),box-shadow .25s;
+}
+.badge-card:hover{
+  border-color:var(--red-rule);
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(0,0,0,.25);
+}
+.badge-card img{ width:120px;height:120px;object-fit:contain;margin-bottom:1.1rem }
+.badge-card-title{ font-family:var(--display);font-size:1.05rem;color:var(--fg);margin-bottom:.3rem }
+.badge-card-issuer{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--red);margin-bottom:.7rem;
+}
+.badge-card-desc{ font-size:.86rem;color:var(--fg2);line-height:1.6 }
+
 /* ━━━━ CERTS — CARD GRID ━━━━ */
 .certs-list{
   display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;
@@ -1064,6 +1104,8 @@ footer::before{
   .sec-aside{display:none}
   .proj-grid{grid-template-columns:1fr}
   .certs-list{grid-template-columns:1fr}
+  .badges-grid{grid-template-columns:1fr}
+  .badges-panel{padding:1.6rem 1.4rem 1.8rem}
   .section-header{
     grid-template-columns:auto 1fr;
     gap:.8rem;
@@ -1271,33 +1313,37 @@ footer::before{
       <h2 class="sec-title" data-k="certs.title"></h2>
       <span class="sec-aside" data-k="certs.aside"></span>
     </div>
+
+    <div class="badges-panel rv">
+      <div class="badges-panel-head">
+        <h3 data-k="certs.verified.title"></h3>
+        <p data-k="certs.verified.sub"></p>
+      </div>
+      <div class="badges-grid">
+        <a class="badge-card" href="https://www.credly.com/badges/b2e906b7-c7de-4767-9734-63a9713fc35b/public_url" target="_blank">
+          <img src="assets/aws-academy-graduate-cloud-foundations-training-bad.png" alt="AWS Academy Cloud Foundations badge">
+          <div class="badge-card-title" data-k="cert7.name"></div>
+          <div class="badge-card-issuer">AWS Academy</div>
+          <p class="badge-card-desc" data-k="cert7.desc"></p>
+        </a>
+        <a class="badge-card" href="https://www.credly.com/badges/7b24a0c8-7fce-42ce-954b-8aeec0fa0e07/public_url" target="_blank">
+          <img src="assets/aws-academy-graduate-cloud-operations-training-badg.png" alt="AWS Academy Cloud Operations badge">
+          <div class="badge-card-title" data-k="cert11.name"></div>
+          <div class="badge-card-issuer">AWS Academy</div>
+          <p class="badge-card-desc" data-k="cert11.desc"></p>
+        </a>
+        <a class="badge-card" href="https://www.credly.com/badges/e91a3112-a314-4750-8520-2d6c3e29ba84/linked_in_profile" target="_blank">
+          <img src="assets/network-technician-career-path.png" alt="Cisco Network Technician Career Path badge">
+          <div class="badge-card-title" data-k="cert9.name"></div>
+          <div class="badge-card-issuer">Cisco Networking Academy</div>
+          <p class="badge-card-desc" data-k="cert9.desc"></p>
+        </a>
+      </div>
+    </div>
+
     <div class="certs-list">
       <div class="cert-row rv d1">
         <div class="cert-num">C·01</div>
-        <div class="cert-body">
-          <div class="cert-name" data-k="cert7.name"></div>
-          <div class="cert-meta">
-            <span class="cert-issuer">AWS</span>
-            <span class="cert-status" data-k="cert.verified"></span>
-          </div>
-          <p class="cert-desc" data-k="cert7.desc"></p>
-        </div>
-        <a class="cert-link" href="https://www.credly.com/badges/b2e906b7-c7de-4767-9734-63a9713fc35b/public_url" target="_blank" data-k="cert.see"></a>
-      </div>
-      <div class="cert-row rv d2">
-        <div class="cert-num">C·02</div>
-        <div class="cert-body">
-          <div class="cert-name" data-k="cert11.name"></div>
-          <div class="cert-meta">
-            <span class="cert-issuer">AWS</span>
-            <span class="cert-status" data-k="cert.verified"></span>
-          </div>
-          <p class="cert-desc" data-k="cert11.desc"></p>
-        </div>
-        <a class="cert-link" href="https://www.credly.com/badges/7b24a0c8-7fce-42ce-954b-8aeec0fa0e07/public_url" target="_blank" data-k="cert.see"></a>
-      </div>
-      <div class="cert-row rv d3">
-        <div class="cert-num">C·03</div>
         <div class="cert-body">
           <div class="cert-name" data-k="cert1.name"></div>
           <div class="cert-meta">
@@ -1308,8 +1354,8 @@ footer::before{
         </div>
         <a class="cert-link" href="https://platzi.com/p/carlosalfonso070717/curso/12199-course/diploma/detalle/" target="_blank" data-k="cert.see"></a>
       </div>
-      <div class="cert-row rv d4">
-        <div class="cert-num">C·04</div>
+      <div class="cert-row rv d2">
+        <div class="cert-num">C·02</div>
         <div class="cert-body">
           <div class="cert-name" data-k="cert4.name"></div>
           <div class="cert-meta">
@@ -1320,8 +1366,8 @@ footer::before{
         </div>
         <a class="cert-link" href="https://platzi.com/p/carlosalfonso070717/curso/4656-backend/diploma/detalle/" target="_blank" data-k="cert.see"></a>
       </div>
-      <div class="cert-row rv d5">
-        <div class="cert-num">C·05</div>
+      <div class="cert-row rv d3">
+        <div class="cert-num">C·03</div>
         <div class="cert-body">
           <div class="cert-name" data-k="cert.python.title"></div>
           <div class="cert-meta">
@@ -1332,8 +1378,8 @@ footer::before{
         </div>
         <a href="https://www.hackerrank.com/certificates/iframe/615dd8f1105f" target="_blank" class="cert-link" data-k="cert.see"></a>
       </div>
-      <div class="cert-row rv d1">
-        <div class="cert-num">C·06</div>
+      <div class="cert-row rv d4">
+        <div class="cert-num">C·04</div>
         <div class="cert-body">
           <div class="cert-name" data-k="cert3.name"></div>
           <div class="cert-meta">
@@ -1344,8 +1390,8 @@ footer::before{
         </div>
         <a class="cert-link" href="assets/cert-datacamp-python-dsa.pdf" download="Certificado_DataCamp_Carlos_Llanes.pdf" target="_blank" data-k="cert.see"></a>
       </div>
-      <div class="cert-row rv d2">
-        <div class="cert-num">C·07</div>
+      <div class="cert-row rv d5">
+        <div class="cert-num">C·05</div>
         <div class="cert-body">
           <div class="cert-name" data-k="cert6.name"></div>
           <div class="cert-meta">
@@ -1356,8 +1402,8 @@ footer::before{
         </div>
         <a class="cert-link" href="https://www.datacamp.com/completed/statement-of-accomplishment/course/0b37fb97440aa0cba9bd371879b0883786685685" target="_blank" data-k="cert.see"></a>
       </div>
-      <div class="cert-row rv d3">
-        <div class="cert-num">C·08</div>
+      <div class="cert-row rv d1">
+        <div class="cert-num">C·06</div>
         <div class="cert-body">
           <div class="cert-name" data-k="cert8.name"></div>
           <div class="cert-meta">
@@ -1368,20 +1414,8 @@ footer::before{
         </div>
         <a class="cert-link" href="https://platzi.com/p/carlosalfonso070717/curso/12689-fundamentos-dotnet/diploma/detalle/" target="_blank" data-k="cert.see"></a>
       </div>
-      <div class="cert-row rv d4">
-        <div class="cert-num">C·09</div>
-        <div class="cert-body">
-          <div class="cert-name" data-k="cert9.name"></div>
-          <div class="cert-meta">
-            <span class="cert-issuer">Cisco</span>
-            <span class="cert-status" data-k="cert.verified"></span>
-          </div>
-          <p class="cert-desc" data-k="cert9.desc"></p>
-        </div>
-        <a class="cert-link" href="https://www.credly.com/badges/e91a3112-a314-4750-8520-2d6c3e29ba84/linked_in_profile" target="_blank" data-k="cert.see"></a>
-      </div>
-      <div class="cert-row rv d5">
-        <div class="cert-num">C·10</div>
+      <div class="cert-row rv d2">
+        <div class="cert-num">C·07</div>
         <div class="cert-body">
           <div class="cert-name" data-k="cert10.name"></div>
           <div class="cert-meta">
@@ -1392,8 +1426,8 @@ footer::before{
         </div>
         <a class="cert-link" href="https://www.sololearn.com/certificates/CC-IH05GJSJ" target="_blank" data-k="cert.see"></a>
       </div>
-      <div class="cert-row rv d1">
-        <div class="cert-num">C·11</div>
+      <div class="cert-row rv d3">
+        <div class="cert-num">C·08</div>
         <div class="cert-body">
           <div class="cert-name" data-k="cert2.name"></div>
           <div class="cert-meta">
@@ -1730,6 +1764,7 @@ const T = {
     'soft.s3':'Adaptabilidad','soft.s4':'Comunicación efectiva',
     'soft.s5':'Empatía','soft.s6':'Trabajo en equipo','soft.s7':'Liderazgo',
     'certs.title':'Certificados','certs.aside':'Formación complementaria',
+    'certs.verified.title':'Insignias verificadas','certs.verified.sub':'Credenciales reales de AWS Academy y Cisco — verificables con un clic.',
     'cert1.name':'Java (Básico)','cert1.desc':'Fundamentos de programación orientada a objetos, estructuras de control, colecciones y buenas prácticas en Java.',
     'cert2.name':'Miembro IEEE','cert2.desc':'Miembro activo del IEEE, organización líder en el avance de la tecnología y la ingeniería a nivel global.',
     'cert3.name':'Data Structures and Algorithms in Python','cert3.desc':'Estructuras de datos y algoritmos en Python: listas, pilas, colas, árboles y técnicas de ordenamiento. Completado en Feb 22, 2026.',
@@ -1780,6 +1815,7 @@ const T = {
     'soft.s3':'Adaptability','soft.s4':'Effective Communication',
     'soft.s5':'Empathy','soft.s6':'Teamwork','soft.s7':'Leadership',
     'certs.title':'Certificates','certs.aside':'Complementary training',
+    'certs.verified.title':'Verified badges','certs.verified.sub':'Real credentials from AWS Academy and Cisco — verifiable with one click.',
     'cert1.name':'Java (Basic)','cert1.desc':'Fundamentals of object-oriented programming, control structures, collections, and best practices in Java.',
     'cert2.name':'IEEE Member','cert2.desc':'Active member of the IEEE, the world\'s leading organization for advancing technology and engineering.',
     'cert3.name':'Data Structures and Algorithms in Python','cert3.desc':'Data structures and algorithms in Python: lists, stacks, queues, trees, and sorting techniques. Completed Feb 22, 2026.',
