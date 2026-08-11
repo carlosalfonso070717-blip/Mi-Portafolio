@@ -708,6 +708,8 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
 .cert-name{font-size:1.1rem;font-weight:600;color:var(--fg);margin-bottom:.3rem}
 .cert-meta{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
 .cert-issuer{font-family:var(--mono);font-size:.76rem;color:var(--fg3);letter-spacing:.04em}
+.cert-issuer-wrap{display:inline-flex;align-items:center;gap:.4rem}
+.cert-issuer-logo{width:14px;height:14px;object-fit:contain;flex-shrink:0}
 .cert-status{
   font-family:var(--mono);font-size:.72rem;
   color:var(--red);letter-spacing:.06em;text-transform:uppercase;
@@ -1242,6 +1244,7 @@ footer::before{
       <div class="about-text">
         <p class="rv d1" data-k="about.p1"></p>
         <p class="rv d2" data-k="about.p2"></p>
+        <p class="rv d3" data-k="about.p3"></p>
       </div>
       <div class="about-sidebar rv d2">
         <div class="kpi-block">
@@ -1345,7 +1348,7 @@ footer::before{
         <div class="cert-body">
           <div class="cert-name" data-k="cert1.name"></div>
           <div class="cert-meta">
-            <span class="cert-issuer">Platzi</span>
+            <span class="cert-issuer-wrap"><img class="cert-issuer-logo" src="https://cdn.simpleicons.org/platzi" alt="Platzi"><span class="cert-issuer">Platzi</span></span>
             <span class="cert-status" data-k="cert.verified"></span>
           </div>
           <p class="cert-desc" data-k="cert1.desc"></p>
@@ -1357,7 +1360,7 @@ footer::before{
         <div class="cert-body">
           <div class="cert-name" data-k="cert4.name"></div>
           <div class="cert-meta">
-            <span class="cert-issuer">Platzi</span>
+            <span class="cert-issuer-wrap"><img class="cert-issuer-logo" src="https://cdn.simpleicons.org/platzi" alt="Platzi"><span class="cert-issuer">Platzi</span></span>
             <span class="cert-status" data-k="cert.verified"></span>
           </div>
           <p class="cert-desc" data-k="cert4.desc"></p>
@@ -1369,7 +1372,7 @@ footer::before{
         <div class="cert-body">
           <div class="cert-name" data-k="cert.python.title"></div>
           <div class="cert-meta">
-            <span class="cert-issuer" data-k="cert.python.issuer"></span>
+            <span class="cert-issuer-wrap"><img class="cert-issuer-logo" src="https://cdn.simpleicons.org/hackerrank" alt="HackerRank"><span class="cert-issuer" data-k="cert.python.issuer"></span></span>
             <span class="cert-status" data-k="cert.python.status"></span>
           </div>
           <p class="cert-desc" data-k="cert.python.desc"></p>
@@ -1381,7 +1384,7 @@ footer::before{
         <div class="cert-body">
           <div class="cert-name" data-k="cert3.name"></div>
           <div class="cert-meta">
-            <span class="cert-issuer">DataCamp</span>
+            <span class="cert-issuer-wrap"><img class="cert-issuer-logo" src="https://cdn.simpleicons.org/datacamp" alt="DataCamp"><span class="cert-issuer">DataCamp</span></span>
             <span class="cert-status" data-k="cert.verified"></span>
           </div>
           <p class="cert-desc" data-k="cert3.desc"></p>
@@ -1393,7 +1396,7 @@ footer::before{
         <div class="cert-body">
           <div class="cert-name" data-k="cert6.name"></div>
           <div class="cert-meta">
-            <span class="cert-issuer">DataCamp</span>
+            <span class="cert-issuer-wrap"><img class="cert-issuer-logo" src="https://cdn.simpleicons.org/datacamp" alt="DataCamp"><span class="cert-issuer">DataCamp</span></span>
             <span class="cert-status" data-k="cert.verified"></span>
           </div>
           <p class="cert-desc" data-k="cert6.desc"></p>
@@ -1405,7 +1408,7 @@ footer::before{
         <div class="cert-body">
           <div class="cert-name" data-k="cert8.name"></div>
           <div class="cert-meta">
-            <span class="cert-issuer">Platzi</span>
+            <span class="cert-issuer-wrap"><img class="cert-issuer-logo" src="https://cdn.simpleicons.org/platzi" alt="Platzi"><span class="cert-issuer">Platzi</span></span>
             <span class="cert-status" data-k="cert.verified"></span>
           </div>
           <p class="cert-desc" data-k="cert8.desc"></p>
@@ -1417,7 +1420,7 @@ footer::before{
         <div class="cert-body">
           <div class="cert-name" data-k="cert10.name"></div>
           <div class="cert-meta">
-            <span class="cert-issuer">Sololearn</span>
+            <span class="cert-issuer-wrap"><img class="cert-issuer-logo" src="https://cdn.simpleicons.org/sololearn" alt="Sololearn"><span class="cert-issuer">Sololearn</span></span>
             <span class="cert-status" data-k="cert.verified"></span>
           </div>
           <p class="cert-desc" data-k="cert10.desc"></p>
@@ -1429,7 +1432,7 @@ footer::before{
         <div class="cert-body">
           <div class="cert-name" data-k="cert2.name"></div>
           <div class="cert-meta">
-            <span class="cert-issuer">Institute of Electrical and Electronics Engineers</span>
+            <span class="cert-issuer-wrap"><img class="cert-issuer-logo" src="https://cdn.simpleicons.org/ieee" alt="IEEE"><span class="cert-issuer">Institute of Electrical and Electronics Engineers</span></span>
             <span class="cert-status" data-k="cert.active"></span>
           </div>
           <p class="cert-desc" data-k="cert2.desc"></p>
@@ -1751,6 +1754,7 @@ const T = {
     'about.title':'Sobre mí','about.aside':'Perfil del candidato',
     'about.p1':'Soy <strong>Carlos Alfonso Llanes Rodríguez</strong>, estudiante en Desarrollo de Software y Negocios Digitales con interés genuino en construir código limpio, aprender buenas prácticas y contribuir a equipos técnicos.',
     'about.p2':'Me motiva <strong>entender cómo funcionan los sistemas</strong> desde adentro: la lógica detrás de los algoritmos, la estructura que hace el código mantenible, y los procesos que aseguran la calidad del producto.',
+    'about.p3':'Miembro activo del IEEE y ganador del 1er lugar en el Buildathon Happ3n. Fui también uno de los 6 talentos seleccionados por el Tecnológico de Software para un reconocimiento especial durante una visita a Accenture Mérida.',
     'kpi.lang':'Lenguaje principal','kpi.ieee':'Miembro activo','kpi.qa':'Testing & calidad','kpi.open.v':'Abierto','kpi.open.l':'A colaborar',
     'skills.title':'Habilidades técnicas','skills.aside':'Stack en formación constante',
     'sk.ps.n':'Resolución de problemas',
@@ -1802,6 +1806,7 @@ const T = {
     'about.title':'About Me','about.aside':'Candidate profile',
     'about.p1':'I\'m <strong>Carlos Alfonso Llanes Rodríguez</strong>, a Software Development student with a genuine interest in writing clean code, learning best practices, and contributing to technical teams.',
     'about.p2':'I\'m motivated by <strong>understanding how systems work</strong> from the inside: the logic behind algorithms, the structure that makes code maintainable, and the processes that ensure product quality.',
+    'about.p3':'Active IEEE member and 1st place winner of the Happ3n Buildathon. I was also one of 6 talents selected by Tecnológico de Software for a special recognition during a visit to Accenture Mérida.',
     'kpi.lang':'Primary language','kpi.ieee':'Active member','kpi.qa':'Testing & quality','kpi.open.v':'Open','kpi.open.l':'To collaborate',
     'skills.title':'Technical Skills','skills.aside':'Stack under constant growth',
     'sk.ps.n':'Problem Solving',
