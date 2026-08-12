@@ -650,11 +650,12 @@ section:not(#home){padding:6rem clamp(1.5rem,5vw,5rem) 1rem}
   font-family:var(--mono);font-size:.82rem;color:var(--fg3);
 }
 .badges-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;
   margin-top:1.8rem;
 }
 .badge-card{
   display:flex;flex-direction:column;align-items:center;text-align:center;
+  flex:1 1 260px;max-width:340px;
   padding:1.6rem 1.3rem;
   border:1px solid var(--rule2);
   border-radius:16px;
@@ -1104,7 +1105,7 @@ footer::before{
   .sec-aside{display:none}
   .proj-grid{grid-template-columns:1fr}
   .certs-list{grid-template-columns:1fr}
-  .badges-grid{grid-template-columns:1fr}
+  .badge-card{flex-basis:100%}
   .badges-panel{padding:1.6rem 1.4rem 1.8rem}
   .section-header{
     grid-template-columns:auto 1fr;
